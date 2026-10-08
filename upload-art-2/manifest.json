@@ -1,0 +1,209 @@
+[
+  {
+    "slug": "07-sakura-breeze",
+    "name": "Sakura Breeze",
+    "theme": "paper",
+    "folder": "760669-tree",
+    "author": "Jason Labbe",
+    "id": 760669,
+    "hint": "Brush the branches. Hold to send a breeze. Watch the petals settle.",
+    "tools": [
+      [
+        "sakura",
+        "Sakura",
+        "palette"
+      ],
+      [
+        "maple",
+        "Maple",
+        "palette"
+      ],
+      [
+        "moon",
+        "Moon",
+        "palette"
+      ],
+      [
+        "gust",
+        "Petal shower",
+        "action"
+      ]
+    ],
+    "source": "https://openprocessing.org/@theRussetPotato/760669"
+  },
+  {
+    "slug": "08-moon-anemones",
+    "name": "Moon Anemones",
+    "theme": "dark",
+    "folder": "458293-creatures",
+    "author": "Jason Labbe",
+    "id": 458293,
+    "hint": "Touch the soft tentacles. Gather a creature and slowly lead it through the water.",
+    "tools": [
+      [
+        "drift",
+        "Drift",
+        "mode"
+      ],
+      [
+        "gather",
+        "Gather",
+        "mode"
+      ],
+      [
+        "reef",
+        "Reef",
+        "palette"
+      ],
+      [
+        "dusk",
+        "Dusk",
+        "palette"
+      ],
+      [
+        "bloom",
+        "New bloom",
+        "action"
+      ]
+    ],
+    "source": "https://openprocessing.org/@theRussetPotato/458293"
+  },
+  {
+    "slug": "09-soft-sculpture",
+    "name": "Soft Sculpture",
+    "theme": "paper",
+    "folder": "2256732-organificial",
+    "author": "Vamoss",
+    "id": 2256732,
+    "hint": "Pull a pearl to reshape the sculpture. Touch an empty space to add a new fold.",
+    "tools": [
+      [
+        "citrus",
+        "Citrus",
+        "palette"
+      ],
+      [
+        "candy",
+        "Candy",
+        "palette"
+      ],
+      [
+        "lagoon",
+        "Lagoon",
+        "palette"
+      ],
+      [
+        "breathe",
+        "Breathe",
+        "motion"
+      ]
+    ],
+    "source": "https://openprocessing.org/@u65884/2256732"
+  },
+  {
+    "slug": "10-pearl-tides",
+    "name": "Pearl Tides",
+    "theme": "dark",
+    "folder": "656607-ripples",
+    "author": "Jason Labbe",
+    "id": 656607,
+    "hint": "Drag to turn the pearl cube. Hold to send a wave through its surface.",
+    "tools": [
+      [
+        "ivory",
+        "Ivory",
+        "palette"
+      ],
+      [
+        "jade",
+        "Jade",
+        "palette"
+      ],
+      [
+        "violet",
+        "Violet",
+        "palette"
+      ],
+      [
+        "wave",
+        "Send a wave",
+        "action"
+      ]
+    ],
+    "source": "https://openprocessing.org/@theRussetPotato/656607"
+  },
+  {
+    "slug": "11-crystal-grove",
+    "name": "Crystal Grove",
+    "theme": "dark",
+    "folder": "916227-frozen",
+    "author": "Jason Labbe",
+    "id": 916227,
+    "hint": "Draw slowly for glass branches. Hold to grow a crystal. Your drawing stays.",
+    "tools": [
+      [
+        "ice",
+        "Ice",
+        "palette"
+      ],
+      [
+        "rose",
+        "Rose quartz",
+        "palette"
+      ],
+      [
+        "amber",
+        "Amber",
+        "palette"
+      ],
+      [
+        "grow",
+        "Grow",
+        "mode"
+      ],
+      [
+        "erase",
+        "Erase",
+        "mode"
+      ]
+    ],
+    "source": "https://openprocessing.org/@theRussetPotato/916227"
+  },
+  {
+    "slug": "12-honey-type",
+    "name": "Honey Type",
+    "theme": "paper",
+    "folder": "481266-splash",
+    "author": "Jason Labbe",
+    "id": 481266,
+    "hint": "Press into the letters. Flick to splash. The liquid slowly finds its shape again.",
+    "tools": [
+      [
+        "honey",
+        "Honey",
+        "palette"
+      ],
+      [
+        "berry",
+        "Berry",
+        "palette"
+      ],
+      [
+        "mint",
+        "Mint",
+        "palette"
+      ],
+      [
+        "word",
+        "New word",
+        "action"
+      ],
+      [
+        "pour",
+        "Pour",
+        "action"
+      ]
+    ],
+    "source": "https://openprocessing.org/@theRussetPotato/481266"
+  }
+]

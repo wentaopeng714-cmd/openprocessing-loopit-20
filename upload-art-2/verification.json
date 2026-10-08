@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Sakura Breeze",
+    "javascriptSyntax": "passed",
+    "offlineHTML": true,
+    "zipIntegrity": "passed",
+    "zipEntry": "index.html",
+    "mobileBrowser": "390x844 rendered and interacted",
+    "desktopBrowser": "rendered and interacted",
+    "runtimeErrorsObserved": 0
+  },
+  {
+    "name": "Moon Anemones",
+    "javascriptSyntax": "passed",
+    "offlineHTML": true,
+    "zipIntegrity": "passed",
+    "zipEntry": "index.html",
+    "mobileBrowser": "390x844 rendered and interacted",
+    "desktopBrowser": "rendered and interacted",
+    "runtimeErrorsObserved": 0
+  },
+  {
+    "name": "Soft Sculpture",
+    "javascriptSyntax": "passed",
+    "offlineHTML": true,
+    "zipIntegrity": "passed",
+    "zipEntry": "index.html",
+    "mobileBrowser": "390x844 rendered and interacted",
+    "desktopBrowser": "rendered and interacted",
+    "runtimeErrorsObserved": 0,
+    "curveBounds": "clamped B\u00e9zier controls, random reset and drag visually verified"
+  },
+  {
+    "name": "Pearl Tides",
+    "javascriptSyntax": "passed",
+    "offlineHTML": true,
+    "zipIntegrity": "passed",
+    "zipEntry": "index.html",
+    "mobileBrowser": "390x844 rendered and interacted",
+    "desktopBrowser": "rendered and interacted",
+    "runtimeErrorsObserved": 0
+  },
+  {
+    "name": "Crystal Grove",
+    "javascriptSyntax": "passed",
+    "offlineHTML": true,
+    "zipIntegrity": "passed",
+    "zipEntry": "index.html",
+    "mobileBrowser": "390x844 rendered and interacted",
+    "desktopBrowser": "rendered and interacted",
+    "runtimeErrorsObserved": 0
+  },
+  {
+    "name": "Honey Type",
+    "javascriptSyntax": "passed",
+    "offlineHTML": true,
+    "zipIntegrity": "passed",
+    "zipEntry": "index.html",
+    "mobileBrowser": "390x844 rendered and interacted",
+    "desktopBrowser": "rendered and interacted",
+    "runtimeErrorsObserved": 0,
+    "returnToWordAfterPour": "visually verified after recovering-state repair",
+    "isolatedZipEntry": "rendered from extracted ZIP on independent server"
+  }
+]

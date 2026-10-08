@@ -1,0 +1,7 @@
+Six more independent interactive artworks, adapted from six OpenProcessing originals.
+
+Sakura Breeze, Moon Anemones, Soft Sculpture, Pearl Tides, Crystal Grove, Honey Type.
+
+Each artwork is supplied as an offline single HTML and a separate ZIP with index.html at its root. English touch/mouse controls. Original code and attribution are included in every ZIP.
+
+Verified JavaScript syntax, ZIP integrity, desktop rendering and 390x844 browser interactions.

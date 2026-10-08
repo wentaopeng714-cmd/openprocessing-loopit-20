@@ -1,0 +1,1 @@
+Each standalone HTML works offline. Upload it individually, or upload the corresponding ZIP with index.html at its root. All controls use English. No external assets or service integrations.

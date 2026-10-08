@@ -1,0 +1,6 @@
+Honey Type, adapted from Jason Labbe's OpenProcessing sketch
+https://openprocessing.org/@theRussetPotato/481266
+Original and adaptation: CC Attribution ShareAlike 3.0
+https://creativecommons.org/licenses/by-sa/3.0/
+Changes: palette, visual material, touch input, offline packaging.
+Original algorithms are credited in sketch.js and preserved in original/.

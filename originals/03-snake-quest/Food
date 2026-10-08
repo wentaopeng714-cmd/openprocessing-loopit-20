@@ -1,0 +1,177 @@
+FOOD_COLORS = null
+
+class Food extends Tupel {
+	constructor(i, j, grid, max_type) {
+		super(i, j);
+		this.grid = grid;
+		this.type = min(floor(random(max_type) + 1), 5);
+		if (!FOOD_COLORS) {
+			FOOD_COLORS = [
+				color(130, 140, 40), // SNAKE_BODY
+				color(200, 0, 0), // APPLE
+				color(140, 30, 75), // CHERRIES
+				color(200, 100, 0),// APPLES
+				color(0, 200, 75),// GRAPES
+				color(200, 200, 0) // BANANA
+			];
+		}
+	}
+
+	draw_banana(x, y) {
+		stroke(150, 150, 0);
+		strokeWeight(2);
+		fill(200, 200, 0);
+		beginShape();
+		vertex(
+			x + 0.1*this.grid.size,
+			y + 0.1*this.grid.size);
+		vertex(
+			x + 0.15*this.grid.size,
+			y + 0.5*this.grid.size);		
+		vertex(
+			x + 0.3*this.grid.size,
+			y + 0.7*this.grid.size);		
+		vertex(
+			x + 0.5*this.grid.size,
+			y + 0.85*this.grid.size);		
+		vertex(
+			x + 0.9*this.grid.size,
+			y + 0.9*this.grid.size);
+		endShape(CLOSE);
+	}
+	
+	draw_grapes(x, y) {
+		stroke(0, 150, 55);
+		strokeWeight(1);
+		fill(0, 200, 75);
+		circle(
+			x + 0.5*this.grid.size,
+			y + 0.85*this.grid.size,
+			0.3 * this.grid.size
+		);
+		fill(10, 200, 50);
+		circle(
+			x + 0.4*this.grid.size,
+			y + 0.65*this.grid.size,
+			0.3 * this.grid.size
+		);
+		fill(10, 180, 75);
+		circle(
+			x + 0.6*this.grid.size,
+			y + 0.65*this.grid.size,
+			0.3 * this.grid.size
+		);
+		fill(0, 190, 95);
+		circle(
+			x + 0.3*this.grid.size,
+			y + 0.45*this.grid.size,
+			0.3 * this.grid.size
+		);		
+		fill(0, 200, 55);
+		circle(
+			x + 0.7*this.grid.size,
+			y + 0.45*this.grid.size,
+			0.3 * this.grid.size
+		);		
+		fill(10, 210, 55);
+		circle(
+			x + 0.5*this.grid.size,
+			y + 0.45*this.grid.size,
+			0.3 * this.grid.size
+		);		
+		fill(0, 190, 95);
+		circle(
+			x + 0.2*this.grid.size,
+			y + 0.25*this.grid.size,
+			0.3 * this.grid.size
+		);		
+		fill(10, 200, 80);
+		circle(
+			x + 0.8*this.grid.size,
+			y + 0.25*this.grid.size,
+			0.3 * this.grid.size
+		);		
+		fill(0, 190, 95);
+		circle(
+			x + 0.4*this.grid.size,
+			y + 0.25*this.grid.size,
+			0.3 * this.grid.size
+		);		
+		fill(10, 200, 75);
+		circle(
+			x + 0.6*this.grid.size,
+			y + 0.25*this.grid.size,
+			0.3 * this.grid.size
+		);		
+	}
+	
+	draw_apples(x, y) {
+		stroke(150, 0, 0);
+		strokeWeight(2);
+		fill(200, 0, 0);
+		circle(
+			x + 0.35 * this.grid.size,
+			y + this.grid.size/2,
+			0.65 * this.grid.size
+		);
+		stroke(150, 75, 0);
+		fill(200, 100, 0);
+		circle(
+			x + 0.65 * this.grid.size,
+			y + this.grid.size/2,
+			0.7 * this.grid.size
+		);		
+	}
+	
+	draw_cherries(x, y) {
+		stroke(120, 20, 55);
+		strokeWeight(1.5);
+		fill(140, 30, 75);
+		circle(
+			x + this.grid.size/4,
+			y + this.grid.size/2,
+			0.5 * this.grid.size
+		);
+		circle(
+			x + this.grid.size/2,
+			y + 3*this.grid.size/4,
+			0.5 * this.grid.size
+		);
+	}
+	
+	draw_apple(x, y) {
+		stroke(150, 0, 0);
+		strokeWeight(2);
+		fill(200, 0, 0);
+		circle(
+			x + this.grid.size/2,
+			y + this.grid.size/2,
+			0.7 * this.grid.size
+		);
+	}
+	
+	draw() {
+		let x = this.grid.x0 + this.i*this.grid.size;
+		let y = this.grid.y0 + this.j*this.grid.size;
+
+		
+		switch(this.type) {
+			default:	
+			case 1:
+				this.draw_apple(x, y);
+				break;
+			case 2:
+				this.draw_cherries(x, y);
+				break;
+			case 3:
+				this.draw_apples(x, y);
+				break;
+			case 4:
+				this.draw_grapes(x, y);
+				break;
+			case 5:
+				this.draw_banana(x, y);
+				break;				
+		}
+	}	
+}

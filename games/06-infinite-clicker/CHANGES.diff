@@ -1,0 +1,50 @@
+--- original
++++ enhanced
+@@ -1,6 +1,6 @@
+ let clicks = 0;
+-let clicksPerSecond = 100000000000000;
+-let clicksPerClick = 1000;
++let clicksPerSecond = 0;
++let clicksPerClick = 1;
+ let upgrades = [];
+ let ascended = false;
+ 
+@@ -84,7 +84,7 @@
+   let numUpgrades = ascension ? 4 : 3;
+   for (let i = 0; i < numUpgrades; i++) {
+     let type = random(['cps', 'cpc', 'minion']);
+-    let cost = Math.floor(random([random(1, 1000), random(10000, 100000), random(1000000, 1000000000), random(1000000001, 1000000000000), random(1000000000001, 100000000000000)]));
++    let cost = Math.floor(random([random(8,25), random(30,60), random(70,110)]));
+     let effect;
+     let description;
+     switch (type) {
+@@ -94,12 +94,12 @@
+         description = `+${cpsBoost} clicks/sec`;
+         break;
+       case 'cpc':
+-        let cpcBoost = Math.floor(cost / 30);
++        let cpcBoost = Math.max(1, Math.floor(cost / 20));
+         effect = () => { clicksPerClick += cpcBoost; };
+         description = `+${cpcBoost} clicks/click`;
+         break;
+       case 'minion':
+-        let minionBoost = Math.floor(cost / 5) * 250;
++        let minionBoost = Math.max(1, Math.floor(cost / 8));
+         effect = () => { clicksPerSecond += minionBoost; };
+         description = `Minion: +${minionBoost} clicks/sec`;
+         break;
+@@ -108,7 +108,10 @@
+   }
+ }
+ 
+-// Helper function to get a random element from an array
+-function random(arr) {
+-  return arr[Math.floor(Math.random() * arr.length)];
+-}
++
++
++// Interactive additions; original core retained above.
++
++let tappedAt=-5,tapCombo=0,totalEnergy=0;const nativeClick=mouseClicked;
++mouseClicked=function(){let old=clicks;nativeClick();if(dist(mouseX,mouseY,width/2,height/2)<=50){tapCombo=Lab.elapsed-tappedAt<.65?Math.min(tapCombo+1,8):1;tappedAt=Lab.elapsed;let bonus=tapCombo>2?tapCombo:0;clicks+=bonus;totalEnergy+=Math.max(0,clicks-old);if(tapCombo>2)Lab.toast('连击 ×'+tapCombo+' · 能量 +'+bonus);}};
++Lab.installP5({after(){Lab.score=Math.floor(totalEnergy+clicksPerSecond*Lab.elapsed);if(Lab.score>=500)Lab.end(true,'能量工坊达到目标！');},actions:[{label:'点击蓄能',run(){let x=mouseX,y=mouseY;window.mouseX=width/2;window.mouseY=height/2;Lab.source.clicked?.();window.mouseX=x;window.mouseY=y;}}]});

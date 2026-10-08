@@ -1,0 +1,246 @@
+COLOR_SNAKE_BODY = null;
+COLOR_SNAKE_HEAD = null;
+COLOR_SNAKE_STROKE = null;
+
+DIRS = null
+
+class Snake {
+	constructor(grid) {
+		if(!COLOR_SNAKE_BODY)
+			COLOR_SNAKE_BODY = color(130, 140, 40);
+		if(!COLOR_SNAKE_HEAD)
+			COLOR_SNAKE_HEAD = color(170, 180, 20);
+		if(!COLOR_SNAKE_STROKE)
+			COLOR_SNAKE_STROKE = color(70, 160, 6);
+		if (!DIRS) {
+			DIRS = [];
+			DIRS['left'] = new Tupel(-1, 0);
+			DIRS['right'] = new Tupel(1, 0);
+			DIRS['up'] = new Tupel(0, -1);
+			DIRS['down'] = new Tupel(0, 1);
+		}
+		this.grid = grid;
+		this.dir = 'right';
+		this.head = new Tupel(floor(grid.w / 2), floor(grid.h / 2));
+		// elements at the front of this array are at the front of the snake
+		this.body = [this.head.copy()];
+		this.body[0].add(DIRS['left']);
+		this.colors = [COLOR_SNAKE_BODY]
+		this.speed = 30;
+		this.time = 0;
+		this.commands = [];
+		this.food_eaten = [];
+		this.size = 1 + this.body.length;
+	}
+
+	draw_head() {
+		noStroke();
+		switch(this.dir) {
+			case 'up':
+				fill(150, 50, 0);
+				beginShape();
+				vertex(
+					this.grid.x0 + this.head.i*this.grid.size + 0.5*this.grid.size,
+					this.grid.y0 + this.head.j*this.grid.size - 0.05*this.grid.size
+				);
+				vertex(
+					this.grid.x0 + this.head.i*this.grid.size + 0.3*this.grid.size,
+					this.grid.y0 + this.head.j*this.grid.size + 0.2*this.grid.size
+				);
+				vertex(
+					this.grid.x0 + this.head.i*this.grid.size + 0.7*this.grid.size,
+					this.grid.y0 + this.head.j*this.grid.size + 0.2*this.grid.size
+				);
+				endShape(CLOSE);
+				break;	
+		}
+		stroke(COLOR_SNAKE_STROKE);
+		strokeWeight(2);
+		fill(COLOR_SNAKE_HEAD);
+		circle(
+			this.grid.x0 + this.head.i*this.grid.size + this.grid.size/2,
+			this.grid.y0 + this.head.j*this.grid.size + this.grid.size/2,
+			0.8 * this.grid.size
+		);
+		noStroke();
+		switch(this.dir) {
+			case 'right':
+				fill(255);
+				ellipse(
+					this.grid.x0 + this.head.i*this.grid.size + 0.7*this.grid.size,
+					this.grid.y0 + this.head.j*this.grid.size + 0.3*this.grid.size,
+					0.3 * this.grid.size,
+					0.15 * this.grid.size,
+				)
+				fill(0, 30, 100);
+				circle(
+					this.grid.x0 + this.head.i*this.grid.size + 0.7*this.grid.size,
+					this.grid.y0 + this.head.j*this.grid.size + 0.3*this.grid.size,
+					0.15 * this.grid.size
+				)
+				fill(150, 50, 0);
+				beginShape();
+				vertex(
+					this.grid.x0 + this.head.i*this.grid.size + 0.75*this.grid.size,
+					this.grid.y0 + this.head.j*this.grid.size + 0.55*this.grid.size
+				);
+				vertex(
+					this.grid.x0 + this.head.i*this.grid.size + 0.75*this.grid.size,
+					this.grid.y0 + this.head.j*this.grid.size + 0.75*this.grid.size
+				);
+				vertex(
+					this.grid.x0 + this.head.i*this.grid.size + 0.95*this.grid.size,
+					this.grid.y0 + this.head.j*this.grid.size + 0.65*this.grid.size
+				);
+				endShape(CLOSE);
+				break;
+			case 'left':
+				fill(255);
+				ellipse(
+					this.grid.x0 + this.head.i*this.grid.size + 0.3*this.grid.size,
+					this.grid.y0 + this.head.j*this.grid.size + 0.3*this.grid.size,
+					0.3 * this.grid.size,
+					0.15 * this.grid.size,
+				)
+				fill(0, 30, 100);
+				circle(
+					this.grid.x0 + this.head.i*this.grid.size + 0.3*this.grid.size,
+					this.grid.y0 + this.head.j*this.grid.size + 0.3*this.grid.size,
+					0.15 * this.grid.size
+				)
+				fill(150, 50, 0);
+				beginShape();
+				vertex(
+					this.grid.x0 + this.head.i*this.grid.size + 0.25*this.grid.size,
+					this.grid.y0 + this.head.j*this.grid.size + 0.55*this.grid.size
+				);
+				vertex(
+					this.grid.x0 + this.head.i*this.grid.size + 0.25*this.grid.size,
+					this.grid.y0 + this.head.j*this.grid.size + 0.75*this.grid.size
+				);
+				vertex(
+					this.grid.x0 + this.head.i*this.grid.size + 0.05*this.grid.size,
+					this.grid.y0 + this.head.j*this.grid.size + 0.65*this.grid.size
+				);
+				endShape(CLOSE);
+				break;	
+			case 'down':
+				fill(255);
+				ellipse(
+					this.grid.x0 + this.head.i*this.grid.size + 0.3*this.grid.size,
+					this.grid.y0 + this.head.j*this.grid.size + 0.4*this.grid.size,
+					0.3 * this.grid.size,
+					0.15 * this.grid.size,
+				)
+				ellipse(
+					this.grid.x0 + this.head.i*this.grid.size + 0.7*this.grid.size,
+					this.grid.y0 + this.head.j*this.grid.size + 0.4*this.grid.size,
+					0.3 * this.grid.size,
+					0.15 * this.grid.size,
+				)
+				fill(0, 30, 100);
+				circle(
+					this.grid.x0 + this.head.i*this.grid.size + 0.3*this.grid.size,
+					this.grid.y0 + this.head.j*this.grid.size + 0.4*this.grid.size,
+					0.15 * this.grid.size
+				)
+				circle(
+					this.grid.x0 + this.head.i*this.grid.size + 0.7*this.grid.size,
+					this.grid.y0 + this.head.j*this.grid.size + 0.4*this.grid.size,
+					0.15 * this.grid.size
+				)
+				fill(150, 50, 0);
+				beginShape();
+				vertex(
+					this.grid.x0 + this.head.i*this.grid.size + 0.3*this.grid.size,
+					this.grid.y0 + this.head.j*this.grid.size + 0.65*this.grid.size
+				);
+				vertex(
+					this.grid.x0 + this.head.i*this.grid.size + 0.7*this.grid.size,
+					this.grid.y0 + this.head.j*this.grid.size + 0.65*this.grid.size
+				);
+				vertex(
+					this.grid.x0 + this.head.i*this.grid.size + 0.5*this.grid.size,
+					this.grid.y0 + this.head.j*this.grid.size + 0.85*this.grid.size
+				);
+				endShape(CLOSE);
+				break;					
+		}
+	}
+
+	draw_tail() {
+		let last = null;
+		stroke(COLOR_SNAKE_STROKE);
+		strokeWeight(2);
+		for (let n = this.body.length-1; n >= 0; n--) {
+			fill(COLOR_SNAKE_BODY);
+			if (last)
+				circle(
+					this.grid.x0 + (this.body[n].i+last.i)*this.grid.size/2 + this.grid.size/2,
+					this.grid.y0 + (this.body[n].j+last.j)*this.grid.size/2 + this.grid.size/2,
+					0.6 * this.grid.size
+				);
+			fill(this.colors[n]);
+			circle(
+				this.grid.x0 + this.body[n].i*this.grid.size + this.grid.size/2,
+				this.grid.y0 + this.body[n].j*this.grid.size + this.grid.size/2,
+				0.8 * this.grid.size
+			);
+			last = this.body[n];
+		}
+		fill(COLOR_SNAKE_BODY);
+		circle(
+			this.grid.x0 + (this.head.i+last.i)*this.grid.size/2 + this.grid.size/2,
+			this.grid.y0 + (this.head.j+last.j)*this.grid.size/2 + this.grid.size/2,
+			0.6 * this.grid.size
+		);
+	}
+	
+	draw() {
+		this.draw_tail();
+		this.draw_head();
+	}
+
+	speedup(amt) {
+		this.speed = max(this.speed-amt, 5);
+	}
+
+	command(cmd) {
+		let last = (this.commands.length == 0) ? this.dir : this.commands[this.commands.length - 1];
+		if ((cmd == 'up' && last != 'down' && last != 'up') ||
+			 (cmd == 'down' && last != 'up' && last != 'down') ||
+			 (cmd == 'left' && last != 'right' && last != 'left') ||
+			 (cmd == 'right' && last != 'left' && last != 'right'))
+			this.commands.push(cmd);
+	}
+
+	collides() {
+		if (this.head.i < 0 || this.head.i >= this.grid.w || this.head.j < 0 || this.head.j >= this.grid.h)
+			return true;
+		if (this.head.find_in(this.body) != -1)
+			return true;
+		return false;
+	}
+
+	move() {
+		this.time++;
+		if(this.time < this.speed)
+			return;
+		this.time = 0;
+
+		if(this.commands.length > 0) {
+			this.dir = this.commands.shift();
+		}
+
+		if(this.food_eaten.length > 0) {
+			let food = this.food_eaten.shift();
+			let new_color = lerpColor(FOOD_COLORS[food], COLOR_SNAKE_BODY, random(0.6,1));
+			this.colors.unshift(new_color);
+		} else {
+			this.body.pop();
+		}
+		
+		this.body.unshift(this.head.copy());
+		this.head.add(DIRS[this.dir]);
+	}
+}

@@ -1,0 +1,114 @@
+let clicks = 0;
+let clicksPerSecond = 100000000000000;
+let clicksPerClick = 1000;
+let upgrades = [];
+let ascended = false;
+
+function setup() {
+  createCanvas(700, 500);
+  generateUpgrades();
+}
+
+function draw() {
+  background(220);
+
+  // Draw the main circle
+  fill(255, 200, 200);
+  ellipse(width / 2, height / 2, 100, 100);
+
+  // Draw the current number of clicks
+  fill(0);
+  textSize(24);
+  textAlign(CENTER, CENTER);
+  text(clicks.toFixed(0), width / 2, height / 2);
+
+  // Draw upgrade options
+  for (let i = 0; i < upgrades.length; i++) {
+    let upgrade = upgrades[i];
+    fill(200, 255, 200);
+    rect(50 + i * 150, height - 50, 100, 40);
+    fill(0);
+    textSize(12);
+    text(upgrade.description, 50 + i * 150 + 50, height - 40);
+    text('Cost: ' + upgrade.cost, 50 + i * 150 + 50, height - 25);
+  }
+
+  // Draw reroll button
+  fill(200, 200, 255);
+  rect(width - 100, height - 50, 80, 40);
+  fill(0);
+  text('Reroll', width - 60, height - 30);
+
+  // Update clicks based on clicks per second
+  clicks += clicksPerSecond * deltaTime / 1000;
+
+  // Check for ascension
+  if (clicks >= 500000000000009 && !ascended) {
+    alert('You have ascended to a new universe to generate more micros, and feed your evil boss, JP Forgan');
+    ascended = true;
+    clicks = 0;
+    clicksPerSecond = 0;
+
+    generateUpgrades(true);
+		ascended = false;
+  }
+}
+
+function mouseClicked() {
+  // Check if the main circle was clicked
+  if (dist(mouseX, mouseY, width / 2, height / 2) <= 50) {
+    clicks += clicksPerClick;
+  }
+
+  // Check if an upgrade option was clicked
+  for (let i = 0; i < upgrades.length; i++) {
+    let upgrade = upgrades[i];
+    if (mouseX >= 50 + i * 150 && mouseX <= 150 + i * 150 && mouseY >= height - 50 && mouseY <= height - 10) {
+      if (clicks >= upgrade.cost) {
+        clicks -= upgrade.cost;
+        upgrade.effect();
+        generateUpgrades();
+        break;
+      }
+    }
+  }
+
+  // Check if the reroll button was clicked
+  if (mouseX >= width - 100 && mouseX <= width - 20 && mouseY >= height - 50 && mouseY <= height - 10) {
+    generateUpgrades();
+  }
+}
+
+function generateUpgrades(ascension = false) {
+  upgrades = [];
+  let numUpgrades = ascension ? 4 : 3;
+  for (let i = 0; i < numUpgrades; i++) {
+    let type = random(['cps', 'cpc', 'minion']);
+    let cost = Math.floor(random([random(1, 1000), random(10000, 100000), random(1000000, 1000000000), random(1000000001, 1000000000000), random(1000000000001, 100000000000000)]));
+    let effect;
+    let description;
+    switch (type) {
+      case 'cps':
+        let cpsBoost = Math.floor(cost / 5);
+        effect = () => { clicksPerSecond += cpsBoost; };
+        description = `+${cpsBoost} clicks/sec`;
+        break;
+      case 'cpc':
+        let cpcBoost = Math.floor(cost / 30);
+        effect = () => { clicksPerClick += cpcBoost; };
+        description = `+${cpcBoost} clicks/click`;
+        break;
+      case 'minion':
+        let minionBoost = Math.floor(cost / 5) * 250;
+        effect = () => { clicksPerSecond += minionBoost; };
+        description = `Minion: +${minionBoost} clicks/sec`;
+        break;
+    }
+    upgrades.push({ cost, effect, description });
+  }
+}
+
+// Helper function to get a random element from an array
+function random(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}

@@ -1,0 +1,13 @@
+--- original
++++ enhanced
+@@ -107,4 +107,10 @@
+ 	 Square=-Square
+     setup();
+   }
+-}+}
++
++// Interactive additions; original core retained above.
++
++let gridMode='vert',lastGridSpawn=-1;
++function manualParticle(x,y){let p=new particle(x,y,gridMode);p.randWait=0;p._manual=true;particles.push(p);lastGridSpawn=Lab.elapsed;}
++Lab.installP5({start(){particles=[];background(bColor);},tap(x,y){manualParticle(x,y);},before(){if(Lab.pointer.down&&Lab.elapsed-lastGridSpawn>.22)manualParticle(mouseX,mouseY);},after(){Lab.collect(particles,p=>p.pos,p=>p._manual&&!p._hit,10,1);for(let p of particles)if(p._labEpoch)p._hit=true;Lab.drawDomTarget();},actions:[{label:'切换横 / 纵',run(){gridMode=gridMode==='vert'?'hor':'vert';Lab.toast(gridMode==='vert'?'粉色粒子向下':'蓝色粒子向右');}}]});

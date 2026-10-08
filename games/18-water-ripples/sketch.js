@@ -1,0 +1,51 @@
+/* Original: Water Ripples — ryan
+Source: https://openprocessing.org/@redmercer/3020298
+License: CC BY-NC-SA 3.0 https://creativecommons.org/licenses/by-nc-sa/3.0/
+Adapted on 2026-10-08; see CHANGES.diff and README.md. */
+let numPoints = 65; 
+let spacing = 12; 
+let maxRadius; 
+let totalFrames = 120; 
+
+function setup() {
+  createCanvas(800, 800, WEBGL); // P3D maps to WEBGL in JavaScript
+  maxRadius = (numPoints * spacing) / 2;
+}
+
+function draw() {
+  background(10); 
+  
+  let frameRatio = (frameCount % totalFrames) / totalFrames;
+  let loopAngle = frameRatio * TWO_PI;
+  
+  // Adjust camera to mimic the Processing P3D perspective
+  camera(0, -400, 500, 0, 0, 0, 0, 1, 0);
+  
+  for (let i = 0; i < numPoints; i++) {
+    for (let j = 0; j < numPoints; j++) {
+      let x = (i - numPoints / 2.0) * spacing;
+      let z = (j - numPoints / 2.0) * spacing;
+      
+      let distance = sqrt(x * x + z * z);
+      
+      if (distance < maxRadius) {
+        let waveAngle = (distance * 0.05) - loopAngle;
+        let y = sin(waveAngle) * 45;
+        for(let w of Lab.waves||[]){let d=Math.hypot(x-w.x,z-w.z);y+=sin(d*.07-w.age*.18)*55*exp(-w.age/90-d/400);}
+        
+        let edgeFade = map(distance, 0, maxRadius, 255, 20);
+        let pointSize = map(y, -45, 45, 2.5, 4.5);
+        
+        stroke(240, edgeFade);
+        strokeWeight(pointSize);
+        point(x, y, z);
+      }
+    }
+  }
+}
+
+
+// Interactive additions; original core retained above.
+
+Lab.waves=[];
+Lab.installP5({tap(x,y){Lab.waves.push({x:x-width/2,z:(y-height/2)*1.25,age:0});let beat=Lab.elapsed%1.4;let active=beat<.42;if(active&&Math.hypot(x-Lab.target.x,y-Lab.target.y)<Lab.target.r){Lab.toast('节奏命中！');Lab.award(10);Lab.resetTarget();}else Lab.toast(active?'点击光圈位置':'等光圈亮起再点击');},before(){for(let w of Lab.waves)w.age++;Lab.waves=Lab.waves.filter(w=>w.age<180);},after(){Lab.drawDomTarget(Lab.elapsed%1.4<.42);},actions:[{label:'激起水波',run(){Lab.waves.push({x:0,z:0,age:0});}}]});

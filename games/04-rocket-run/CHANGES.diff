@@ -1,0 +1,22 @@
+--- original
++++ enhanced
+@@ -19,7 +19,7 @@
+ }
+ 
+ function draw() {
+-	keyPressed();
++	if (death === 0) { if (keyIsDown(65)||keyIsDown(LEFT_ARROW)) rocketx-=speed; if(keyIsDown(68)||keyIsDown(RIGHT_ARROW)) rocketx+=speed; }
+ 	background("black");
+ 	rocket();
+ 	if (ob1s === 0) {
+@@ -224,4 +224,10 @@
+ 		lvl = 1;
+ 		score = 0;
+ 	}
+-}+}
++
++// Interactive additions; original core retained above.
++
++let energyOrbs=[],shieldUntil=-1,shieldReady=0;const nativeCollide=collide;
++collide=function(...a){if(Lab.elapsed<shieldUntil)return;nativeCollide(...a);};
++Lab.installP5({before(){if(Lab.pointer.has&&death===0)rocketx=constrain(Lab.pointer.x,20,width-20);if(frameCount%100===0)energyOrbs.push({x:random(30,370),y:-20});},after(){for(let o of energyOrbs){o.y+=3;push();noFill();stroke('#97f6d0');strokeWeight(3);circle(o.x,o.y,18);pop();if(dist(o.x,o.y,rocketx,rockety)<26){o.y=500;score+=8;Lab.toast('能量 +8');}}energyOrbs=energyOrbs.filter(o=>o.y<440);if(Lab.elapsed<shieldUntil){push();noFill();stroke('#8ffbd0');strokeWeight(3);circle(rocketx,rockety-10,70);pop();}Lab.score=Math.floor(score);if(death===1)Lab.end(false,'坚持了 '+Math.floor(Lab.elapsed)+' 秒，得分 '+Lab.score+'。');else if(Lab.score>=150)Lab.end(true);},actions:[{label:'短时护盾',run(){if(Lab.elapsed<shieldReady){Lab.toast('护盾冷却中');return;}shieldUntil=Lab.elapsed+2;shieldReady=Lab.elapsed+8;Lab.toast('护盾保护 2 秒');}}]});

@@ -1,0 +1,36 @@
+--- original
++++ enhanced
+@@ -1,13 +1,13 @@
+ 
+ let particles=[];
+-let parNum=2000;
++let parNum=360;
+ 
+ function setup() {
+   createCanvas(windowWidth, windowHeight);
+   for (let i=-1;i<parNum;i++){
+     particles.push(new particle(random(width),random(height)));
+   }
+-  background(200)
++  background(9,18,32);stroke(122,237,205)
+ }
+ 
+ let multMous=1;
+@@ -21,7 +21,7 @@
+     particles[c].update();
+     particles[c].show();
+   }
+-  background(220,220,220,20)
++  background(9,18,32,35)
+ }
+ 
+ function particle(x,y){
+@@ -52,3 +52,8 @@
+   multMous=1;
+ }
+ 
++
++
++// Interactive additions; original core retained above.
++
++Lab.installP5({after(){Lab.collect(particles,p=>p.pos,()=>!Lab.pointer.down,1,16);Lab.drawTarget();},actions:[{label:'引导到光圈',run(){Lab.pointer.x=Lab.target.x;Lab.pointer.y=Lab.target.y;Lab.pointer.has=true;Lab.toast('目标已标记，松手引导粒子');}}]});

@@ -1,0 +1,172 @@
+SIZE = 20;
+COLOR_LIGHT = 240;
+COLOR_DARK = 210;
+
+class Grid {
+	constructor(w, h) {
+		this.orig_w = w;
+		this.orig_h = h;
+		this.running = false;
+		this.pause = true;
+		this.restart()
+	}
+
+	recalc_position() {
+		let w_goal = 0.9 * width / (this.w + 1);
+		let h_goal = 0.9 * height / (this.h + 2);
+		this.size_goal = min(w_goal, h_goal);
+		this.x0_goal = width/2 - (this.size_goal * this.w / 2);
+		this.y0_goal = height/2 - (this.size_goal * this.h / 2);
+				
+	}
+	
+	restart() {
+		if (this.running) {
+			this.pause = !this.pause;
+			return;
+		}
+		this.w = this.orig_w;
+		this.h = this.orig_h;
+		this.recalc_position();
+		this.size = this.size_goal;
+		this.x0 = this.x0_goal;
+		this.y0 = this.y0_goal;
+		this.level = 1;
+		this.snake = new Snake(this);
+		this.food = [];
+		let food_amount = ceil(sqrt(this.h*this.w) / 5);
+		for (let n = 0; n < food_amount; n++) {
+			this.spawn_food()
+		}
+		this.running = true;		
+	}
+
+	level_up() {
+		this.level ++;
+		if (this.w == this.h) {
+			this.w *= 2;
+			this.x0_goal = width/2 - (this.size * this.w / 2);
+		} else {
+			this.h *= 2;
+			this.y0_goal = height/2 - (this.size * this.h / 2);
+		}
+		this.recalc_position();
+		for(let n = 0; n < 2*this.level - 2; n++)
+			this.spawn_food();
+		this.snake.speedup(2*this.level);
+	}
+
+	spawn_food() {
+		let done = false;
+		let pos = null;
+		let maxfood = floor((this.level - 1) / 2 + 1);
+		while(!done) {
+			done = true;
+			pos = new Food(floor(random(this.w)), floor(random(this.h)), this, maxfood);
+			if (pos.eq(this.snake.head))
+				done = false;
+			if (pos.find_in(this.snake.body) != -1) {
+				done = false;
+			}
+			if (pos.find_in(this.food) != -1) {
+				done = false;
+			}
+		}
+		this.food.push(pos);		
+	}
+
+	eat() {
+		let n = this.snake.head.find_in(this.food)
+		if(n == -1)
+			return;
+		let [food] = this.food.splice(n, 1);
+		for (let i = 0; i < food.type; i++)
+			this.snake.food_eaten.push(food.type);
+		this.snake.size += food.type;
+		if(this.snake.size > (this.h)*this.level)
+			this.level_up();
+		this.spawn_food();
+	}
+
+	draw_elem(i, j) {
+		rectMode(CORNER);
+		let col = ((i + j) % 2) ? COLOR_LIGHT : COLOR_DARK;
+		noStroke();
+		fill(col);
+		rect(this.x0 + i*this.size, this.y0 + j*this.size, this.size, this.size);
+	}
+
+	draw_game_over() {
+		rectMode(CORNER)
+		let col = color(200, 0, 0, 150);
+		noStroke();
+		fill(col);
+		rect(this.x0 - this.size, this.y0 - this.size, (this.w + 2)*this.size, (this.h + 2)*this.size);		
+		fill(200, 0, 0);
+		stroke(0);
+		strokeWeight(3);
+		textSize(50);
+		textAlign(CENTER, CENTER);
+		text("Game Over", width/2, height/2 - 50);
+		textSize(20);
+		text(`Level: ${this.level}, Total: ${this.snake.size}`, width/2, height/2);
+		text("Press ENTER to restart.", width/2, height/2 + 50);		
+	}
+
+	draw_pause() {
+		rectMode(CORNER)
+		let col = color(0, 0, 200, 150);
+		noStroke();
+		fill(col);
+		rect(this.x0 - this.size, this.y0 - this.size, (this.w + 2)*this.size, (this.h + 2)*this.size);		
+		fill(150, 150, 230);
+		stroke(0);
+		strokeWeight(3);
+		textSize(50);
+		textAlign(CENTER, CENTER);
+		text("PAUSE", width/2, height/2 - 50);		
+		textSize(20);
+		text(`Level: ${this.level}, Total: ${this.snake.size}`, width/2, height/2);
+		text("Use WASD to steer.\nPress ENTER to play/pause.", width/2, height/2 + 50);		
+	}
+	
+	draw() {
+		if(this.running && !this.pause) {
+			if(this.x0 > this.x0_goal)
+				this.x0 -= 0.01 * this.size;
+			if(this.y0 > this.y0_goal)
+				this.y0 -= 0.01 * this.size;
+			if(this.size > this.size_goal)
+				this.size -= 0.05;
+
+			this.snake.move();
+			this.eat();
+		}
+		if (this.snake.collides()) {
+			this.running = false;
+		}
+		for(let i = 0; i < this.w; i++) {
+			for(let j = 0; j < this.h; j++) {
+				this.draw_elem(i, j);
+			}
+		}
+		this.snake.draw();
+		if (!this.pause)
+			for(let f of this.food)
+				f.draw();
+		if(this.running && !this.pause) {
+			fill(255);
+			stroke(0);
+			strokeWeight(1);
+			textSize(this.size);
+			textAlign(LEFT, BOTTOM);
+			text(`Level: ${this.level}`, this.x0, this.y0);
+			textAlign(RIGHT, BOTTOM);
+			text(`${this.snake.size}`, this.x0 + this.w*this.size, this.y0);
+		} 
+		if(!this.running)
+			this.draw_game_over();
+		if (this.pause)
+			this.draw_pause();
+	}
+}

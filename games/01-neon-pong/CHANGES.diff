@@ -1,0 +1,41 @@
+--- original
++++ enhanced
+@@ -10,12 +10,12 @@
+ function setup() {
+ 	createCanvas(400, 400);
+ 	background(100);
+-	frameRate(1000);
++	frameRate(60);
+ 	speedx = random(-1,1);
+ }
+ 
+ function draw() {
+-	keyPressed();
++
+ 	background("black");
+ 	fill("white");
+ 	stroke("white");
+@@ -35,11 +35,11 @@
+ 	line(399,1,399,399);
+ 	line(1,1,399,1);
+ 	line(1,399,399,399)
+-	if ((ballY > 360) && (ballY < 365) && (ballX < (playerX + 40)) && (ballX > (playerX - 40))) {
++	if ((speedy > 0) && (ballY <= 375) && (ballY + speedy >= 365) && (ballX < (playerX + 40)) && (ballX > (playerX - 40))) {
+ 		speedy = (speedy * -1);
+ 		speedx = (ballX - playerX) / 5;
+ 	}
+-	if ((ballY < 40) && (ballY > 35) && (ballX < (robotX + 40)) && (ballX > (robotX - 40))) {
++	if ((speedy < 0) && (ballY >= 25) && (ballY + speedy <= 35) && (ballX < (robotX + 40)) && (ballX > (robotX - 40))) {
+ 		speedy = (speedy * -1);
+ 		speedx = (ballX - robotX) / 5;
+ 	}
+@@ -105,4 +105,9 @@
+ 	playerpoints = 0;
+ 	robotpoints = 0;
+ 	}
+-}+}
++
++// Interactive additions; original core retained above.
++
++let rally=0,previousDirection=1;
++Lab.installP5({start(){playerpoints=robotpoints=0;},after(){if(speedy<0&&previousDirection>0&&ballY>300){rally++;Lab.toast(Math.abs(ballX-playerX)<14?'精准回击！':'回击 ×'+rally);}previousDirection=Math.sign(speedy)||previousDirection;Lab.score=playerpoints;if(playerpoints>=5)Lab.end(true,'你赢下了这场球拍对决！');if(robotpoints>=5)Lab.end(false,'对手先拿到 5 分，拖动球拍再挑战。');},actions:[{label:'加速发球',run(){if(Math.abs(speedy)>0&&ballY>100&&ballY<300){speedy=constrain(speedy*1.12,-5,5);Lab.toast('球速提升，注意落点！');}}}]});

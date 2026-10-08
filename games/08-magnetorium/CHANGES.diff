@@ -1,0 +1,30 @@
+--- original
++++ enhanced
+@@ -17,7 +17,7 @@
+ 	for (i = 0; i < 10; i++) {
+ 	  addFood()
+ 	}
+-	foodEaten = 1000000000
++	foodEaten = 0
+ 	freshFoodEaten = 0
+ 	staleFoodEaten = 0
+ 	rottenFoodEaten = 0
+@@ -447,7 +447,7 @@
+ 			} else if (powerup.type == "vacuum") {
+ 				let effectTime = norm(gameTime, powerup.activationTime, powerup.expirationTime)
+ 				powerup.effectSize = powerup.size + 750 * powerup.strength * (1 - effectTime)
+-				for (j = 0; j < allFood[j].length; j++) {
++				for (j = 0; j < allFood.length; j++) {
+ 					let food = allFood[j]
+ 					if (isFoodFresh(food) &&
+ 							isTouchingFood(powerup.x, powerup.y, powerup.effectSize, food)) {
+@@ -598,3 +598,9 @@
+ 
+ 
+ 
++
++
++// Interactive additions; original core retained above.
++
++let foodsBefore=0;
++Lab.installP5({start(){foodEaten=0;foodsBefore=0;},before(){magnetOn=Lab.pointer.down;},after(){if(freshFoodEaten+staleFoodEaten>foodsBefore){foodsBefore=freshFoodEaten+staleFoodEaten;Lab.toast('磁力球吸附成功');}Lab.score=foodsBefore*5;if(Lab.pointer.has&&dist(ballX,ballY,Lab.target.x,Lab.target.y)<ballSize/2+Lab.target.r){Lab.score+=0;Lab.extraMagnet=(Lab.extraMagnet||0)+10;Lab.resetTarget();Lab.toast('命中光圈 +10');}Lab.score+=Lab.extraMagnet||0;Lab.drawTarget();if(ballSize<=0)Lab.end(false);else if(Lab.score>=100)Lab.end(true);},actions:[{label:'轻刹车',run(){ballSpeedX*=.2;ballSpeedY*=.2;Lab.toast('惯性降低，重新瞄准');}}]});

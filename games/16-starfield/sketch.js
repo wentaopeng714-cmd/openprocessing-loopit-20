@@ -1,0 +1,398 @@
+/* Original: Starfield × Inward — daanno_o
+Source: https://openprocessing.org/@daanno_o/3026515
+License: CC BY-NC-SA 3.0 https://creativecommons.org/licenses/by-nc-sa/3.0/
+Adapted on 2026-10-08; see CHANGES.diff and README.md. */
+/*
+ * "Starfield"
+ * Created by https://daannoo.info/
+ * Generative artwork / creative coding experiment
+ * Created for glocalspirit
+ * Made with p5.js
+ *
+ * Press SPACE to reverse the direction of movement.
+ */
+
+
+// Global variables
+let starField;
+let t = 0;
+
+
+function setup() {
+
+  // Create a canvas that exactly fills the browser viewport
+  createCanvas(windowWidth, windowHeight);
+
+  noStroke();
+
+  starField = new StarField(280);
+}
+
+
+function draw() {
+
+  background(10, 10, 30);
+
+  starField.update();
+  starField.render();
+
+  t += 0.01;
+}
+
+
+// Keep the canvas fullscreen when the browser window is resized
+function windowResized() {
+
+  resizeCanvas(windowWidth, windowHeight);
+}
+
+
+function keyPressed() {
+
+  if (key === ' ') {
+    starField.toggleDirection();
+  }
+}
+
+
+// --------------------------------------------------
+// StarField Class
+// Manages all stars in the field
+// --------------------------------------------------
+
+class StarField {
+
+  constructor(numStars) {
+
+    this.stars = [];
+    this.inward = true;
+
+    // Maximum number of slightly different "bold" stars
+    this.maxBoldStars = 3;
+
+    // Chance of a star having a noticeable color
+    // 0.035 = 3.5%
+    this.coloredStarChance = 0.12;
+
+
+    // Populate initial stars
+    for (let i = 0; i < numStars; i++) {
+
+      this.addStar(
+        random(width),
+        random(height),
+        random(1, 3)
+      );
+    }
+  }
+
+
+  addStar(x, y, starSize) {
+
+    let starBrightness = random(200, 255);
+    let starColor;
+    let isColoredStar = false;
+
+
+    // Occasionally create a colored star
+    if (random() < this.coloredStarChance) {
+
+      isColoredStar = true;
+
+      let colorType = random();
+
+
+      // Turquoise / cyan
+      if (colorType < 0.45) {
+
+        starColor = color(
+          random(50, 110),
+          random(190, 255),
+          random(180, 245)
+        );
+
+
+      // Soft red / pink
+      } else if (colorType < 0.70) {
+
+        starColor = color(
+          random(230, 255),
+          random(90, 160),
+          random(110, 180)
+        );
+
+
+      // Violet / lavender
+      } else if (colorType < 0.88) {
+
+        starColor = color(
+          random(180, 230),
+          random(140, 190),
+          random(230, 255)
+        );
+
+
+      // Cool blue
+      } else {
+
+        starColor = color(
+          random(100, 170),
+          random(170, 220),
+          random(240, 255)
+        );
+      }
+
+
+    } else {
+
+      // Mostly white stars,
+      // with a subtle cool variation
+
+      starColor = random() < 0.08
+
+        ? color(
+            random(180, 220),
+            random(200, 240),
+            random(240, 255)
+          )
+
+        : color(
+            random(220, 255),
+            random(220, 255),
+            random(240, 255)
+          );
+    }
+
+
+    // Only a few stars are slightly different
+    let isBold =
+      this.countBoldStars() < this.maxBoldStars &&
+      random() < 0.02 &&
+      !isColoredStar;
+
+
+    this.stars.push(
+      new Star(
+        x,
+        y,
+        isColoredStar ? 7 : isBold ? starSize * 0.55 : starSize,
+        starBrightness,
+        starColor,
+        isBold,
+        isColoredStar
+      )
+    );
+  }
+
+
+  countBoldStars() {
+
+    return this.stars.filter(
+      star => star.bold
+    ).length;
+  }
+
+
+  update() {
+
+    for (
+      let i = this.stars.length - 1;
+      i >= 0;
+      i--
+    ) {
+
+      this.stars[i].update(this.inward);
+
+
+      // Handle fade-out and removal
+      if (this.stars[i].alpha <= 0) {
+
+        this.stars.splice(i, 1);
+
+
+        // Add a new star at the opposite location
+        let angle = random(TWO_PI);
+
+
+        let newX = this.inward
+          ? random(width)
+          : width / 2 + cos(angle) * 10;
+
+
+        let newY = this.inward
+          ? random(height)
+          : height / 2 + sin(angle) * 10;
+
+
+        this.addStar(
+          newX,
+          newY,
+          random(1, 3)
+        );
+      }
+    }
+  }
+
+
+  render() {
+
+    for (let star of this.stars) {
+      star.show();
+    }
+  }
+
+
+  toggleDirection() {
+
+    this.inward = !this.inward;
+  }
+}
+
+
+
+// --------------------------------------------------
+// Star Class
+// Represents an individual star
+// --------------------------------------------------
+
+class Star {
+
+  constructor(
+    x,
+    y,
+    starSize,
+    starBrightness,
+    starColor,
+    bold = false,
+    colored = false
+  ) {
+
+    this.x = x;
+    this.y = y;
+
+    this.starSize = starSize;
+    this.starBrightness = starBrightness;
+    this.starColor = starColor;
+
+    this.speed = random(0.1, 0.3);
+
+    this.bold = bold;
+    this.colored = colored;
+
+    this.alpha = 255;
+  }
+
+
+  update(inward) {
+
+    // Calculate the direction toward the center
+    let angle = atan2(
+      height / 2 - this.y,
+      width / 2 - this.x
+    );
+
+
+    // Reverse direction when moving outward
+    if (!inward) {
+      angle += PI;
+    }
+
+
+    this.x += cos(angle) * this.speed;
+    this.y += sin(angle) * this.speed;
+
+
+    // Distance from the center
+    let distFromCenter = dist(
+      this.x,
+      this.y,
+      width / 2,
+      height / 2
+    );
+
+
+    // Gradually fade out stars
+    // near the center or outer edges
+
+    if (
+      (inward && distFromCenter < 50) ||
+      (!inward && distFromCenter > max(width, height) / 2)
+    ) {
+
+      this.alpha -= 5;
+    }
+  }
+
+
+  show() {
+
+    if (this.alpha > 0) {
+
+      // Bold stars have a larger glow
+      let glowMultiplier = this.bold
+        ? 2.5
+        : 1;
+
+
+      // --------------------------------------------------
+      // Glow
+      // --------------------------------------------------
+
+      for (
+        let r = this.starSize * 3 * glowMultiplier;
+        r > this.starSize;
+        r -= 0.5
+      ) {
+
+        let glowAlpha = map(
+          r,
+          this.starSize,
+          this.starSize * 3 * glowMultiplier,
+          this.bold ? 50 : 10,
+          0
+        );
+
+
+        fill(
+          red(this.starColor),
+          green(this.starColor),
+          blue(this.starColor),
+          glowAlpha * (this.alpha / 255)
+        );
+
+
+        ellipse(
+          this.x,
+          this.y,
+          r,
+          r
+        );
+      }
+
+
+      // --------------------------------------------------
+      // Main star
+      // --------------------------------------------------
+
+      fill(
+        red(this.starColor),
+        green(this.starColor),
+        blue(this.starColor),
+        this.starBrightness * (this.alpha / 255)
+      );
+
+
+      ellipse(
+        this.x,
+        this.y,
+        this.starSize,
+        this.starSize
+      );
+    }
+  }
+}
+
+// Interactive additions; original core retained above.
+
+let captureCombo=0,lastCatch=-5;
+Lab.installP5({tap(x,y){let near=starField.stars.filter(s=>s.colored&&s.alpha>0&&dist(x,y,s.x,s.y)<28).sort((a,b)=>dist(x,y,a.x,a.y)-dist(x,y,b.x,b.y));if(near.length){near[0].alpha=0;captureCombo=Lab.elapsed-lastCatch<3?captureCombo+1:1;lastCatch=Lab.elapsed;Lab.toast('捕星 ×'+captureCombo);Lab.award(10);}else{captureCombo=0;Lab.toast('寻找带光圈的彩色星星');}},after(){push();noFill();stroke('#8df1cd');strokeWeight(1);for(let s of starField.stars)if(s.colored&&s.alpha>0)circle(s.x,s.y,30);pop();},actions:[{label:'反转星流',run(){starField.toggleDirection();Lab.toast(starField.inward?'星流向内':'星流向外');}}]});

@@ -1,0 +1,39 @@
+--- original
++++ enhanced
+@@ -21,7 +21,7 @@
+ 
+   noStroke();
+ 
+-  starField = new StarField(500);
++  starField = new StarField(280);
+ }
+ 
+ 
+@@ -68,7 +68,7 @@
+ 
+     // Chance of a star having a noticeable color
+     // 0.035 = 3.5%
+-    this.coloredStarChance = 0.035;
++    this.coloredStarChance = 0.12;
+ 
+ 
+     // Populate initial stars
+@@ -171,7 +171,7 @@
+       new Star(
+         x,
+         y,
+-        isBold ? starSize * 0.55 : starSize,
++        isColoredStar ? 7 : isBold ? starSize * 0.55 : starSize,
+         starBrightness,
+         starColor,
+         isBold,
+@@ -386,4 +386,9 @@
+       );
+     }
+   }
+-}+}
++
++// Interactive additions; original core retained above.
++
++let captureCombo=0,lastCatch=-5;
++Lab.installP5({tap(x,y){let near=starField.stars.filter(s=>s.colored&&s.alpha>0&&dist(x,y,s.x,s.y)<28).sort((a,b)=>dist(x,y,a.x,a.y)-dist(x,y,b.x,b.y));if(near.length){near[0].alpha=0;captureCombo=Lab.elapsed-lastCatch<3?captureCombo+1:1;lastCatch=Lab.elapsed;Lab.toast('捕星 ×'+captureCombo);Lab.award(10);}else{captureCombo=0;Lab.toast('寻找带光圈的彩色星星');}},after(){push();noFill();stroke('#8df1cd');strokeWeight(1);for(let s of starField.stars)if(s.colored&&s.alpha>0)circle(s.x,s.y,30);pop();},actions:[{label:'反转星流',run(){starField.toggleDirection();Lab.toast(starField.inward?'星流向内':'星流向外');}}]});

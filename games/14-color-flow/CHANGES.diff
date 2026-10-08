@@ -1,0 +1,19 @@
+--- original
++++ enhanced
+@@ -214,6 +214,7 @@
+     let currentVector = field[fieldX][fieldY];
+ 
+     this.position.add(currentVector.x * STEP_SIZE, currentVector.y * STEP_SIZE);
++    if(mouseIsPressed)this.position.add((mouseX-this.position.x)*.035,(mouseY-this.position.y)*.035);
+   }
+ 
+   queueDisplay() {
+@@ -331,3 +332,8 @@
+     PALETTE_INDEX = (PALETTE_INDEX + 1) % PALETTES.length;
+   }
+ }
++
++
++// Interactive additions; original core retained above.
++
++Lab.installP5({tap(){},after(){Lab.collect(particles,p=>p.position,()=>Lab.pointer.down,1,12);Lab.drawTarget();},actions:[{label:'切换调色板',run(){PALETTE_INDEX=(PALETTE_INDEX+1)%PALETTES.length;applyBackgroundColor();}}]});

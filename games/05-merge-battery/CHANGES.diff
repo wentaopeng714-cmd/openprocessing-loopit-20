@@ -1,0 +1,44 @@
+--- original
++++ enhanced
+@@ -40,7 +40,7 @@
+   blobs = [];
+   score = 0;
+   spawnLevel = 1;
+-  upgradeCost = 0;
++  upgradeCost = 25;
+   for (let i = 0; i < 10; i++) spawnBlob();
+ }
+ 
+@@ -50,10 +50,10 @@
+     if (score >= upgradeCost) {
+       score -= upgradeCost;
+       spawnLevel++;
+-      upgradeCost *= 5;
++      upgradeCost = Math.ceil(upgradeCost * 1.8);
+       // 10% chance message
+       if (random(100) < 10) {
+-        showMessage = "Dom has quit YouTube!";
++        showMessage = "连锁能量已点亮！";
+         messageTimer = 180; 
+       }
+     }
+@@ -79,7 +79,7 @@
+ 
+   // Draw score
+   fill("white");
+-  textSize(100 / (log(score) / 35));
++  textSize(28);
+   textAlign(LEFT, TOP);
+   text('$' + floor(score).toLocaleString(), 20, 20);
+ 
+@@ -195,3 +195,10 @@
+     text(this.level, this.pos.x, this.pos.y);
+   }
+ }
++
++
++// Interactive additions; original core retained above.
++
++let lastDrop=-1,merges=0;const nativeHandle=handleBlobs;
++handleBlobs=function(){let n=blobs.length;nativeHandle();if(blobs.length<n){merges+=n-blobs.length;Lab.toast('合并成功 ×'+merges);}};
++Lab.installP5({start(){blobs=[];merges=0;spawnTimer=0;spawnInterval=100000000;score=0;},tap(x,y){if(y>290&&Lab.elapsed-lastDrop>.35&&blobs.length<55){blobs.push(new Blob(constrain(x,30,width-30),Math.min(y,350),30,spawnLevel));lastDrop=Lab.elapsed;}},release(x,y){if(x>100&&x<200&&y>200&&y<250)Lab.source.released?.();},after(){Lab.score=merges*10;if(Lab.score>=100)Lab.end(true,'完成了 10 次合并！');},actions:[{label:'投放电池',run(){if(Lab.elapsed-lastDrop>.35&&blobs.length<55){blobs.push(new Blob(Lab.pointer.x,320,30,spawnLevel));lastDrop=Lab.elapsed;}}}]});

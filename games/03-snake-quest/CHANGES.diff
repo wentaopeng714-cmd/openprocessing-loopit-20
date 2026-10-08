@@ -1,0 +1,11 @@
+--- original
++++ enhanced
+@@ -669,4 +669,8 @@
+ 			grid.restart();
+ 			break;
+ 	}
+-}+}
++
++// Interactive additions; original core retained above.
++
++Lab.installP5({start(){grid.pause=false;grid.snake.speed=18;},after(){Lab.score=grid.snake.size-2;if(!grid.running)Lab.end(false,'吃到 '+Lab.score+' 份食物。留意自己的身体！');else if(Lab.score>=10)Lab.end(true,'十份食物收集完成，关卡 '+grid.level+'！');},release(x,y){let p=Lab.downPos;if(!p)return;let dx=x-p.x,dy=y-p.y;if(Math.max(Math.abs(dx),Math.abs(dy))>18)grid.snake.command(Math.abs(dx)>Math.abs(dy)?dx>0?'right':'left':dy>0?'down':'up');},actions:[{label:'←',run(){grid.snake.command('left');}},{label:'↑',run(){grid.snake.command('up');}},{label:'↓',run(){grid.snake.command('down');}},{label:'→',run(){grid.snake.command('right');}}]});

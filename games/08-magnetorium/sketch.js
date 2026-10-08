@@ -1,0 +1,610 @@
+/* Original: Magnetorium — Melvin Beckstead
+Source: https://openprocessing.org/@mlim/3027800
+License: CC BY 3.0 https://creativecommons.org/licenses/by/3.0/
+Adapted on 2026-10-08; see CHANGES.diff and README.md. */
+function setup() {
+	[backgroundRed, backgroundGreen, backgroundBlue] = splitNumberIntoThreePiecesRandomly(100)
+	backgroundColor = color(backgroundRed, backgroundGreen, backgroundBlue)
+	createCanvas(windowWidth, windowHeight)
+	background(backgroundColor)
+	magnetOn = false
+	ballX = width / 2
+	ballY = height / 2
+	ballSize = 111
+	ballSizeAdjustmentRemaining = 0
+	highestBallSize = ballSize
+	ballSpeedX = 0
+	ballSpeedY = 0
+	allFood = []
+	powerups = []
+	gameTime = 0
+	for (i = 0; i < 10; i++) {
+	  addFood()
+	}
+	foodEaten = 0
+	freshFoodEaten = 0
+	staleFoodEaten = 0
+	rottenFoodEaten = 0
+	totalEatenFoodAge = 0
+	averageEatenFoodAge = 0
+}
+
+function draw() {
+	if (ballSize <= 0) {
+		background(0)
+		drawAllFood()
+	} else {
+	  [backgroundRed, backgroundGreen, backgroundBlue] =
+	  	  slightlyShiftColorRandomly(backgroundRed, backgroundGreen, backgroundBlue)
+	  backgroundColor = color(backgroundRed, backgroundGreen, backgroundBlue, 100)
+		background(backgroundColor)
+    
+		gameTime++
+	
+	  attractBall()
+	  moveBall()
+		
+		maybeAddPowerup()
+	  activateTouchingPowerups()
+		runActivePowerups()
+		removeExpiredPowerups()
+		
+		maybeAddFood()
+		repellFood()
+		slowDownFood()
+		moveFood()
+	  eatTouchingFood()
+	
+	  // slowly shrink ball due to hunger
+  	ballSizeAdjustmentRemaining -= 0.01
+	
+	  // adjust ball size due to eaten food
+	  let ballSizeAdjustment = ballSizeAdjustmentRemaining / 10
+	  ballSizeAdjustmentRemaining -= ballSizeAdjustment
+		ballSize += ballSizeAdjustment
+		highestBallSize = max(ballSize, highestBallSize)
+		if (ballSize < 1) {
+			ballSize = 0
+		}
+		
+		drawAllFood()
+		drawPowerups()
+		drawMagnetLine()
+	  drawBall()
+	}
+	textSize(20)
+	textAlign(LEFT)
+	fill(color(255, 255, 255, 50))
+	text('Time: ' + floor(gameTime / 100), 10, 25)
+	text('Size score: ' + floor(highestBallSize * 40), 10, 50)
+	textSize(12)
+	text('Food eaten:', 10, height - 55)
+	text('Fresh: ' + freshFoodEaten, 10, height - 40)
+	text('Stale: ' + staleFoodEaten, 10, height - 25)
+	text('Rotten: ' + rottenFoodEaten, 10, height - 10)
+}
+
+function attractBall() {
+  if (magnetOn) {
+		let magnetStrength = 0.001
+		let distanceX = mouseX - ballX
+		let distanceY = mouseY - ballY
+		ballSpeedX += distanceX * magnetStrength
+		ballSpeedY += distanceY * magnetStrength
+	}
+}
+
+function drawMagnetLine() {
+	if (magnetOn) {
+		let intensity = norm(mag(mouseX - ballX, mouseY - ballY), 0, mag(width, height))
+		strokeWeight(min(ballSize, 10 * intensity))
+		stroke(255, 255, 255, lerp(10, 50, intensity))
+		line(mouseX, mouseY, ballX, ballY)
+	}
+}
+
+function moveBall() {
+	ballX += ballSpeedX
+	ballY += ballSpeedY
+	bounceBallIfItLeftCanvas()
+}
+
+function bounceBallIfItLeftCanvas() {
+	let ballBouncyness = 0.5
+	let ballLeftEdge = ballX - ballSize / 2
+	if (ballLeftEdge < 0 && ballSpeedX < 0) {
+		ballLeftEdge = -ballLeftEdge
+		ballX = ballLeftEdge + ballSize / 2
+		ballSpeedX = -ballSpeedX
+		ballSpeedX = ballSpeedX * ballBouncyness
+	}
+	let ballTopEdge = ballY - ballSize / 2
+	if (ballTopEdge < 0 && ballSpeedY < 0) {
+		ballTopEdge = -ballTopEdge
+		ballY = ballTopEdge + ballSize / 2
+		ballSpeedY = -ballSpeedY
+		ballSpeedY = ballSpeedY * ballBouncyness
+	}
+	let ballRightEdge = ballX + ballSize / 2
+	if (ballRightEdge > width && ballSpeedX > 0) {
+		ballRightEdge -= width
+		ballRightEdge = -ballRightEdge
+		ballRightEdge += width
+		ballX = ballRightEdge - ballSize / 2
+		ballSpeedX = -ballSpeedX
+		ballSpeedX = ballSpeedX * ballBouncyness
+	}
+	let ballBottomEdge = ballY + ballSize / 2
+	if (ballBottomEdge > height && ballSpeedY > 0) {
+		ballBottomEdge -= height
+		ballBottomEdge = -ballBottomEdge
+		ballBottomEdge += height
+		ballY = ballBottomEdge - ballSize / 2
+		ballSpeedY = -ballSpeedY
+		ballSpeedY = ballSpeedY * ballBouncyness
+	}
+}
+
+function drawBall() {
+	let shift = ballSize / 10
+	strokeWeight(0)
+	fill(150)
+	circle(ballX, ballY, ballSize)
+	fill(200)
+	circle(ballX - shift, ballY - shift, ballSize - shift * 4)
+	fill(250)
+	circle(ballX - shift * 2, ballY - shift * 2, ballSize - shift * 8)
+}
+
+function repellFood() {
+	for (i = 0; i < allFood.length; i++) {
+		let food = allFood[i]
+		let repellRange = ballSize * 4
+		if (isFoodFresh(food) && !isFoodTouchingBall(food) && isTouchingBall(food.x, food.y, repellRange + food.size / 2)) {
+		  let distance = dist(food.x, food.y, ballX, ballY)
+			let repellDistance = distance - ballSize / 2 - food.size / 2
+			let repellStrength = (repellRange - repellDistance) / repellRange * foodFreshness(food) / 1000
+		  let repellX = (ballX - food.x) / distance
+		  let repellY = (ballY - food.y) / distance
+		  allFood[i].speedX -= repellX * repellStrength
+		  allFood[i].speedY -= repellY * repellStrength
+	  }
+	}
+}
+
+function slowDownFood() {
+	for (i = 0; i < allFood.length; i++) {
+		let speed = dist(0, 0, allFood[i].speedX, allFood[i].speedY)
+		if (speed > 0.2) {
+			allFood[i].speedX *= 0.99
+			allFood[i].speedY *= 0.99
+		}
+	}
+}
+
+function moveFood() {
+	for (i = 0; i < allFood.length; i++) {
+		allFood[i].x += allFood[i].speedX
+		allFood[i].y += allFood[i].speedY
+		// wrap food position around canvas
+		let size = allFood[i].size
+		if (allFood[i].x + size < 0) {
+			allFood[i].x += width + size * 2
+		} else if (allFood[i].x - size > width) {
+		  allFood[i].x -= width + size * 2
+		}
+		if (allFood[i].y + size < 0) {
+			allFood[i].y += height + size * 2
+		} else if (allFood[i].y - size > height) {
+			allFood[i].y -= height + size * 2
+		}
+	}
+}
+
+function drawAllFood() {
+	for (i = 0; i < allFood.length; i++) {
+		drawOneFood(allFood[i])
+	}
+}
+
+function drawOneFood(food) {
+	strokeWeight(0)
+	fill(150 - foodFreshness(food) + foodStaleness(food) / 2 - foodRottenness(food),
+			 150 + foodFreshness(food) - foodStaleness(food) / 2 - foodRottenness(food) / 2,
+			 50 + foodRottenness(food) * 2)
+	circle(food.x, food.y, food.size)
+}
+
+function drawPowerups() {
+	for (i = 0; i < powerups.length; i++) {
+		drawPowerup(powerups[i])
+	}
+}
+
+function drawPowerup(powerup) {
+	var symbol, symbolColor
+	let opaqueness = powerup.isActive ? 100 : 255
+	if (powerup.type == "refresh") {
+		symbol = "R"
+		stroke(0, 250, 0, opaqueness)
+		symbolColor = color(0, 200, 0)
+	} else if (powerup.type == "grow") {
+		symbol = "G"
+		stroke(250)
+		symbolColor = color(200)
+	} else if (powerup.type == "clean") {
+		symbol = "C"
+		stroke(250, 0, 250, opaqueness)
+		symbolColor = color(200, 0, 200)
+	} else if (powerup.type == "blast") {
+		symbol = "B"
+		stroke(0, 200, 250, opaqueness)
+		symbolColor = color(0, 150, 200)
+	} else if (powerup.type == "vacuum") {
+		symbol = "V"
+		stroke(250, 250, 0, opaqueness)
+		symbolColor = color(200, 200, 0)
+	} else {
+		symbol = ""
+	  stroke(255)
+		symbolColor = color(0)
+	}
+	noFill()
+	if (powerup.isActive) {
+		strokeWeight(10)
+		circle(powerup.x, powerup.y, powerup.effectSize)
+	} else {
+		strokeWeight(map(gameTime,
+										 powerup.creationTime,
+										 powerup.expirationTime,
+										 5,
+										 0))
+	  circle(powerup.x, powerup.y, powerup.size)
+	  strokeWeight(1)
+		stroke(symbolColor)
+	  textSize(powerup.size * 0.75)
+	  textAlign(CENTER, CENTER)
+	  text(symbol, powerup.x, powerup.y + 1)
+	}
+}
+
+function foodAge(food) {
+  return gameTime - food.creationTime
+}
+
+function isFoodFresh(food) {
+	return foodAge(food) < 300
+}
+
+// 100 = fresh, 0 = not fresh
+function foodFreshness(food) {
+	return max(0, 300 - foodAge(food)) / 3
+}
+
+function isFoodStale(food) {
+  return !isFoodFresh(food)
+}
+
+function foodStaleness(food) {
+  if (isFoodFresh(food)) {
+		return 0
+	}
+	return max(0, min(200, foodAge(food) - 300) / 2)
+}
+
+function isFoodRotten(food) {
+	return isFoodStale(food) && foodAge(food) > 500
+}
+
+function foodRottenness(food) {
+	if (!isFoodRotten(food)) {
+		return 0
+	}
+	return max(0, min(500, foodAge(food) - 500) / 5)
+}
+
+function maybeAddFood() {
+	if (random(100) < 1) {
+		addFood()
+	}
+}
+
+function addFood() {
+	var x, y, size, tries = 0
+	do {
+		tries++
+		x = random(width)
+		y = random(height)
+		size = 10 + random(10)
+	} while (isTouchingBall(x, y, size) && tries < 100)
+	if (!isTouchingBall(x, y, size)) {
+	  allFood.push(
+		  {
+		    x: x,
+		    y: y,
+		    size: size,
+			  speedX: random(0.2) - 0.1,
+			  speedY: random(0.2) - 0.1,
+		    creationTime: gameTime
+      }
+	  )
+	}
+}
+
+function maybeAddPowerup() {
+	if (random(1150) < 2) {
+		addPowerup("refresh")
+	}
+	if (random(3000) < 2) {
+		addPowerup("grow")
+	}
+	if (random(2000) < 2) {
+		addPowerup("clean")
+	}
+	if (random(4000) < 2) {
+		addPowerup("blast")
+	}
+	if (random(1500) < 1) {
+		addPowerup("vacuum")
+	}
+}
+
+function addPowerup(type) {
+	var x, y, size, tries = 0
+	do {
+		tries++
+		x = random(width)
+		y = random(height)
+		size = 25
+	} while (isTouchingBall(x, y, size) && tries < 100)
+	if (!isTouchingBall(x, y, size)) {
+		powerups.push(
+			{
+				type: type,
+				x: x,
+				y: y,
+				size: size,
+				creationTime: gameTime,
+				expirationTime: gameTime + 500,
+				isActivated: false,
+				activationTime: 0,
+				strength: 0,
+				effectSize: 0
+			}
+		)
+	}
+}
+
+function removeExpiredPowerups() {
+	for (i = 0; i < powerups.length; i++) {
+		if (gameTime >= powerups[i].expirationTime) {
+		  powerups.splice(i, 1)
+			i--
+		}
+	}
+}
+
+function activateTouchingPowerups() {
+	for (i = 0; i < powerups.length; i++) {
+		let powerup = powerups[i]
+		if (!powerup.isActive && isTouchingBall(powerup.x, powerup.y, powerup.size)) {
+			let strength = map(gameTime,
+												 powerup.creationTime,
+												 powerup.expirationTime,
+												 1,
+												 0.5)
+			powerup.strength = strength
+			powerup.isActive = true
+			powerup.activationTime = gameTime
+			let effectTime = 0
+			if (powerup.type == "refresh") {
+				effectTime = strength * 100
+			} else if (powerup.type == "clean") {
+				effectTime = strength * 50
+			} else if (powerup.type == "blast") {
+				effectTime = strength * 20
+			} else if (powerup.type == "vacuum") {
+				effectTime = strength * 30
+			}
+			powerup.expirationTime = gameTime + effectTime
+		}
+	}
+}
+
+function runActivePowerups() {
+	for (i = 0; i < powerups.length; i++) {
+		let powerup = powerups[i]
+		if (powerup.isActive) {
+		  if (powerup.type == "refresh") {
+				powerup.effectSize = powerup.size + 500 * powerup.strength * norm(gameTime, powerup.activationTime, powerup.expirationTime)
+				for (j = 0; j < allFood.length; j++) {
+					if (isTouchingFood(powerup.x, powerup.y, powerup.effectSize, allFood[j]) &&
+							!isTouchingFood(powerup.x, powerup.y, powerup.effectSize - 10 - allFood[j].size, allFood[j])) {
+						allFood[j].creationTime = gameTime
+					}
+				}
+			} else if (powerup.type == "grow") {
+				ballSizeAdjustmentRemaining += 25 * powerup.strength
+			} else if (powerup.type == "clean") {
+				powerup.effectSize = powerup.size + 400 * powerup.strength * norm(gameTime, powerup.activationTime, powerup.expirationTime)
+			  for (j = 0; j < allFood.length; j++) {
+					if (isFoodRotten(allFood[j]) &&
+						  isTouchingFood(powerup.x, powerup.y, powerup.effectSize, allFood[j]) &&
+							!isTouchingFood(powerup.x, powerup.y, powerup.effectSize - 10 - allFood[j].size, allFood[j])) {
+						allFood.splice(j, 1)
+						j--
+					}
+				}
+			} else if (powerup.type == "blast") {
+				let effectTime = norm(gameTime, powerup.activationTime, powerup.expirationTime)
+				powerup.effectSize = powerup.size + 300 * powerup.strength * effectTime
+			  for (j = 0; j < allFood.length; j++) {
+					let food = allFood[j]
+					if (isTouchingFood(powerup.x, powerup.y, powerup.effectSize, food)) {
+						let dx = food.x - powerup.x
+						let dy = food.y - powerup.y
+						let d = max(1, mag(dx, dy))
+						food.speedX += 0.5 * dx / d
+						food.speedY += 0.5 * dy / d
+					}
+				}
+			} else if (powerup.type == "vacuum") {
+				let effectTime = norm(gameTime, powerup.activationTime, powerup.expirationTime)
+				powerup.effectSize = powerup.size + 750 * powerup.strength * (1 - effectTime)
+				for (j = 0; j < allFood.length; j++) {
+					let food = allFood[j]
+					if (isFoodFresh(food) &&
+							isTouchingFood(powerup.x, powerup.y, powerup.effectSize, food)) {
+						let dx = powerup.x - food.x
+						let dy = powerup.y - food.y
+						let d = max(1, mag(dx, dy))
+						food.speedX += 0.5 * dx / d
+						food.speedY += 0.5 * dy / d
+					}
+				}
+			}
+		}
+	}
+}
+
+function eatTouchingFood() {
+	for (i = 0; i < allFood.length; i++) {
+		let food = allFood[i]
+	  if (isFoodTouchingBall(food)) {
+		  if (isFoodFresh(food)) {
+			  ballSizeAdjustmentRemaining += foodFreshness(food) * food.size / 250
+			} else if (isFoodRotten(food)) {
+				ballSizeAdjustmentRemaining -= 1 + ballSize * foodRottenness(food) / 1000
+			}
+			// removes touched food at position i
+			allFood.splice(i, 1)
+			i--
+			// update eaten food statistics
+			foodEaten++
+			totalEatenFoodAge += foodAge(food)
+			averageEatenFoodAge = totalEatenFoodAge / foodEaten
+			if (isFoodFresh(food)) {
+				freshFoodEaten++
+			} else if (isFoodRotten(food)) {
+				rottenFoodEaten++
+			} else {
+				staleFoodEaten++
+			}
+		}
+	}
+}
+
+function isTouching(x1, y1, size1, x2, y2, size2) {
+	return dist(x1, y1, x2, y2) < (size1 / 2 + size2 / 2)
+}
+
+function isTouchingBall(x, y, size) {
+	return isTouching(ballX, ballY, ballSize, x, y, size)
+}
+
+function isTouchingFood(x, y, size, food) {
+	return isTouching(x, y, size, food.x, food.y, food.size)
+}
+
+function isFoodTouchingBall(food) {
+	return isTouchingBall(food.x, food.y, food.size)
+}
+
+function touchStarted() {
+	magnetOn = true
+}
+
+function touchEnded() {
+	magnetOn = false
+}
+
+function slightlyShiftColorRandomly(r, g, b) {
+	[redShift, greenShift, blueShift] = splitNumberIntoThreePiecesRandomly(3)
+	if (r < 3) {
+		redShift += 2
+		greenShift--
+		blueShift--
+	}
+	if (g < 3) {
+		redShift--
+		greenShift += 2
+		blueShift--
+	}
+	if (b < 3) {
+		redShift--
+		greenShift--
+		blueShift += 2
+	}
+	return [r + redShift - 1, g + greenShift - 1, b + blueShift - 1]
+}
+
+function splitNumberIntoThreePiecesRandomly(number) {
+	let r1 = random()
+	let r2 = random()
+	let r3 = random()
+	let sum = r1 + r2 + r3
+	r1 = floor(r1 * number / sum)
+	r2 = floor(r2 * number / sum)
+	r3 = floor(r3 * number / sum)
+	sum = r1 + r2 + r3
+	let remainder = number - sum
+	while (remainder > 0) {
+		let pick = random(3)
+		if (pick < 1) r1++
+		else if (pick < 2) r2++
+		else r3++
+		remainder--
+	}
+	return [r1, r2, r3]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Interactive additions; original core retained above.
+
+let foodsBefore=0;
+Lab.installP5({start(){foodEaten=0;foodsBefore=0;},before(){magnetOn=Lab.pointer.down;},after(){if(freshFoodEaten+staleFoodEaten>foodsBefore){foodsBefore=freshFoodEaten+staleFoodEaten;Lab.toast('磁力球吸附成功');}Lab.score=foodsBefore*5;if(Lab.pointer.has&&dist(ballX,ballY,Lab.target.x,Lab.target.y)<ballSize/2+Lab.target.r){Lab.score+=0;Lab.extraMagnet=(Lab.extraMagnet||0)+10;Lab.resetTarget();Lab.toast('命中光圈 +10');}Lab.score+=Lab.extraMagnet||0;Lab.drawTarget();if(ballSize<=0)Lab.end(false);else if(Lab.score>=100)Lab.end(true);},actions:[{label:'轻刹车',run(){ballSpeedX*=.2;ballSpeedY*=.2;Lab.toast('惯性降低，重新瞄准');}}]});

@@ -1,0 +1,42 @@
+let size = 50;
+let clicked = [];
+
+function setup() {
+  createCanvas(500, 500);
+}
+
+function draw() {
+  background(255);
+
+  for (let x = 0; x < width; x += size) {
+    for (let y = 0; y < height; y += size) {
+
+      let col = x / size;
+      let row = y / size;
+
+      // If this square was clicked, make it blue
+      if (clicked[col] && clicked[col][row]) {
+        fill(0, 100, 255);
+      } else {
+        fill(255);
+      }
+
+      stroke(0);
+      rect(x, y, size, size);
+    }
+  }
+}
+
+function mousePressed() {
+  let col = floor(mouseX / size);
+  let row = floor(mouseY / size);
+
+  // Make sure the click is inside the grid
+  if (col >= 0 && col < 100 && row >= 0 && row < 100) {
+    if (!clicked[col]) {
+      clicked[col] = [];
+    }
+
+    clicked[col][row] = true;
+  }
+}

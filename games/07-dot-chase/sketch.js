@@ -1,0 +1,254 @@
+/* Original: Dot Game4.0 — rc
+Source: https://openprocessing.org/@vfv/3024996
+License: CC BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0/
+Adapted on 2026-10-08; see CHANGES.diff and README.md. */
+function collidePointRect(x,y,a,b,w,h){return x>=a&&x<=a+w&&y>=b&&y<=b+h;}
+function collideCircleCircle(x,y,d,x2,y2,d2){return Math.hypot(x-x2,y-y2)<(d+d2)/2;}
+var play = 0;
+var death;
+var isDead = false;
+var start, respawn, foodCollide, info, back;
+var score = 0;
+
+
+var player = {
+	x: 300,
+	y: 200,
+	speed: 20,
+}
+
+var monster = {
+	x: -20,
+	y: -20,
+	speed: 1,
+
+}
+
+var food = {
+	x: 0,
+	y: 0,
+}
+
+
+
+
+
+var resetPos = function() {
+	player.y = 200;
+	player.x = 300;
+	monster.x = -20;
+	monster.y = -29;
+	food.x = random(10, 590);
+	food.y = random(10, 390);
+	player.speed = 20;
+	monster.speed = 1;
+}
+
+//----------------------------------------------
+
+function mousePressed() {
+	start = collidePointRect(mouseX, mouseY, 200, 130, 200, 100)
+	if (play === 0 && start === true) {
+		play = 1;
+
+	}
+	respawn = collidePointRect(mouseX, mouseY, 175, 150, 220, 70);
+	if (play === 2 && respawn === true) {
+		play = 1;
+		score = 0;
+
+	}
+	info = collidePointRect(mouseX, mouseY, 500, 20, 80, 80);
+	if (play === 0 && info === true) {
+		play = 3;
+	
+	}
+	back = collidePointRect(mouseX, mouseY, 400, 300, 140, 80);
+	if (play === 3 && back === true) {
+		play = 0;
+	}
+	
+}
+
+
+function setup() {
+	createCanvas(600, 400);
+	food.x = random(10, 590);
+	food.y = random(10, 390);
+}
+
+//-----------------------------------------------
+
+function draw() {
+	background(255);
+	stroke(0);
+	strokeWeight(10);
+	fill(255);
+	rect(0, 0, 600, 400);
+	//this will set the speed of the dot and the player related to the points
+	player.speed = 20 + score / 4;
+	
+	
+	
+	//this is what happens when the player and the dot of death hit eachother
+	if (isDead === true) {
+		play = 2;
+		isDead = false;
+		resetPos(); 
+		
+
+	}
+
+
+
+
+
+
+	if (play === 1) {
+		fill("orange");
+		strokeWeight(1);
+
+		//keeps it's X equal with mouse X
+		for (var i = 0; i < player.speed; i++) {
+			//first thing checks to see if the dot dies
+			death = collideCircleCircle(monster.x, monster.y, 40, player.x, player.y, 20);
+			if (death === true) {
+				isDead = true;
+			}
+
+			// this is some stuff about the dot.
+			fill(random(0, 255), random(0, 255), random(0, 255));
+			ellipse(food.x, food.y, 10, 10);
+			// if the player hits the food...
+			foodCollide = collideCircleCircle(player.x, player.y, 20, food.x, food.y, 10);
+			if (foodCollide === true) {
+				food.x = random(10, 590);
+				food.y = random(10, 390);
+				score += 1;
+				
+			}
+			
+			//moves the player
+
+			if (player.x > mouseX) {
+				player.x -= 1
+			}
+			if (player.x < mouseX) {
+				player.x += 1
+			}
+
+			//keeps it's Y equal with mouse Y
+			if (player.y > mouseY) {
+				player.y -= 1
+			}
+			if (player.y < mouseY) {
+				player.y += 1
+			}
+		}
+
+		fill("orange");
+		textSize(30);
+		text("Score: " + score, 10, 30);
+		ellipse(player.x, player.y, 20, 20);
+		//the evil dot... moves the monster
+		for (var q = 0; q < monster.speed; q++) {
+
+
+			if (monster.x > player.x) {
+				monster.x -= 1;
+
+			}
+			if (monster.x < player.x) {
+				monster.x += 1;
+
+			}
+			if (monster.y > player.y) {
+				monster.y -= 1;
+
+			}
+			if (monster.y < player.y) {
+				monster.y += 1;
+
+			}
+
+		}
+
+
+		fill("red");
+		strokeWeight(4);
+		stroke(163, 31, 31);
+		ellipse(monster.x, monster.y, 40, 40);
+
+
+	}
+
+	//---------------------------------------------------------------------------
+
+	if (play === 0) {
+		fill(66, 244, 95);
+		strokeWeight(1);
+		noStroke();
+		rect(200, 130, 200, 100);
+		stroke(0);
+		fill(0);
+		textSize(75);
+		text("Play!", 210, 210);
+		textSize(30);
+		//text("Info: Keep your mouse inside of the box! \nRun away from the monster (The red dot).", 10, 30);
+		text("Coded By Adin Jura! 													 v[1.9]", 10, 380);
+		//the info box
+		strokeWeight(5);
+		fill(170);
+		rect(500, 20, 80, 80);
+		textSize(80);
+		text("?", 517, 87);
+		
+	}
+
+	//--------------------------------------------------------------------------------
+
+	if (play === 2) {
+		textSize(50);
+		strokeWeight(3);
+		fill('red');
+		text("U is ded... ", 190, 100);
+		//restart button..
+		fill(7, 186, 61);
+		rect(175, 150, 220, 70);
+		fill("blue");
+		textSize(50);
+		text("Restart.", 200, 200);
+		
+		//shows how many points that you got
+		fill("black");
+		textSize(30);
+		noStroke();
+		text("You got: " + score + " point(s)", 190, 300)
+
+	}
+	
+	if (play === 3) {
+		textSize(50);
+		text("Instructions:", 175, 60);
+		//the text below...
+		textSize(20);
+		noStroke();
+		fill('black');
+		text("You are the orange dot and you need to avoid the evil red dot. \nTo do this you need to move your mouse, but don't go too fast. \nCollect the rainbow dots to earn points, but the more points that \nyou have the faster that the game will let you move and the \nfaster that the evil dot will move.", 20, 100);
+		//the back button
+		stroke(0);
+		strokeWeight(5);
+		fill(172);
+		rect(400, 300, 140, 80);
+		noStroke();
+		fill(0);
+		textSize(55);
+		text("Back", 410, 360);
+	}
+
+}
+
+// Interactive additions; original core retained above.
+
+let dashUntil=0,dashReady=0;
+Lab.installP5({start(){play=1;},before(){if(Lab.elapsed<dashUntil){player.x=constrain(Lab.pointer.x,12,width-12);player.y=constrain(Lab.pointer.y,12,height-12);}},after(){Lab.score=score;monster.speed=1+score*.11;if(play===2)Lab.end(false,'收集了 '+score+' 个彩点。下一次试试冲刺！');else if(score>=20)Lab.end(true);},actions:[{label:'冲刺',run(){if(Lab.elapsed<dashReady){Lab.toast('冲刺冷却中');return;}dashUntil=Lab.elapsed+1;dashReady=Lab.elapsed+5;Lab.toast('冲刺 1 秒！');}}]});

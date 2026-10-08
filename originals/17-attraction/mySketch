@@ -1,0 +1,69 @@
+let num = 50;
+let pos = [];
+let vel = [];
+
+let framesDown = 0;
+
+function setup() {
+	createCanvas(windowWidth, windowHeight);
+	colorMode(HSB);
+	strokeWeight(2);
+	textAlign(LEFT, TOP);
+	resetParticles();
+}
+
+function draw() {
+	background(0);
+	noStroke();
+	fill(255);
+	text(round(frameRate()), 10, 10);
+	text(num, 10, 25);
+	
+	//automatically deleting or adding particles to have the most particles while still getting around 50fps
+	//not totally accurate but gets it done pretty well
+	if (frameCount % 20 == 0) {
+		if (frameRate() > 60) {
+			for(let i = 0; i < 10; i++) {
+				pos[num+i] = createVector(width/2, height/2);
+				vel[num+i] = createVector(0, 0);
+			}
+			num += 10;
+		} else if (frameRate() < 50) {
+			num -= 10;
+		}
+	}
+	
+	for(let i = 0; i < num; i++) {
+		pos[i].add(vel[i]);
+		pos[i].x = (pos[i].x + width) % width;
+		pos[i].y = (pos[i].y + height) % height;
+		vel[i].add(createVector(random(-1, 1), random(-1, 1)).mult(0.2));
+		vel[i].mult(1.0001);
+		stroke((frameCount*3+i/num*255)%55, 255, 255);
+		line(pos[i].x, pos[i].y, pos[i].x - vel[i].x * 5, pos[i].y - vel[i].y * 5);
+		// circle(pos[i].x, pos[i].y, 5);
+		
+		if (mouseIsPressed) {
+			let baseAttraction = sqrt(framesDown)/10;
+			let attraction = baseAttraction / pow(dist(mouseX, mouseY, pos[i].x, pos[i].y), -0.1);
+			let attractionVector = createVector(mouseX - pos[i].x, mouseY - pos[i].y).setMag(attraction);
+			vel[i].add(attractionVector);
+		}
+	}
+	
+	if (mouseIsPressed) {
+		framesDown++;
+	} else {
+		framesDown = 0;
+	}
+}
+
+function resetParticles() {
+	background(0);
+	pos = [];
+	vel = [];
+	for(let i = 0; i < num; i++) {
+		pos[i] = createVector(width/2, height/2);
+		vel[i] = createVector(random(-1, 1), random(-1, 1));
+	}
+}

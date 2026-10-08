@@ -1,0 +1,42 @@
+--- original
++++ enhanced
+@@ -1,12 +1,12 @@
+ let particles=[];
+-let parNum=2000;
++let parNum=360;
+ 
+ function setup() {
+   createCanvas(windowWidth, windowHeight);
+   for (let i=-1;i<parNum;i++){
+     particles.push(new particle(random(width),random(height)));
+   }
+-  background(200)
++  background(9,18,32);stroke(122,237,205)
+ }
+ 
+ 
+@@ -20,7 +20,7 @@
+     particles[c].update();
+     particles[c].show();
+   }
+-  background(220,220,220,15);
++  background(9,18,32,35);
+ 
+ }
+ 
+@@ -46,9 +46,14 @@
+ 
+ function mousePressed(){
+   for (c=particles.length-1;c>0;c--){
+-    particles[c].oldMove.add(createVector(mX-particles[c].pos.x,mY-particles[c].pos.y).normalize().mult(-80).div(sqrt(abs(mX-particles[c].pos.x)+abs(mY-particles[c].pos.y))));
++    particles[c].oldMove.add(createVector(mX-particles[c].pos.x,mY-particles[c].pos.y).normalize().mult(-80).div(max(1,sqrt(abs(mX-particles[c].pos.x)+abs(mY-particles[c].pos.y)))));
+   }
+ }
+ 
+ 
+ 
++
++
++// Interactive additions; original core retained above.
++
++Lab.installP5({after(){Lab.collect(particles,p=>p.pos,()=>true,1,12);Lab.drawTarget();},actions:[{label:'聚拢中心',run(){Lab.pointer.x=width/2;Lab.pointer.y=height/2;Lab.pointer.has=true;}}]});

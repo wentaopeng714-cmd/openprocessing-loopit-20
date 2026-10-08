@@ -1,0 +1,33 @@
+--- original
++++ enhanced
+@@ -277,9 +277,10 @@
+     alpha: false
+   });
+   renderer.setSize(SKETCH_WIDTH, SKETCH_HEIGHT);
+-  renderer.setPixelRatio(window.devicePixelRatio || 1);
++  renderer.setPixelRatio(Math.min(2,window.devicePixelRatio || 1));
+   renderer.autoClear = false;
+   container.appendChild(renderer.domElement);
++  Lab.attach(renderer.domElement,SKETCH_WIDTH,SKETCH_HEIGHT);
+ 
+   // 5. Fade Screen Quad for Exact Motion Trails
+   // Exactly corresponds to Processing's fill(255, 15); rect(0, 0, width, height);
+@@ -340,6 +341,7 @@
+ // ==========================================
+ function animate() {
+   requestAnimationFrame(animate);
++  if(!Lab.tick())return;
+ 
+   frameCount++;
+   let now = performance.now();
+@@ -393,7 +395,10 @@
+ 
+   // 2. Render current line segments
+   renderer.render(scene, camera);
++  Lab.collect(particles,p=>p,p=>p._manualUntil>Lab.elapsed,1,10);Lab.drawDomTarget();Lab.paint();
+ }
+ 
+ // Start once DOM is ready
+ window.addEventListener('DOMContentLoaded', init);
++
++Lab.adapter={start(){Lab.resetTarget();},tap(x,y){let col=new THREE.Color().setHSL(Math.random(),1,.55);let hits=0;for(let p of particles){if(Math.hypot(p.x-x,p.y-y)<100){p.setColor(col,120);p._manualUntil=Lab.elapsed+2;hits++;}}Lab.toast('主动点燃 '+hits+' 个粒子');},actions:[{label:'换色',run(){PALETTE_INDEX=(PALETTE_INDEX+1)%PALETTES.length;bgColor.set(PALETTES[PALETTE_INDEX][0]);baseColor.set(PALETTES[PALETTE_INDEX][1]);fadeMaterial.color.copy(bgColor);}}]};

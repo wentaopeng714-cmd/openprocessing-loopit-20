@@ -1,0 +1,12 @@
+--- original
++++ enhanced
+@@ -508,3 +508,9 @@
+   }
+   pop();
+ }
++
++
++// Interactive additions; original core retained above.
++
++function pieceAction(type){if(state!=='PLAYING'||!currentPiece)return;if(type==='left'||type==='right'){let d=type==='left'?-1:1;if(!checkCollision(currentPiece.row,currentPiece.col+d,currentPiece.iro))currentPiece.col+=d;}else if(type==='rotate'){let r=(currentPiece.iro+1)%4;if(!checkCollision(currentPiece.row,currentPiece.col,r))currentPiece.iro=r;}else{while(currentPiece&&!checkCollision(currentPiece.row+1,currentPiece.col,currentPiece.iro)){currentPiece.row++;score+=2;}if(currentPiece)lockPiece();}}
++Lab.installP5({after(){Lab.score=score;if(gameOver)Lab.end(false,'棋盘堆满了。用 2、3、8 等指数关系清除方块。');else if(score>=600||gameWon)Lab.end(true);},actions:[{label:'←',run(){pieceAction('left');}},{label:'旋转',run(){pieceAction('rotate');}},{label:'→',run(){pieceAction('right');}},{label:'快速落下',run(){pieceAction('drop');}}]});

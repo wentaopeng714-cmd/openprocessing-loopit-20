@@ -1,0 +1,33 @@
+class Tupel {
+	constructor(i, j) {
+		this.i = i;
+		this.j = j;
+	}
+
+	toString() {
+		return `(${this.i}, ${this.j})`;
+	}
+
+	copy() {
+		return new Tupel(this.i, this.j);
+	}
+
+	add(other) {
+		this.i += other.i;
+		this.j += other.j;
+	}
+
+	eq(other) {
+		if (other instanceof Tupel)
+			return this.i == other.i && this.j == other.j;
+		return false
+	}
+
+	find_in(list) {
+		for(let n = 0; n < list.length; n++) {
+			if (this.eq(list[n]))
+				return n;
+		}
+		return -1;
+	}
+}

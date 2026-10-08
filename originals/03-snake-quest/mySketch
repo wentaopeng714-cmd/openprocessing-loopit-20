@@ -1,0 +1,40 @@
+grid = null;
+
+function setup() {
+	createCanvas(windowWidth-20, windowHeight-20);
+	grid = new Grid(6, 6);
+}
+
+function draw() {
+	background(100);
+	grid.draw();
+}
+
+function keyPressed() {
+	switch(key) {
+		case 'ArrowUp':
+		case 'w':
+		case 'W':
+			grid.snake.command('up');
+			break;
+		case 'ArrowDown':
+		case 's':
+		case 'S':
+			grid.snake.command('down');
+			break;
+		case 'ArrowLeft':
+		case 'a':
+		case 'A':
+			grid.snake.command('left');
+			break;
+		case 'ArrowRight':
+		case 'd':
+		case 'D':
+			grid.snake.command('right');
+			break;
+		case 'Enter':
+		case ' ':
+			grid.restart();
+			break;
+	}
+}

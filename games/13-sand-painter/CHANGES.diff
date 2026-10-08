@@ -1,0 +1,40 @@
+--- original
++++ enhanced
+@@ -22,7 +22,7 @@
+ 
+ // --- Animation/Saving Parameters ---
+ let ANIMATION_SPEED = 30; // default: 30 (Desired frames per second)
+-let MAX_FRAMES = 900; // default: 900 (Maximum frames to run)
++let MAX_FRAMES = 100000000; // default: 900 (Maximum frames to run)
+ let SAVE_FRAMES = false; // default: false (Save frames to disk)
+ 
+ // --- Color Palettes (Curated from Adobe Kuler / Color Themes) ---
+@@ -93,8 +93,8 @@
+ let COLOR_START_INDEX = 1; // default: 1 (Start index for cell colors, skipping BG color)
+ 
+ // --- Physics/Particle Parameters ---
+-let FRIENDS_PER_CELL = 3; // default: 3 (Number of particles per cell)
+-let MAX_SPEED = 1.2; // default: 1.2 (Maximum velocity magnitude)
++let FRIENDS_PER_CELL = 6; // default: 3 (Number of particles per cell)
++let MAX_SPEED = 2.5; // default: 1.2 (Maximum velocity magnitude)
+ let MAX_FORCE = 0.08; // default: 0.08 (Maximum steering force)
+ let NEIGHBOR_RADIUS = 30; // default: 30 (Radius for neighbor interaction)
+ let SEPARATION_DISTANCE = 12; // default: 12 (Closest distance to maintain)
+@@ -266,6 +266,7 @@
+   update() {
+     let flockForce = this.flock(grid.getCellFriends(this.homeCenter));
+     flockForce.add(this.confine());
++    if(mouseIsPressed && dist(mouseX,mouseY,this.position.x,this.position.y)<140){ flockForce.add(createVector(mouseX-this.position.x,mouseY-this.position.y).setMag(.25)); }
+     this.applyForce(flockForce);
+     this.checkWalls();
+ 
+@@ -553,3 +554,9 @@
+     saveCanvas(`sandpainter_grid3_${Date.now()}`, "png");
+   }
+ }
++
++
++// Interactive additions; original core retained above.
++
++function sandTarget(){let cells=grid.cells.flat();let cell=cells[Math.floor(Math.random()*cells.length)];Lab.epoch++;Lab.target={x:cell.center.x,y:cell.center.y,r:25,hits:0};}
++Lab.installP5({fps:40,start(){sandTarget();},tap(){},after(){let friends=grid.cells.flat().flatMap(c=>c.friends);let old=Lab.target;Lab.collect(friends,p=>p.position,()=>Lab.pointer.down,2,4);if(Lab.target!==old)sandTarget();Lab.drawTarget();},actions:[{label:'换色',run(){cyclePalette();sandTarget();}}]});

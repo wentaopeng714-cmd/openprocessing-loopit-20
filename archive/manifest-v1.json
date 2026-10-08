@@ -1,0 +1,452 @@
+[
+  {
+    "id": "3016942",
+    "url": "https://openprocessing.org/@sellis/3016942",
+    "title": "Mouse Pong with Trails",
+    "author": "Sam Ellis",
+    "category": "games",
+    "slug": "01-neon-pong",
+    "name": "霓虹球拍",
+    "license": "CC BY-NC-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+    "description": "拖动球拍迎击，先拿 5 分；新增精准回击与连击反馈。",
+    "upstream": "Pong with Trails / Sam Ellis",
+    "upstreamUrl": "https://openprocessing.org/@sellis/3006100",
+    "sourceFiles": [
+      "mySketch.js"
+    ],
+    "sourceSha256": {
+      "mySketch.js": "db516ce03fbad3f1cec2d6056262f3d56e132c93a0a709861f7311d58da985d0"
+    },
+    "goal": 5,
+    "seconds": 90
+  },
+  {
+    "id": "3028298",
+    "url": "https://openprocessing.org/@Numberblocks7amer/3028298",
+    "title": "Flappy Bird",
+    "author": "Amer7",
+    "category": "games",
+    "slug": "02-flappy-bounce",
+    "name": "弹跳小鸟",
+    "license": "CC BY-NC-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+    "description": "点按飞行穿过管道；增加难度递进、奖励星与 10 分目标。",
+    "upstream": "",
+    "upstreamUrl": "",
+    "sourceFiles": [
+      "mySketch"
+    ],
+    "sourceSha256": {
+      "mySketch": "1cf6248da330edcc2a37ba21f6c551590f72b3aee1ff512e73c38474a603426a"
+    },
+    "goal": 10,
+    "seconds": 60
+  },
+  {
+    "id": "3021406",
+    "url": "https://openprocessing.org/@u84142/3021406",
+    "title": "MySnake",
+    "author": "jarrn",
+    "category": "games",
+    "slug": "03-snake-quest",
+    "name": "贪吃蛇闯关",
+    "license": "CC BY-NC-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+    "description": "滑动或方向键转向；增加手机方向键、食物目标与进度反馈。",
+    "upstream": "",
+    "upstreamUrl": "",
+    "sourceFiles": [
+      "mySketch",
+      "Grid",
+      "Snake",
+      "Tupel",
+      "Food"
+    ],
+    "sourceSha256": {
+      "mySketch": "887aebc740692614ca216f6e3235fe3250f90ab58690c26afb3c9c07c755f886",
+      "Grid": "92bd445afdbfcd232e1e635c6ed9b89bc8398521b1a2c61c760a870fc4b4b6bc",
+      "Snake": "d9cd4893fa60420c21e072f04b54053197b135ed1cc463acd0b87953ffcfb0a0",
+      "Tupel": "88a822716259445cd0384ef39dfed501cb2ca77399cd1c0e68c327e2b447902a",
+      "Food": "3e18b124284bf9bd23f71eb1925525c8da0f9ffffcb2c2944d2d68c2808e6563"
+    },
+    "goal": 10,
+    "seconds": 90
+  },
+  {
+    "id": "3016946",
+    "url": "https://openprocessing.org/@sellis/3016946",
+    "title": "Rocket Run 3 with More Planets",
+    "author": "Sam Ellis",
+    "category": "games",
+    "slug": "04-rocket-run",
+    "name": "星际火箭",
+    "license": "CC BY-NC-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+    "description": "拖动火箭躲陨石；增加能量收集和短时护盾。",
+    "upstream": "Rocket Run 3 / Sam Ellis",
+    "upstreamUrl": "https://openprocessing.org/@sellis/3008106",
+    "sourceFiles": [
+      "mySketch"
+    ],
+    "sourceSha256": {
+      "mySketch": "1c6dca14e04e8292912ac1fcae11f50551f4365ef746b9de349a378b514afb74"
+    },
+    "goal": 150,
+    "seconds": 60
+  },
+  {
+    "id": "3013202",
+    "url": "https://openprocessing.org/@memphisq/3013202",
+    "title": "Merge Battery!",
+    "author": "Memphis",
+    "category": "games",
+    "slug": "05-merge-battery",
+    "name": "合并电池",
+    "license": "CC BY-NC-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+    "description": "点击投放、相同数字合并；增加手动落点、连锁反馈与合并目标。",
+    "upstream": "Merge Numbers! / Extrnal Productions (YT)",
+    "upstreamUrl": "https://openprocessing.org/@u421429/2844544",
+    "sourceFiles": [
+      "mySketch"
+    ],
+    "sourceSha256": {
+      "mySketch": "0af14d9d96d20a4c9ef7c58b2052f3045e1c0f6a0ac26d6a1bfad787d305c84d"
+    },
+    "goal": 100,
+    "seconds": 90
+  },
+  {
+    "id": "3026096",
+    "url": "https://openprocessing.org/@xman123/3026096",
+    "title": "Infinite Clicker",
+    "author": "Xavier Fonda",
+    "category": "games",
+    "slug": "06-infinite-clicker",
+    "name": "能量工坊",
+    "license": "CC BY-NC-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+    "description": "点击蓄能、选择升级；修正失衡收益，增加限时挑战与点击连击。",
+    "upstream": "Infinite Clicker / jaximusthemaximus3",
+    "upstreamUrl": "https://openprocessing.org/@u491054/2482832",
+    "sourceFiles": [
+      "mySketch"
+    ],
+    "sourceSha256": {
+      "mySketch": "f873d9d47a12afea49e95baee3661d694716f648303a12c767023144fe2e08a0"
+    },
+    "goal": 500,
+    "seconds": 60
+  },
+  {
+    "id": "3024996",
+    "url": "https://openprocessing.org/@vfv/3024996",
+    "title": "Dot Game4.0",
+    "author": "rc",
+    "category": "games",
+    "slug": "07-dot-chase",
+    "name": "彩点逃生",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "description": "拖动橙色圆点收集彩点、躲开红色追兵；增加冲刺和目标分。",
+    "upstream": "Dot Game / Adin Jura",
+    "upstreamUrl": "https://openprocessing.org/@u89236/622617",
+    "sourceFiles": [
+      "mySketch"
+    ],
+    "sourceSha256": {
+      "mySketch": "2f07e4c619d3a0915557d4cc0011fb3862108e906d52e0588dd01455ff21d422"
+    },
+    "goal": 20,
+    "seconds": 60
+  },
+  {
+    "id": "3027800",
+    "url": "https://openprocessing.org/@mlim/3027800",
+    "title": "Magnetorium",
+    "author": "Melvin Beckstead",
+    "category": "games",
+    "slug": "08-magnetorium",
+    "name": "磁力试炼",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "description": "触屏调整磁力球；增加移动目标、吸附收集与 30 秒挑战。",
+    "upstream": "Magnetorium / Adonis",
+    "upstreamUrl": "https://openprocessing.org/@u512449/2571904",
+    "sourceFiles": [
+      "mySketch"
+    ],
+    "sourceSha256": {
+      "mySketch": "cf7b9ab2a776e8c9fe7ba69e6629c0ad90cb10baba3125c9823a69caa7fbabd8"
+    },
+    "goal": 100,
+    "seconds": 30
+  },
+  {
+    "id": "3028289",
+    "url": "https://openprocessing.org/@Numberblocks7amer/3028289",
+    "title": "10 by 10 gird",
+    "author": "Amer7",
+    "category": "games",
+    "slug": "09-grid-memory",
+    "name": "方格记忆",
+    "license": "CC BY-NC-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+    "description": "保留点按着色网格；增加记忆图案、限时复现、逐关升级。",
+    "upstream": "10 by 10 gird / Amer7",
+    "upstreamUrl": "https://openprocessing.org/@Numberblocks7amer/3028286",
+    "sourceFiles": [
+      "mySketch"
+    ],
+    "sourceSha256": {
+      "mySketch": "3bbbfd2b032bb28de1d2e882f440c6093159540366c9c501d6a6deaccdfe1b47"
+    },
+    "goal": 50,
+    "seconds": 80
+  },
+  {
+    "id": "3012059",
+    "url": "https://openprocessing.org/@KylaDoesMath3375/3012059",
+    "title": "ExpLog Match",
+    "author": "Kyla H",
+    "category": "games",
+    "slug": "10-explog-match",
+    "name": "指数配对",
+    "license": "CC BY-NC-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+    "description": "移动、旋转、落下数字方块；三个相邻数字满足指数关系即可消除，例如 2、3、8。新增手机按钮与分数挑战。",
+    "upstream": "",
+    "upstreamUrl": "",
+    "sourceFiles": [
+      "index.html"
+    ],
+    "sourceSha256": {
+      "index.html": "59835d5227adeed249e591d0c46f04b4b6cbe26610e98009b7083e1b728345ab"
+    },
+    "goal": 600,
+    "seconds": 120
+  },
+  {
+    "id": "3026796",
+    "url": "https://openprocessing.org/@maksss/3026796",
+    "title": "Mouse Pop",
+    "author": "maks",
+    "category": "particles",
+    "slug": "11-particle-pop",
+    "name": "粒子爆破",
+    "license": "CC BY-NC-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+    "description": "点击引爆聚集粒子，将粒子推入移动光圈；击中越多得分越高。",
+    "upstream": "Mouse Followers / maks",
+    "upstreamUrl": "https://openprocessing.org/@maksss/3003719",
+    "sourceFiles": [
+      "mySketch"
+    ],
+    "sourceSha256": {
+      "mySketch": "84afb688b544bcd19b3a74f667ad685f21ff9b3fea88cd73f3461c94396995ba"
+    },
+    "goal": 80,
+    "seconds": 45
+  },
+  {
+    "id": "3026808",
+    "url": "https://openprocessing.org/@maksss/3026808",
+    "title": "Mouse Twitch",
+    "author": "maks",
+    "category": "particles",
+    "slug": "12-particle-twitch",
+    "name": "粒子弹簧",
+    "license": "CC BY-NC-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+    "description": "长按推动弹簧粒子，命中移动目标；增加力度与连击反馈。",
+    "upstream": "Mouse Followers / maks",
+    "upstreamUrl": "https://openprocessing.org/@maksss/3003719",
+    "sourceFiles": [
+      "mySketch"
+    ],
+    "sourceSha256": {
+      "mySketch": "748cabde9106f72b927d1e87342cdf852e45ae2b4f21f840b6189e9080a89320"
+    },
+    "goal": 40,
+    "seconds": 45
+  },
+  {
+    "id": "3026689",
+    "url": "https://openprocessing.org/@dsa157/3026689",
+    "title": "Sand Painter",
+    "author": "David April",
+    "category": "particles",
+    "slug": "13-sand-painter",
+    "name": "流沙航线",
+    "license": "CC BY-NC-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+    "description": "拖动引导原有沙画粒子穿过航点；连续完成航点挑战。",
+    "upstream": "",
+    "upstreamUrl": "",
+    "sourceFiles": [
+      "mySketch"
+    ],
+    "sourceSha256": {
+      "mySketch": "d09167f793ed3c1617d1fbcb3daec45394b71242049d9330413f61f1c114c700"
+    },
+    "goal": 40,
+    "seconds": 60
+  },
+  {
+    "id": "3026685",
+    "url": "https://openprocessing.org/@dsa157/3026685",
+    "title": "Hairy Colorful Patches",
+    "author": "David April",
+    "category": "particles",
+    "slug": "14-color-flow",
+    "name": "彩流园丁",
+    "license": "CC BY-NC-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+    "description": "拖动扰动彩色流场，收集流经光圈的粒子；可切换调色板。",
+    "upstream": "",
+    "upstreamUrl": "",
+    "sourceFiles": [
+      "mySketch"
+    ],
+    "sourceSha256": {
+      "mySketch": "5dbf100e677e2de8013eeffc65cb973ee980f75f04b7994dfa6a0bae0b4c71b2"
+    },
+    "goal": 80,
+    "seconds": 45
+  },
+  {
+    "id": "3026673",
+    "url": "https://openprocessing.org/@dsa157/3026673",
+    "title": "Color Bursts",
+    "author": "David April",
+    "category": "particles",
+    "slug": "15-color-bursts",
+    "name": "彩色爆发",
+    "license": "CC BY-NC-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+    "description": "点击在流场中主动引爆颜色；将粒子点燃并击中目标区域。",
+    "upstream": "",
+    "upstreamUrl": "",
+    "sourceFiles": [
+      "index.html",
+      "mySketch.js"
+    ],
+    "sourceSha256": {
+      "index.html": "38992e7f200680891fbd14cee917b068f01d73d5eba0ccd017252da540eba344",
+      "mySketch.js": "d2aa81a41e1c2036068ea5902e6415f4bee8a9f8c16fb989a48a7b80b993ed33"
+    },
+    "goal": 80,
+    "seconds": 45
+  },
+  {
+    "id": "3026515",
+    "url": "https://openprocessing.org/@daanno_o/3026515",
+    "title": "Starfield × Inward",
+    "author": "daanno_o",
+    "category": "particles",
+    "slug": "16-starfield",
+    "name": "星光穿梭",
+    "license": "CC BY-NC-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+    "description": "点按捕捉彩色星星；新增反向按钮、连击和限时捕星挑战。",
+    "upstream": "",
+    "upstreamUrl": "",
+    "sourceFiles": [
+      "mySketch"
+    ],
+    "sourceSha256": {
+      "mySketch": "f2f12be5d78fff01ad733653593432b05451ae10f37aefd1b07d73d02ef28745"
+    },
+    "goal": 100,
+    "seconds": 45
+  },
+  {
+    "id": "3022367",
+    "url": "https://openprocessing.org/@u293491/3022367",
+    "title": "Attraction Particles",
+    "author": "YellowFellow",
+    "category": "particles",
+    "slug": "17-attraction",
+    "name": "引力捕手",
+    "license": "CC BY-NC-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+    "description": "长按吸引原有粒子进入收集环；用引力聚集粒子得分。",
+    "upstream": "Attraction Particles / 16384",
+    "upstreamUrl": "https://openprocessing.org/@16384/1364701",
+    "sourceFiles": [
+      "mySketch"
+    ],
+    "sourceSha256": {
+      "mySketch": "ec2d4d48893472d73a8578b3ff813767e65fdab56e8a6086400c43743a81cc58"
+    },
+    "goal": 80,
+    "seconds": 45
+  },
+  {
+    "id": "3020298",
+    "url": "https://openprocessing.org/@redmercer/3020298",
+    "title": "Water Ripples",
+    "author": "ryan",
+    "category": "particles",
+    "slug": "18-water-ripples",
+    "name": "水波节奏",
+    "license": "CC BY-NC-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+    "description": "点击水面激起新波纹；按节奏击中目标，连续命中得分。",
+    "upstream": "",
+    "upstreamUrl": "",
+    "sourceFiles": [
+      "mySketch"
+    ],
+    "sourceSha256": {
+      "mySketch": "4bf1fe3812d78a704a02e3ee687642b3f624073ab3262d230a9fe5436693073b"
+    },
+    "goal": 50,
+    "seconds": 45
+  },
+  {
+    "id": "3003818",
+    "url": "https://openprocessing.org/@maksss/3003818",
+    "title": "Bi Grid",
+    "author": "maks",
+    "category": "particles",
+    "slug": "19-bi-grid",
+    "name": "双极网格",
+    "license": "CC BY-NC-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+    "description": "点击释放横向或纵向双色粒子，让粒子穿过光圈；可切换方向。",
+    "upstream": "",
+    "upstreamUrl": "",
+    "sourceFiles": [
+      "mySketch"
+    ],
+    "sourceSha256": {
+      "mySketch": "6acbd206af3dde50b2bfa0f6e70360faa5c3302dfda6b63659c0e39e16cb4f59"
+    },
+    "goal": 60,
+    "seconds": 45
+  },
+  {
+    "id": "3003719",
+    "url": "https://openprocessing.org/@maksss/3003719",
+    "title": "Mouse Followers",
+    "author": "maks",
+    "category": "particles",
+    "slug": "20-mouse-followers",
+    "name": "星尘牧场",
+    "license": "CC BY-NC-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+    "description": "移动手指引导粒子群；将粒子带进收集环，长按切换排斥。",
+    "upstream": "",
+    "upstreamUrl": "",
+    "sourceFiles": [
+      "mySketch"
+    ],
+    "sourceSha256": {
+      "mySketch": "c0957fb1e8b34f583c657655dc97daefa9e19ec86c284c7047bf0fc20f274ace"
+    },
+    "goal": 100,
+    "seconds": 45
+  }
+]

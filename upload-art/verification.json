@@ -1,0 +1,26 @@
+{
+  "01-portrait-loom.html": {
+    "bytes": 3451517,
+    "sha256": "36196d8bfd3666bff70a2c3848a050804367a74c823d9891c5533f270a2dd61b"
+  },
+  "02-field-canvas.html": {
+    "bytes": 3451943,
+    "sha256": "0719aed894abf63841cab4669f38c6f5a6730f89cf1553609ee085867c901d15"
+  },
+  "05-golden-garden.html": {
+    "bytes": 1067383,
+    "sha256": "3ad892b93feda0009e81900182c1c5e72b22adaa3b199de1dfde19b2232ee06e"
+  },
+  "03-pigment-portrait.html": {
+    "bytes": 3451415,
+    "sha256": "55b9e46b84170d38d12914e2c4ae195de7eb1a32a922a7c82638a896c8095e75"
+  },
+  "04-ribbon-falls.html": {
+    "bytes": 1067228,
+    "sha256": "97e8a07900eae630f6cbebcaecfe94a2ade5920993b06c5906412c30e003e0a6"
+  },
+  "06-liquid-light.html": {
+    "bytes": 1072262,
+    "sha256": "aeb85b2260c1c65bf672d323b80fe90e1477a42deb3219af2c5de9c06ad0282e"
+  }
+}

@@ -1,0 +1,16 @@
+Six independent interactive art uploads
+
+Six separate artworks adapted from the selected OpenProcessing originals. Each has its own rendering algorithm and touch gestures, an English interface, persistent marks or lingering currents, and responsive controls.
+
+Download the matching .html for a single-file upload, or .zip for a root-index HTML package. All runtime resources are embedded; the ZIPs include source attribution, original code and library licensing.
+
+01 Portrait Loom — Vamoss, Image Circular Random Walker
+02 Field Canvas — Jason Labbe, Noise flow field painter
+03 Pigment Portrait — Jason Labbe, Art gallery painter, ported to p5.js
+04 Ribbon Falls — Jason Labbe, Niagara falls hues
+05 Golden Garden — Vamoss, Organic Trail final tutorial
+06 Liquid Light — Jason Labbe, Magical trail shader
+
+Derivative artwork code: CC BY-SA 3.0. p5.js: LGPL-2.1. Individual notices are included in every package and HTML source.
+
+Validated in desktop and 390 x 844 browser views: launches, real mouse clicks and drags, creative modes, scene/palette switches, pause/resume, clean tested console output, embedded resources and matching ZIP integrity. Physical multi-touch and the Gamewave uploader were not available for validation.

@@ -1,0 +1,32 @@
+SIX INDEPENDENT TOUCH ARTWORKS
+
+Upload one artwork at a time.
+
+If your upload form accepts a single HTML file, choose its file in standalone/.
+If it accepts a ZIP, choose the matching file in packages/.
+Each ZIP has index.html at its root. The playable entry has all JavaScript,
+images, styles and p5.js embedded. No external CDN or internet request is needed.
+No installation, build step, server, account or SDK is needed by these files.
+
+01 Portrait Loom: image-coloured circular threads; gather, scatter, switch subject.
+02 Field Canvas: image-sampled brush strokes; bend flow, carve, switch scene.
+03 Pigment Portrait: brightness-driven pigments; paint, palette knife, colour wash.
+04 Ribbon Falls: gravity-driven ribbons; lift, leave swirls, change colours, suspend.
+05 Golden Garden: organic fibres; plant, grow, comb, change pigment.
+06 Liquid Light: particle light shader; melt, orbit, preserve light, change colours.
+
+All interfaces are English. Pause and reset are in the upper right.
+Hide controls keeps the artwork interactive. Use Show controls or Escape to return.
+
+Original creators: Vamoss and Jason Labbe.
+Derivative artwork code: CC BY-SA 3.0; preserve attribution and the license notices.
+p5.js is a separate library under LGPL-2.1. Full library license is in each ZIP.
+Source links and changes are recorded in each ZIP's LICENSE.txt and original/.
+The image assets are retained from the referenced OpenProcessing source sketches.
+
+Verification: six embedded HTML files launched in the browser, desktop and
+390 x 844 layouts inspected, actual mouse clicks and drags exercised,
+art-specific mode and scene switches checked, pause/resume checked,
+all ZIP entries checked, and one extracted ZIP run independently.
+Physical multi-touch hardware and the Gamewave upload service were not tested.
+These files have not been uploaded to Gamewave; the recipient uploads them.

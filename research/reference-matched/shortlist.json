@@ -1,0 +1,84 @@
+{
+  "selectionBasis": "User-provided attraction_particles.html: strong image-derived visual texture, simple gestures with large evolving response, varied materials and palettes.",
+  "items": [
+    {
+      "title": "Image Circular Random Walker",
+      "author": "Vamoss",
+      "url": "https://openprocessing.org/@u65884/624879",
+      "visual": "Image-sampled circular fibre trails form a portrait.",
+      "originalInteraction": "Autoplay; description says just watch.",
+      "proposedInteraction": "Touch attracts image-coloured fibres; release allows the portrait to recover.",
+      "review": "Original rendered and code checked; saved source and reference image.",
+      "codeLicense": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "status": "Selected reference, not a completed new adaptation"
+    },
+    {
+      "title": "Noise flow field painter",
+      "author": "Jason Labbe",
+      "url": "https://openprocessing.org/@theRussetPotato/472966",
+      "visual": "Image-sampled rounded paint strokes follow a noise flow field.",
+      "originalInteraction": "Click changes the image; a key saves JPG.",
+      "proposedInteraction": "Drag locally bends the brush field and changes stroke density.",
+      "review": "Original rendered and code checked; saved source and four image assets.",
+      "codeLicense": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "status": "Selected reference, not a completed new adaptation"
+    },
+    {
+      "title": "Art gallery painter",
+      "author": "Jason Labbe",
+      "url": "https://openprocessing.org/@theRussetPotato/520387",
+      "visual": "Portrait brightness determines stroke direction and hue.",
+      "originalInteraction": "Click cycles images.",
+      "proposedInteraction": "Touch paints or disrupts portrait regions; gestures vary brush width.",
+      "review": "Original rendered and code checked; Processing.js source saved; requires porting before adaptation.",
+      "codeLicense": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "status": "Selected reference, not a completed new adaptation"
+    },
+    {
+      "title": "Niagara falls hues",
+      "author": "Jason Labbe",
+      "url": "https://openprocessing.org/@theRussetPotato/431862",
+      "visual": "Dense warm-coloured falling ribbons.",
+      "originalInteraction": "Move the mouse.",
+      "proposedInteraction": "Touch redirects streams; a held touch sustains a whirlpool.",
+      "review": "Original rendered; complete single-file p5.js source saved; mouse input identified in code.",
+      "codeLicense": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "status": "Selected reference, not a completed new adaptation"
+    },
+    {
+      "title": "Organic Trail Tutorial",
+      "author": "Vamoss",
+      "url": "https://openprocessing.org/@u65884/1036179",
+      "visual": "Noise-driven trails form a fur-like texture with graded lightness.",
+      "originalInteraction": "Final tutorial combines individual noise movement with mouse direction.",
+      "proposedInteraction": "Touch combs fibres; gesture speed changes strand length and curl.",
+      "review": "Final tutorial explanation and source inspected; input not verified.",
+      "codeLicense": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "status": "Selected reference, not a completed new adaptation"
+    },
+    {
+      "title": "Magical trail shader",
+      "author": "Jason Labbe",
+      "url": "https://openprocessing.org/@theRussetPotato/835887",
+      "visual": "A shader merges moving particles into luminous liquid trails.",
+      "originalInteraction": "Mouse-driven particle trails.",
+      "proposedInteraction": "Preserve shader; tune touch hold, flow inertia, and colour transitions.",
+      "review": "Previously rendered and adapted in Liquid Light study.",
+      "codeLicense": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "status": "Selected reference, not a completed new adaptation"
+    }
+  ],
+  "excluded": [
+    "Repeated forks counted as the same original",
+    "Sparse attraction dots",
+    "Particle outline templates",
+    "Sea creatures and Dynamic tree: weaker match for this reference",
+    "particle ink + noise: interesting recursion but too subtle in local input check"
+  ]
+}

@@ -1,0 +1,5 @@
+Derived from https://openprocessing.org/@u65884/624879 by Vamoss; CC BY-SA 3.0, https://creativecommons.org/licenses/by-sa/3.0/. Modified: touch input, independent creative gestures, responsive sizing, palettes and finite particle limits. Attribution is retained here and in LICENSE.txt.
+
+Original source is included in original/. Derivative JavaScript is licensed CC BY-SA 3.0.
+p5.js: LGPL-2.1, https://p5js.org; complete license included in P5-LICENSE.txt.
+Image assets are retained from the original OpenProcessing sketches: research/reference-matched/624879-image-circular-random-walker/profile.jpg, research/reference-matched/472966-noise-flow-field-painter/img1.jpg, research/reference-matched/472966-noise-flow-field-painter/img3.jpg, research/reference-matched/472966-noise-flow-field-painter/img4.jpg, research/reference-matched/472966-noise-flow-field-painter/img5.jpg, research/reference-matched/520387-art-gallery-painter/emma.jpg

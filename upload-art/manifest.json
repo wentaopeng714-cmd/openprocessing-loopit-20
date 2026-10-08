@@ -1,0 +1,208 @@
+[
+  {
+    "slug": "01-portrait-loom",
+    "name": "Portrait Loom",
+    "theme": "dark",
+    "author": "Vamoss",
+    "source": "https://openprocessing.org/@u65884/624879",
+    "hint": "Draw to pull the threads. Hold to gather them. Release to reveal the face.",
+    "tools": [
+      [
+        "weave",
+        "Weave",
+        "mode"
+      ],
+      [
+        "scatter",
+        "Scatter",
+        "mode"
+      ],
+      [
+        "subject",
+        "New subject",
+        "action"
+      ]
+    ],
+    "license": "CC BY-SA 3.0",
+    "scripts": [
+      "sketch.js"
+    ]
+  },
+  {
+    "slug": "02-field-canvas",
+    "name": "Field Canvas",
+    "theme": "paper",
+    "author": "Jason Labbe",
+    "source": "https://openprocessing.org/@theRussetPotato/472966",
+    "hint": "Drag to bend the brushwork. Hold to paint a swirl. Your marks stay.",
+    "tools": [
+      [
+        "flow",
+        "Flow",
+        "mode"
+      ],
+      [
+        "carve",
+        "Carve",
+        "mode"
+      ],
+      [
+        "scene",
+        "New scene",
+        "action"
+      ]
+    ],
+    "license": "CC BY-SA 3.0",
+    "scripts": [
+      "sketch.js"
+    ]
+  },
+  {
+    "slug": "03-pigment-portrait",
+    "name": "Pigment Portrait",
+    "theme": "paper",
+    "author": "Jason Labbe",
+    "source": "https://openprocessing.org/@theRussetPotato/520387",
+    "hint": "Paint the portrait with your finger. Try colour washing or the palette knife.",
+    "tools": [
+      [
+        "paint",
+        "Paint",
+        "mode"
+      ],
+      [
+        "knife",
+        "Knife",
+        "mode"
+      ],
+      [
+        "wash",
+        "Colour wash",
+        "mode"
+      ],
+      [
+        "subject",
+        "New subject",
+        "action"
+      ]
+    ],
+    "license": "CC BY-SA 3.0",
+    "scripts": [
+      "sketch.js"
+    ]
+  },
+  {
+    "slug": "04-ribbon-falls",
+    "name": "Ribbon Falls",
+    "theme": "dark",
+    "author": "Jason Labbe",
+    "source": "https://openprocessing.org/@theRussetPotato/431862",
+    "hint": "Drag to lift the falling ribbons. Hold for a whirlpool. Flick to leave a current.",
+    "tools": [
+      [
+        "amber",
+        "Amber",
+        "palette"
+      ],
+      [
+        "cobalt",
+        "Cobalt",
+        "palette"
+      ],
+      [
+        "rose",
+        "Rose",
+        "palette"
+      ],
+      [
+        "suspend",
+        "Suspend",
+        "action"
+      ]
+    ],
+    "license": "CC BY-SA 3.0",
+    "scripts": [
+      "sketch.js"
+    ]
+  },
+  {
+    "slug": "05-golden-garden",
+    "name": "Golden Garden",
+    "theme": "paper",
+    "author": "Vamoss",
+    "source": "https://openprocessing.org/@u65884/1036179",
+    "hint": "Touch to plant a living bloom. Drag to comb its fibres. Hold to let it grow.",
+    "tools": [
+      [
+        "plant",
+        "Plant",
+        "mode"
+      ],
+      [
+        "comb",
+        "Comb",
+        "mode"
+      ],
+      [
+        "gold",
+        "Gold",
+        "palette"
+      ],
+      [
+        "moss",
+        "Moss",
+        "palette"
+      ],
+      [
+        "coral",
+        "Coral",
+        "palette"
+      ]
+    ],
+    "license": "CC BY-SA 3.0",
+    "scripts": [
+      "sketch.js"
+    ]
+  },
+  {
+    "slug": "06-liquid-light",
+    "name": "Liquid Light",
+    "theme": "dark",
+    "author": "Jason Labbe",
+    "source": "https://openprocessing.org/@theRussetPotato/835887",
+    "hint": "Draw liquid light. Hold to grow a pearl. Two fingers bend the current.",
+    "tools": [
+      [
+        "melt",
+        "Melt",
+        "motion"
+      ],
+      [
+        "orbit",
+        "Orbit",
+        "motion"
+      ],
+      [
+        "glass",
+        "Glass",
+        "motion"
+      ],
+      [
+        "opal",
+        "Opal",
+        "palette"
+      ],
+      [
+        "ember",
+        "Ember",
+        "palette"
+      ]
+    ],
+    "license": "CC BY-SA 3.0",
+    "scripts": [
+      "sketch.js",
+      "particle.js",
+      "shader.js"
+    ]
+  }
+]

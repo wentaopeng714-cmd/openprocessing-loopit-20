@@ -1,7 +1,13 @@
-# 触景 v2 · 来源与许可
+# Quiet / Play — Attribution and license
 
-这次重做以持续互动的粒子艺术为重点。20 个新题材的形状、构图、背景、色彩、材质和界面由本项目重新创作；不是从 OpenProcessing 下载的人脸、山水、动物或静物成品。原版的 Games 和 Particles 各 10 个下载与改编仍保留，入口为 archive/games-v1.html。
+The shapes, compositions, subject-specific input rules and new simulations are authored for this collection. They are not exports of finished portraits, animals, landscapes or objects from OpenProcessing.
 
-新作品的回位弹簧、惯性阻尼和触摸排斥机制改编自 **Mouse Twitch / maks**：https://openprocessing.org/@maksss/3026808 。原始代码位于 originals/12-particle-twitch/mySketch。为更平稳的触屏响应调整了物理参数，添加多点触摸、持续环境运动、展开与重组、主题变化、暂停、沉浸和图片保存。
+Shared spring interpolation derives from **Mouse Twitch by maks**:
+https://openprocessing.org/@maksss/3026808
 
-这 20 个作品的改编按 **CC BY-NC-SA 3.0** 提供：https://creativecommons.org/licenses/by-nc-sa/3.0/ 。须署名、非商业使用，后续改编使用相同许可。页面与下载包均保留此说明。旧版作品按 CREDITS.md 各自许可提供。
+Original code remains in `originals/12-particle-twitch/mySketch` in the repository and `originals/Mouse-Twitch.js` in the current collection ZIP. The previous generic pointer-repulsion interaction has been removed. Every subject now defines its own input, persistent state, evolution and response in `assets/art/interactions.js`.
+
+These derivative studies retain **Creative Commons Attribution-NonCommercial-ShareAlike 3.0**:
+https://creativecommons.org/licenses/by-nc-sa/3.0/
+
+Credit the original author, use non-commercially, and distribute adaptations under the same license. This attribution is retained in HTML comments, per-scene README files and downloadable source packages.

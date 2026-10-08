@@ -1,5 +1,7 @@
-# v2 检查记录
+# Version 3 checks
 
-2026-10-08：20 个艺术入口逐个完成画布点击及散开检查；20 个独立 HTML 在 390×844 浏览器视口完成散开、复原和布局检查，无横向溢出，未见控制台运行错误。分别检查人像、山水、锦鲤、猫、纸鹤和花的画面。代表作品检查静止/继续、沉浸/退出；图片保存实际生成 390×844 PNG，下载事件检测超时但文件确认存在。分类过滤显示动物 4 个。
+2026-10-08: All twenty scenes were opened in the browser. Canvas gestures and scene-specific controls ran without observed runtime errors. Visible text was checked for Chinese characters; no Chinese appeared in the current art pages. The only artwork link is the back navigation; there are no source-code links beneath the artwork.
 
-这不是实体手机性能基准，也未在全部手机浏览器逐一测试。
+Real pointer drags were checked for record scratching, fruit slicing, and retained paper-wing folding. Automated model checks verify autonomous food consumption, local fog erasure and condensation, angular inertia after release, fruit-half separation, independent retained paper folds, lamp-cord activation thresholds, and local facial expression changes.
+
+All twenty standalone files were opened at a 390 × 844 browser viewport. English-only visible text, no horizontal overflow, and all header controls inside the viewport were verified. No runtime errors were observed. The collection page also passed the English-only and layout checks. These checks are not a benchmark of every physical phone or an exhaustive test of all possible gestures.

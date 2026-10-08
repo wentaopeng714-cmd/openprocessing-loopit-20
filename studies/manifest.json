@@ -1,0 +1,133 @@
+[
+  {
+    "slug": "01-liquid-light",
+    "name": "Liquid Light",
+    "eyebrow": "LIGHT / INERTIA / TOUCH",
+    "author": "Jason Labbe",
+    "source": "https://openprocessing.org/@theRussetPotato/835887",
+    "license": "CC BY-SA 3.0",
+    "desc": "Luminous ink gathers into liquid. Draw a stream, hold to build a pearl, or pull it into an orbit.",
+    "hint": "Draw a light stream \u00b7 hold for a pearl \u00b7 two fingers bend the current",
+    "tools": [
+      [
+        "melt",
+        "Melt",
+        "motion"
+      ],
+      [
+        "orbit",
+        "Orbit",
+        "motion"
+      ],
+      [
+        "glass",
+        "Glass",
+        "motion"
+      ],
+      [
+        "opal",
+        "Opal",
+        "palette"
+      ],
+      [
+        "ember",
+        "Ember",
+        "palette"
+      ]
+    ],
+    "scripts": [
+      "sketch.js",
+      "particle.js",
+      "shader.js"
+    ],
+    "bg": "#070b12"
+  },
+  {
+    "slug": "02-living-fibres",
+    "name": "Living Fibres",
+    "eyebrow": "TEXTURE / CURRENT / COLOUR",
+    "author": "David April",
+    "source": "https://openprocessing.org/@dsa157/3026685",
+    "license": "CC BY-NC-SA 3.0",
+    "desc": "A living field of fine coloured fibres. Comb the grain, leave a whirlpool, and watch the texture grow around it.",
+    "hint": "Drag to comb the fibres \u00b7 hold to grow a whirlpool \u00b7 the current lingers",
+    "tools": [
+      [
+        "comb",
+        "Comb",
+        "brush"
+      ],
+      [
+        "whirl",
+        "Whirl",
+        "brush"
+      ],
+      [
+        "spectrum",
+        "Spectrum",
+        "palette"
+      ],
+      [
+        "reef",
+        "Reef",
+        "palette"
+      ],
+      [
+        "sunset",
+        "Sunset",
+        "palette"
+      ]
+    ],
+    "scripts": [
+      "sketch.js"
+    ],
+    "bg": "#000"
+  },
+  {
+    "slug": "03-particle-atelier",
+    "name": "Particle Atelier",
+    "eyebrow": "PAPER / PIGMENT / PATTERN",
+    "author": "Vamoss; original equations by Felix Auer",
+    "source": "https://openprocessing.org/sketch/751983",
+    "license": "CC BY-SA 3.0",
+    "desc": "Living pigment on warm paper. Your stroke unfurls into petals, tidal lines, or orbiting threads, leaving a drawing behind.",
+    "hint": "Draw with living pigment \u00b7 hold to grow a rosette \u00b7 switch the field to change its path",
+    "tools": [
+      [
+        "petal",
+        "Petal",
+        "field"
+      ],
+      [
+        "orbit",
+        "Orbit",
+        "field"
+      ],
+      [
+        "tide",
+        "Tide",
+        "field"
+      ],
+      [
+        "coral",
+        "Coral",
+        "palette"
+      ],
+      [
+        "ink",
+        "Ink",
+        "palette"
+      ],
+      [
+        "undo",
+        "Undo",
+        "action"
+      ]
+    ],
+    "scripts": [
+      "sketch.js"
+    ],
+    "bg": "#eae6dc",
+    "paper": true
+  }
+]

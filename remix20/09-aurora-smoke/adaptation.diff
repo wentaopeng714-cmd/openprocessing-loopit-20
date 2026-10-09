@@ -1,0 +1,49 @@
+--- OpenProcessing original tabs
++++ Adapted visual code
+@@ -9,7 +9,7 @@
+ */
+ 
+ var particles = [];
+-var maxAge = 40;
++var maxAge = 55;
+ var globalHue = 0;
+ 
+ function setup() {
+@@ -29,7 +29,7 @@
+ 	if (vector.mag() > 3) {
+ 		particles.push(new Particle(mouseX, mouseY));
+ 	} else {
+-		globalHue = random(255);
++		globalHue=R.ink;
+ 	}
+ 	
+ 	for (let i = particles.length -1; i > -1; i--) {
+@@ -37,10 +37,10 @@
+ 			continue;
+ 		}
+ 		
+-		stroke(0, map(particles[i].age, 0, maxAge, 0, 255));  // tail=transparent, head=opaque
+-		strokeWeight(map(particles[i].age, 0, maxAge, 160, 10) * particles[i].sizeVariance);  // tail=bigger, head=smaller
++		stroke(particles[i].hue,110,170,map(particles[i].age,0,maxAge,0,140));  // tail=transparent, head=opaque
++		strokeWeight(map(particles[i].age, 0, maxAge, 90, 8) * particles[i].sizeVariance);  // tail=bigger, head=smaller
+ 		drawingContext.shadowColor = color(particles[i].hue, 100, 200);
+-		drawingContext.shadowBlur = map(particles[i].age, 0, maxAge, 60 * particles[i].sizeVariance, 1);  // tail=larger blur, head=smaller blur
++		drawingContext.shadowBlur = map(particles[i].age, 0, maxAge, 30 * particles[i].sizeVariance, 1);  // tail=larger blur, head=smaller blur
+ 		let offset = (1 - (particles[i].age / float(maxAge))) * 50  * particles[i].offsetVariance;  // have it rise the longer it's alive
+ 		
+ 		line(
+@@ -55,7 +55,7 @@
+ 	
+ 	drawingContext.shadowBlur = 0;
+ 	fill(255);
+-	text("Move the mouse around", width / 2, 40);
++	// Instructions moved into HTML.
+ }
+ 
+ // Original tab: particle.js
+@@ -65,4 +65,5 @@
+ 	this.offsetVariance = random(0.5, 3);
+ 	this.sizeVariance = random(0.5, 1.5);
+ 	this.hue = globalHue;
+-}+}
++

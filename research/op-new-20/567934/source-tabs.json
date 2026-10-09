@@ -1,0 +1,17 @@
+[
+  {
+    "name": "bob.js",
+    "sha256": "decf0f17c78aea18d12f68d98e5f14901124e4bbed2fb0f95bfbd75031164b87",
+    "url": "https://preview.openprocessing.org/sketch/567934/preview/false/bob.js"
+  },
+  {
+    "name": "path.js",
+    "sha256": "c925fcd29ea803d9c55ad979fa6ff569e9717faedcb0e97d8146e2e59bbe0bdb",
+    "url": "https://preview.openprocessing.org/sketch/567934/preview/false/path.js"
+  },
+  {
+    "name": "sketch.js",
+    "sha256": "1d0a93f2af544c7cc0db232d0ca60dd9f16b993030a9644ab73ecfc5ea3adfe2",
+    "url": "https://preview.openprocessing.org/sketch/567934/preview/false/sketch.js"
+  }
+]

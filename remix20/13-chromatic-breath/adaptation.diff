@@ -1,0 +1,37 @@
+--- OpenProcessing original tabs
++++ Adapted visual code
+@@ -26,7 +26,7 @@
+ function draw()
+ {
+   //background("#0C0024");
+-	background(100);
++	background("#fff7f0");
+   for (let i = balls.length - 1; i >= 0; i--)
+   {
+     const b = balls[i];
+@@ -45,16 +45,16 @@
+ {
+   constructor(diam_, _angle)
+   {
+-    this.center = createVector(width/2, height/2); 
++    this.center = createVector(R.x,R.y); 
+     this.dir = createVector(cos(_angle), sin(_angle));
+ 		this.pos = this.center.copy().add(this.dir.mult(1));
+     this.diam = diam_;
+-		this.col = color(map(this.dir.heading(), -PI, PI, 0, 100), 90, 100);
++		this.col=color(R.palette%2?95+random(-5,5):map(this.dir.heading(),-PI,PI,0,100),R.palette%2?45:80,95);
+   }
+   
+   move()
+   {
+-		this.pos.add(this.dir);
++		this.pos.add(p5.Vector.mult(this.dir,R.rate));
+ 		const d = dist(this.pos.x,this.pos.y, this.center.x,this.center.y);
+ 		const s = min(width,height);
+ 		
+@@ -78,3 +78,5 @@
+ 	
+ }
+ 
++
++

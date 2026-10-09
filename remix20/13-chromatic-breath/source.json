@@ -1,0 +1,40 @@
+{
+  "id": 874621,
+  "slug": "13-chromatic-breath",
+  "title": "Chromatic Breath",
+  "original": "Color Bubbles",
+  "author": "Roni Kaufman, after Sayama",
+  "algorithm": "Golden-angle radial emitters with a distance-shaped bubble diameter",
+  "changes": "Move the emitter; hold for denser breathing; rainbow/rose colours, adjustable outward drift.",
+  "license": "by-nc-sa",
+  "theme": "#fff7f0|#9b405c|#f3b4bc",
+  "layout": "pill",
+  "buttons": [
+    [
+      "palette",
+      "Rainbow / Rose"
+    ],
+    [
+      "centre",
+      "Recenter"
+    ]
+  ],
+  "ranges": [
+    [
+      "speed",
+      "Drift",
+      0.3,
+      3,
+      1,
+      0.1
+    ]
+  ],
+  "extra": "",
+  "sourceFiles": [
+    {
+      "name": "mySketch",
+      "sha256": "70b0c426515505a42b50445cc5dccf421b36be5470db56232f05c55326cabf41",
+      "url": "https://preview.openprocessing.org/sketch/874621/preview/false/mySketch"
+    }
+  ]
+}

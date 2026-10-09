@@ -1,0 +1,54 @@
+{
+  "id": 423827,
+  "slug": "03-lunar-lenses",
+  "title": "Lunar Lenses",
+  "original": "Circles nebula",
+  "author": "Jason Labbe; intersection method credited in source",
+  "algorithm": "Circle-circle intersections rendered as translucent curved lenses",
+  "changes": "Drag a lens; hold to enlarge it; smooth/faceted modes, inversion, colour dial.",
+  "license": "by-sa",
+  "theme": "#071219|#82ded0|#e9fff5",
+  "layout": "float",
+  "buttons": [
+    [
+      "facets",
+      "Soft / Facets"
+    ],
+    [
+      "invert",
+      "Light / Dark"
+    ],
+    [
+      "seed",
+      "New cluster"
+    ]
+  ],
+  "ranges": [
+    [
+      "hue",
+      "Spectrum",
+      0,
+      255,
+      142,
+      1
+    ]
+  ],
+  "extra": "",
+  "sourceFiles": [
+    {
+      "name": "circle.js",
+      "sha256": "7a846b69072699563116ea7401b321ad5c3be1335fe730b2df4c74532ee4fc19",
+      "url": "https://preview.openprocessing.org/sketch/423827/preview/false/circle.js"
+    },
+    {
+      "name": "main.js",
+      "sha256": "46f17d4926c7f3a9f9053ec181ebfd5e9e6cf1274323ddb3ef04e7cb24c35266",
+      "url": "https://preview.openprocessing.org/sketch/423827/preview/false/main.js"
+    },
+    {
+      "name": "sliderLayout.js",
+      "sha256": "583898e08278f82d328cd4879f5a0374e55ab2fce3ad7026eb2dcc7ed560b691",
+      "url": "https://preview.openprocessing.org/sketch/423827/preview/false/sliderLayout.js"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": 742403,
+  "slug": "06-tidal-ink",
+  "title": "Tidal Ink",
+  "original": "perlin sea colors",
+  "author": "Vamoss",
+  "algorithm": "Persistent paths advected through a noise-angle vector field",
+  "changes": "Paint currents; stir or erase locally; ocean/sunset palettes; variable current speed.",
+  "license": "by-sa",
+  "theme": "#162a25|#cdedae|#77c39c",
+  "layout": "card",
+  "buttons": [
+    [
+      "palette",
+      "Ocean / Sunset"
+    ],
+    [
+      "erase",
+      "Ink / Eraser"
+    ],
+    [
+      "clear",
+      "Clean paper"
+    ]
+  ],
+  "ranges": [
+    [
+      "speed",
+      "Current",
+      0.2,
+      2,
+      0.6,
+      0.1
+    ]
+  ],
+  "extra": "",
+  "sourceFiles": [
+    {
+      "name": "mySketch",
+      "sha256": "b33200923909a5b175a9e9cf5820275816544bc0cab1b4b51bc5de9226553845",
+      "url": "https://preview.openprocessing.org/sketch/742403/preview/false/mySketch"
+    }
+  ]
+}

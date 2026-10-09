@@ -1,0 +1,45 @@
+{
+  "id": 987935,
+  "slug": "12-pearl-flower",
+  "title": "Pearl Flower",
+  "original": "Repulsion",
+  "author": "Jason Labbe",
+  "algorithm": "Phyllotaxis targets connected to spring particles with local repulsion",
+  "changes": "Scatter a pearl flower; hold to move its centre; burst then watch it reassemble; sea/rose palette.",
+  "license": "by-sa",
+  "theme": "#ecf1eb|#43666b|#a76c80",
+  "layout": "topbar",
+  "buttons": [
+    [
+      "burst",
+      "Scatter pearls"
+    ],
+    [
+      "palette",
+      "Sea / Rose"
+    ]
+  ],
+  "ranges": [
+    [
+      "reach",
+      "Touch radius",
+      40,
+      160,
+      90,
+      5
+    ]
+  ],
+  "extra": "",
+  "sourceFiles": [
+    {
+      "name": "main.js",
+      "sha256": "befabd8d331b0312749d3a64c370577ba89f28c0843f773008a5290a3bf43a10",
+      "url": "https://preview.openprocessing.org/sketch/987935/preview/false/main.js"
+    },
+    {
+      "name": "particle.js",
+      "sha256": "997ea7aa74c66b4cdd1ff808f1c45fb10df724e401dace764c6bb62de4f9af0d",
+      "url": "https://preview.openprocessing.org/sketch/987935/preview/false/particle.js"
+    }
+  ]
+}

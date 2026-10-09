@@ -1,0 +1,42 @@
+--- OpenProcessing original tabs
++++ Adapted visual code
+@@ -15,13 +15,13 @@
+ 
+     // Push it away from the mouse.
+     let mouseDist = dist(this.pos.x, this.pos.y, mouseX, mouseY);
+-    let mouseThresh = 200;
++    let mouseThresh = R.amount;
+     
+     if (mouseDist < mouseThresh) {
+       let push = new p5.Vector(this.pos.x, this.pos.y);
+       push.sub(new p5.Vector(mouseX, mouseY));
+       push.normalize();
+-      push.mult((mouseThresh - mouseDist) * 0.01);
++      push.mult((mouseThresh-mouseDist)*.01*R.sign);
+       this.acc.add(push);
+     }
+ 		
+@@ -66,7 +66,7 @@
+   jasonlabbe3d.com
+ */
+ 
+-var bobCount = 5000;
++var bobCount = 1800;
+ var bobs = [];
+ var globalHue;
+ 
+@@ -83,7 +83,7 @@
+ 		let b = bobs[i];
+ 		b.move();
+ 		
+-		stroke(b.hue, b.bright, 255, b.vel.mag() * 10);
++		stroke(b.hue, b.bright, 255, max(35,b.vel.mag()*35));
+ 		point(b.pos.x, b.pos.y);
+ 	}
+ }
+@@ -108,4 +108,5 @@
+ 	// Make sure mouse doesn't immediately effect particles.
+ 	mouseX = -9999;
+ 	mouseY = -9999;
+-}+}
++

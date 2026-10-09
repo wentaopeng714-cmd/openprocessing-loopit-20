@@ -1,0 +1,64 @@
+--- OpenProcessing original tabs
++++ Adapted visual code
+@@ -11,7 +11,7 @@
+   this.drag = random(0.98, 0.99);
+ 	this.hue = (globalHue + random(-40, 40)) % 255;
+ 	this.bright = random(255);
+-	this.mass = random(40);
++	this.mass = random(3,14);
+ 	
+   this.move = function() {
+ 		// If its velocity didn't exceed the threshold then seek its target.
+@@ -21,7 +21,7 @@
+ 		let proximityMult = 1;
+ 
+ 		// Slow it down the closer it gets to its target.
+-		let distThresh = 50;
++		let distThresh = 16;
+ 		if (targetDist < distThresh) {
+ 			//proximityMult = targetDist / distThresh;
+ 			
+@@ -40,7 +40,7 @@
+ 			let steer = new p5.Vector(target.x, target.y);
+ 			steer.sub(this.pos);
+ 			steer.normalize();
+-			steer.mult(0.05 * this.variance * proximityMult);
++			steer.mult(.1*this.variance*proximityMult*R.rate);
+ 			this.acc.add(steer);
+ 		}
+ 
+@@ -103,7 +103,7 @@
+ 	
+ 	bobs.splice(0, bobs.length);
+ 	
+-	for (let i = 0; i < 2000; i++) {
++	for (let i = 0; i < 900; i++) {
+ 		let rot = p5.Vector.random2D();
+ 		rot.mult(random(250));
+ 		
+@@ -128,12 +128,12 @@
+ 		
+ 		if (i < mainPath.vertices.length - 1) {
+ 			let v2 = mainPath.vertices[i + 1];
+-			stroke(30);
++			stroke(R.mode%2?10:55);
+ 			strokeWeight(0.5);
+ 			line(v.x, v.y, v2.x, v2.y);
+ 		}
+ 		
+-		stroke(30);
++		stroke(R.mode%2?10:55);
+ 		strokeWeight(5);
+ 		point(v.x, v.y);
+ 	}
+@@ -142,8 +142,9 @@
+ 		let b = bobs[i];
+ 		b.move();
+ 		
+-		stroke(b.hue, b.bright, 255, 10);
++		stroke(b.hue, b.bright, 255, 70);
+ 		strokeWeight(b.mass);
+ 		point(b.pos.x, b.pos.y);
+ 	}
+-}+}
++

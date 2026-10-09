@@ -1,0 +1,12 @@
+Pearl Flower — OpenProcessing source adaptation
+
+Original: Repulsion
+Author: Jason Labbe
+Source: https://openprocessing.org/sketch/987935
+Source license captured: by-sa
+Original notices remain in the code. Source file URLs and SHA256 hashes are in source.json.
+Adaptation: Scatter a pearl flower; hold to move its centre; burst then watch it reassemble; sea/rose palette.
+Retained visual algorithm: Phyllotaxis targets connected to spring particles with local repulsion
+
+p5.js: LGPL-2.1; see P5-LICENSE.txt.
+Changes made October 2026. No claim of ownership over original code or assets.

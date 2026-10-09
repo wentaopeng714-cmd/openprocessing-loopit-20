@@ -1,0 +1,12 @@
+Mineral Light — OpenProcessing source adaptation
+
+Original: Crystal in a spotlight
+Author: Jason Labbe; original by noaner; Delaunay by ironwallaby
+Source: https://openprocessing.org/sketch/420640
+Source license captured: by-sa
+Original notices remain in the code. Source file URLs and SHA256 hashes are in source.json.
+Adaptation: Drag the light; hold to widen its halo; freeze the facets; select mineral hues.
+Retained visual algorithm: Per-frame Delaunay triangulation of oscillating vertices and a distance-coloured spotlight
+
+p5.js: LGPL-2.1; see P5-LICENSE.txt.
+Changes made October 2026. No claim of ownership over original code or assets.

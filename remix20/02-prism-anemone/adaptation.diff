@@ -1,0 +1,35 @@
+--- OpenProcessing original tabs
++++ Adapted visual code
+@@ -15,20 +15,20 @@
+ 
+ 
+ function draw() {
+-	let f = frameCount;
++	let f = frameCount*R.rate;
+ 	
+-	background(0);
++	background(R.palette%2?"#27100a":"#130b28");
+ 	
+-	stroke(255);
++	stroke(R.palette%2?"#ffc780":"#b1d5fd");
+ 	strokeWeight(0.7);
+ 	noFill();
+ 	
+-	translate(width / 2, height / 2);
++	translate(width/2+(mouseX-width/2)*.1,height*.48+(mouseY-height/2)*.1); scale(min(width,height)/1100*(R.pressed?1.15:1));
+ 	rotate(-f * 0.001);
+ 	
+-	for (let rad = 0; rad < TWO_PI; rad += 0.04) {
++	for (let rad = 0; rad < TWO_PI; rad += R.amount) {
+ 		push();
+-		rotate(rad);
++		rotate(rad);strokeWeight(.7+1.5*sin(rad/2));
+ 		
+ 		// Kill noise at start/end so they don't overlap.
+ 		let weight = 1;
+@@ -52,4 +52,5 @@
+ 		
+ 		pop();
+ 	}
+-}+}
++

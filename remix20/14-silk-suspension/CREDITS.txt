@@ -1,0 +1,12 @@
+Silk Suspension — OpenProcessing source adaptation
+
+Original: Dynamic ropes 2
+Author: Jason Labbe
+Source: https://openprocessing.org/sketch/533576
+Source license captured: by-sa
+Original notices remain in the code. Source file URLs and SHA256 hashes are in source.json.
+Adaptation: Comb the silk; grab and pull a strand; adjust gravity; change silk colour or rehang.
+Retained visual algorithm: Verlet point integration, constrained rope segments and interpolated strands
+
+p5.js: LGPL-2.1; see P5-LICENSE.txt.
+Changes made October 2026. No claim of ownership over original code or assets.

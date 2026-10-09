@@ -1,0 +1,35 @@
+{
+  "id": 744884,
+  "slug": "17-porcelain-tiles",
+  "title": "Porcelain Tiles",
+  "original": "Hexagon Pattern",
+  "author": "Vamoss; inspiration Aida Inma",
+  "algorithm": "Hexagonal arc masks with interpolated sixty-degree tile rotations",
+  "changes": "Tap a tile; drag a chain; rotate every tile in a wave; shuffle or change ink.",
+  "license": "by-sa",
+  "theme": "#faf3e4|#254e67|#c5883f",
+  "layout": "tilebar",
+  "buttons": [
+    [
+      "wave",
+      "Turn all"
+    ],
+    [
+      "shuffle",
+      "Shuffle"
+    ],
+    [
+      "palette",
+      "Blue / Rust"
+    ]
+  ],
+  "ranges": [],
+  "extra": "",
+  "sourceFiles": [
+    {
+      "name": "mySketch",
+      "sha256": "7ea0f42f80077246e22119326cf153a460e5f5954789db15af9088d3f3a37b44",
+      "url": "https://preview.openprocessing.org/sketch/744884/preview/false/mySketch"
+    }
+  ]
+}

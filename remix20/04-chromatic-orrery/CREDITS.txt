@@ -1,0 +1,12 @@
+Chromatic Orrery — OpenProcessing source adaptation
+
+Original: Motion study
+Author: Jason Labbe
+Source: https://openprocessing.org/sketch/447730
+Source license captured: by-sa
+Original notices remain in the code. Source file URLs and SHA256 hashes are in source.json.
+Adaptation: Scrub rotation by dragging; choose square/disc marks; reverse orbit and adjust tempo.
+Retained visual algorithm: Counter-rotating rings with sine-gated phase advances
+
+p5.js: LGPL-2.1; see P5-LICENSE.txt.
+Changes made October 2026. No claim of ownership over original code or assets.

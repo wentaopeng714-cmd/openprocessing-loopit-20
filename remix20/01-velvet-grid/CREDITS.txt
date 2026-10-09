@@ -1,0 +1,12 @@
+Velvet Grid — OpenProcessing source adaptation
+
+Original: Warped
+Author: Jason Labbe
+Source: https://openprocessing.org/sketch/434004
+Source license captured: by-sa
+Original notices remain in the code. Source file URLs and SHA256 hashes are in source.json.
+Adaptation: Press to inflate; switch repulsion to attraction; spacing and porcelain/night palettes.
+Retained visual algorithm: Distance-driven vector distortion of a point grid
+
+p5.js: LGPL-2.1; see P5-LICENSE.txt.
+Changes made October 2026. No claim of ownership over original code or assets.

@@ -1,0 +1,12 @@
+Firefly Tracks — OpenProcessing source adaptation
+
+Original: Steering path following
+Author: Jason Labbe
+Source: https://openprocessing.org/sketch/567934
+Source license captured: by-sa
+Original notices remain in the code. Source file URLs and SHA256 hashes are in source.json.
+Adaptation: Draw your own flight path; release to follow it; change firefly hue, guide visibility and flight speed.
+Retained visual algorithm: Particles seek successive path vertices and reverse at the ends
+
+p5.js: LGPL-2.1; see P5-LICENSE.txt.
+Changes made October 2026. No claim of ownership over original code or assets.

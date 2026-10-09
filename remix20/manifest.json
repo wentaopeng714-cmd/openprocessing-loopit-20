@@ -1,0 +1,926 @@
+[
+  {
+    "id": 434004,
+    "slug": "01-velvet-grid",
+    "title": "Velvet Grid",
+    "original": "Warped",
+    "author": "Jason Labbe",
+    "algorithm": "Distance-driven vector distortion of a point grid",
+    "changes": "Press to inflate; switch repulsion to attraction; spacing and porcelain/night palettes.",
+    "license": "by-sa",
+    "theme": "#131018|#f3bf87|#fbedd6",
+    "layout": "rail",
+    "buttons": [
+      [
+        "reverse",
+        "Push / Pull"
+      ],
+      [
+        "palette",
+        "Porcelain"
+      ],
+      [
+        "relax",
+        "Release"
+      ]
+    ],
+    "ranges": [
+      [
+        "spacing",
+        "Grid",
+        12,
+        44,
+        24,
+        2
+      ]
+    ],
+    "extra": "",
+    "sourceFiles": [
+      {
+        "name": "mySketch",
+        "sha256": "807ef463f7ee049b1104c47c67c81702247460fc765bf6c941211c7fff1f3193",
+        "url": "https://preview.openprocessing.org/sketch/434004/preview/false/mySketch"
+      }
+    ]
+  },
+  {
+    "id": 684400,
+    "slug": "02-prism-anemone",
+    "title": "Prism Anemone",
+    "original": "Organic",
+    "author": "Jason Labbe",
+    "algorithm": "Radial noise-modulated spline fronds",
+    "changes": "Drag to bend; hold to bloom; adjustable frond density and opal/ember ink.",
+    "license": "by-sa",
+    "theme": "#130b28|#b1d5fd|#d4a8ff",
+    "layout": "editorial",
+    "buttons": [
+      [
+        "palette",
+        "Opal / Ember"
+      ],
+      [
+        "still",
+        "Still / Flow"
+      ]
+    ],
+    "ranges": [
+      [
+        "density",
+        "Fronds",
+        0.025,
+        0.09,
+        0.04,
+        0.005
+      ]
+    ],
+    "extra": "",
+    "sourceFiles": [
+      {
+        "name": "mySketch",
+        "sha256": "99aad791527c47abb70efec74401eec6f0afd1102c1263fba1daf3a59603a66c",
+        "url": "https://preview.openprocessing.org/sketch/684400/preview/false/mySketch"
+      }
+    ]
+  },
+  {
+    "id": 423827,
+    "slug": "03-lunar-lenses",
+    "title": "Lunar Lenses",
+    "original": "Circles nebula",
+    "author": "Jason Labbe; intersection method credited in source",
+    "algorithm": "Circle-circle intersections rendered as translucent curved lenses",
+    "changes": "Drag a lens; hold to enlarge it; smooth/faceted modes, inversion, colour dial.",
+    "license": "by-sa",
+    "theme": "#071219|#82ded0|#e9fff5",
+    "layout": "float",
+    "buttons": [
+      [
+        "facets",
+        "Soft / Facets"
+      ],
+      [
+        "invert",
+        "Light / Dark"
+      ],
+      [
+        "seed",
+        "New cluster"
+      ]
+    ],
+    "ranges": [
+      [
+        "hue",
+        "Spectrum",
+        0,
+        255,
+        142,
+        1
+      ]
+    ],
+    "extra": "",
+    "sourceFiles": [
+      {
+        "name": "circle.js",
+        "sha256": "7a846b69072699563116ea7401b321ad5c3be1335fe730b2df4c74532ee4fc19",
+        "url": "https://preview.openprocessing.org/sketch/423827/preview/false/circle.js"
+      },
+      {
+        "name": "main.js",
+        "sha256": "46f17d4926c7f3a9f9053ec181ebfd5e9e6cf1274323ddb3ef04e7cb24c35266",
+        "url": "https://preview.openprocessing.org/sketch/423827/preview/false/main.js"
+      },
+      {
+        "name": "sliderLayout.js",
+        "sha256": "583898e08278f82d328cd4879f5a0374e55ab2fce3ad7026eb2dcc7ed560b691",
+        "url": "https://preview.openprocessing.org/sketch/423827/preview/false/sliderLayout.js"
+      }
+    ]
+  },
+  {
+    "id": 447730,
+    "slug": "04-chromatic-orrery",
+    "title": "Chromatic Orrery",
+    "original": "Motion study",
+    "author": "Jason Labbe",
+    "algorithm": "Counter-rotating rings with sine-gated phase advances",
+    "changes": "Scrub rotation by dragging; choose square/disc marks; reverse orbit and adjust tempo.",
+    "license": "by-sa",
+    "theme": "#07090d|#f3ec8c|#f66bb6",
+    "layout": "split",
+    "buttons": [
+      [
+        "reverse",
+        "Reverse orbit"
+      ],
+      [
+        "marks",
+        "Squares / Discs"
+      ]
+    ],
+    "ranges": [
+      [
+        "tempo",
+        "Tempo",
+        0.15,
+        3,
+        1,
+        0.05
+      ]
+    ],
+    "extra": "",
+    "sourceFiles": [
+      {
+        "name": "mySketch",
+        "sha256": "546e66c997ff46fe037410a4f1a7da8e22abef8af05818763d21f977ae168ac6",
+        "url": "https://preview.openprocessing.org/sketch/447730/preview/false/mySketch"
+      }
+    ]
+  },
+  {
+    "id": 605835,
+    "slug": "05-dust-garden",
+    "title": "Dust Garden",
+    "original": "Particle sandbox",
+    "author": "Jason Labbe",
+    "algorithm": "Damped particles receiving local radial forces and boundary bounces",
+    "changes": "Sweep dust; attract or repel; hold to gather; flick to scatter; renew the pigment.",
+    "license": "by-sa",
+    "theme": "#0a1010|#cfd299|#a8cab5",
+    "layout": "bottom",
+    "buttons": [
+      [
+        "force",
+        "Gather / Scatter"
+      ],
+      [
+        "seed",
+        "Fresh pigment"
+      ],
+      [
+        "burst",
+        "Storm"
+      ]
+    ],
+    "ranges": [
+      [
+        "reach",
+        "Brush size",
+        40,
+        260,
+        140,
+        5
+      ]
+    ],
+    "extra": "",
+    "sourceFiles": [
+      {
+        "name": "bob.js",
+        "sha256": "cd6ce92b9fc694e363877c1a0244f99764f83b35f9a82c10f26e8f814c5c2432",
+        "url": "https://preview.openprocessing.org/sketch/605835/preview/false/bob.js"
+      },
+      {
+        "name": "sketch.js",
+        "sha256": "42104759688263704efe91382515bc8d94b1d0fe78083fd5159456a3f649fb94",
+        "url": "https://preview.openprocessing.org/sketch/605835/preview/false/sketch.js"
+      }
+    ]
+  },
+  {
+    "id": 742403,
+    "slug": "06-tidal-ink",
+    "title": "Tidal Ink",
+    "original": "perlin sea colors",
+    "author": "Vamoss",
+    "algorithm": "Persistent paths advected through a noise-angle vector field",
+    "changes": "Paint currents; stir or erase locally; ocean/sunset palettes; variable current speed.",
+    "license": "by-sa",
+    "theme": "#162a25|#cdedae|#77c39c",
+    "layout": "card",
+    "buttons": [
+      [
+        "palette",
+        "Ocean / Sunset"
+      ],
+      [
+        "erase",
+        "Ink / Eraser"
+      ],
+      [
+        "clear",
+        "Clean paper"
+      ]
+    ],
+    "ranges": [
+      [
+        "speed",
+        "Current",
+        0.2,
+        2,
+        0.6,
+        0.1
+      ]
+    ],
+    "extra": "",
+    "sourceFiles": [
+      {
+        "name": "mySketch",
+        "sha256": "b33200923909a5b175a9e9cf5820275816544bc0cab1b4b51bc5de9226553845",
+        "url": "https://preview.openprocessing.org/sketch/742403/preview/false/mySketch"
+      }
+    ]
+  },
+  {
+    "id": 762695,
+    "slug": "07-living-coral",
+    "title": "Living Coral",
+    "original": "T-Virus",
+    "author": "Jason Labbe",
+    "algorithm": "Recursive branch construction with spring-driven angular dynamics",
+    "changes": "Brush branches to bend; tune spring strength; regrow the coral and change its mineral colour.",
+    "license": "by-sa",
+    "theme": "#f0e5d7|#a34c3d|#7d9182",
+    "layout": "corner",
+    "buttons": [
+      [
+        "seed",
+        "Regrow"
+      ],
+      [
+        "palette",
+        "Clay / Jade"
+      ]
+    ],
+    "ranges": [
+      [
+        "spring",
+        "Spring",
+        0.1,
+        1.5,
+        0.5,
+        0.1
+      ]
+    ],
+    "extra": "",
+    "sourceFiles": [
+      {
+        "name": "branch.js",
+        "sha256": "e7ca26e32ab3630f391ff493734bbe92a9cb1e7d1bd650fc6a76655bd98f29a9",
+        "url": "https://preview.openprocessing.org/sketch/762695/preview/false/branch.js"
+      },
+      {
+        "name": "main.js",
+        "sha256": "9e181a903b4acdc442e0a806bcefd838380dee89f4ccab3e80d304016ce45e1f",
+        "url": "https://preview.openprocessing.org/sketch/762695/preview/false/main.js"
+      },
+      {
+        "name": "utils.js",
+        "sha256": "47224068207cfe123f9d20401025eb80578a5d803e86f6c655f6c2bfbf6e7c6d",
+        "url": "https://preview.openprocessing.org/sketch/762695/preview/false/utils.js"
+      }
+    ]
+  },
+  {
+    "id": 828863,
+    "slug": "08-prism-seal",
+    "title": "Prism Seal",
+    "original": "Kaleidoscope",
+    "author": "Richard Bourne",
+    "algorithm": "Rotated copies of pointer-distance-sized circles",
+    "changes": "Draw mirrored glass; choose six/twelve/twenty-four slices; hold to grow a seal; clear or invert paper.",
+    "license": "by-sa",
+    "theme": "#f4eee4|#71539c|#b47697",
+    "layout": "round",
+    "buttons": [
+      [
+        "slices",
+        "6 / 12 / 24"
+      ],
+      [
+        "paper",
+        "Paper / Night"
+      ],
+      [
+        "clear",
+        "Clear"
+      ]
+    ],
+    "ranges": [
+      [
+        "size",
+        "Bead size",
+        4,
+        32,
+        14,
+        1
+      ]
+    ],
+    "extra": "",
+    "sourceFiles": [
+      {
+        "name": "mySketch",
+        "sha256": "26dbe9be8f18e1b48e2cdee64a0dcdc5b73f96c3e76018c95041fe84446d7307",
+        "url": "https://preview.openprocessing.org/sketch/828863/preview/false/mySketch"
+      }
+    ]
+  },
+  {
+    "id": 944742,
+    "slug": "09-aurora-smoke",
+    "title": "Aurora Smoke",
+    "original": "Colorful smoke",
+    "author": "Jason Labbe",
+    "algorithm": "Age-based ribbon strokes with a changing colour glow and rising tail",
+    "changes": "Draw luminous smoke; hold for a fountain; choose a colour band and adjust plume lifetime.",
+    "license": "by-sa",
+    "theme": "#030b16|#89e7ef|#aac7fc",
+    "layout": "caption",
+    "buttons": [
+      [
+        "band",
+        "Ice / Flame / Violet"
+      ],
+      [
+        "clear",
+        "Exhale"
+      ]
+    ],
+    "ranges": [
+      [
+        "life",
+        "Trail",
+        25,
+        100,
+        55,
+        5
+      ]
+    ],
+    "extra": "",
+    "sourceFiles": [
+      {
+        "name": "main.js",
+        "sha256": "ce74e4d1ed6f613028b191e396ecbd531bc85d41fe516c397c3c60cd87cae250",
+        "url": "https://preview.openprocessing.org/sketch/944742/preview/false/main.js"
+      },
+      {
+        "name": "particle.js",
+        "sha256": "3bd76e30a290a4d9b1c8576dbe337ed15c68e15741344505d200ef7378f5efab",
+        "url": "https://preview.openprocessing.org/sketch/944742/preview/false/particle.js"
+      }
+    ]
+  },
+  {
+    "id": 897944,
+    "slug": "10-thread-comets",
+    "title": "Thread Comets",
+    "original": "Lines Brush",
+    "author": "Jason Labbe",
+    "algorithm": "Velocity-driven Sparks and ParticleLine trails",
+    "changes": "Flick to stretch threads; hold to build a spark fountain; select warm/cool pigments and density.",
+    "license": "by-sa",
+    "theme": "#05050b|#f3a48b|#c7a6ff",
+    "layout": "side",
+    "buttons": [
+      [
+        "palette",
+        "New pigment"
+      ],
+      [
+        "burst",
+        "Fireworks"
+      ]
+    ],
+    "ranges": [
+      [
+        "density",
+        "Threads",
+        1,
+        8,
+        3,
+        1
+      ]
+    ],
+    "extra": "",
+    "sourceFiles": [
+      {
+        "name": "main.js",
+        "sha256": "13f82352295f0c8b1430bcffdaaf2dde0584a01cb6478bc29fb718e83a28ebb4",
+        "url": "https://preview.openprocessing.org/sketch/897944/preview/false/main.js"
+      },
+      {
+        "name": "particleLines.js",
+        "sha256": "404c2abc6766ec08affbdc7d0b5b5c4060cd0d7049d6e7604ce0d2359320f573",
+        "url": "https://preview.openprocessing.org/sketch/897944/preview/false/particleLines.js"
+      },
+      {
+        "name": "spark.js",
+        "sha256": "7cdea25d52ed0c00fdb7e74ab5a5a5b3017cdcdca0da174075a9a8a663995269",
+        "url": "https://preview.openprocessing.org/sketch/897944/preview/false/spark.js"
+      }
+    ]
+  },
+  {
+    "id": 400658,
+    "slug": "11-alchemy-bloom",
+    "title": "Alchemy Bloom",
+    "original": "Alchemist’s brush",
+    "author": "Jason Labbe",
+    "algorithm": "Local expanding or contracting spiral puffs with life-based scaling",
+    "changes": "Drag to paint; hold to bloom; switch expansion/contraction and tune brush size.",
+    "license": "by-sa",
+    "theme": "#100511|#ed9ded|#f3d0a4",
+    "layout": "stamp",
+    "buttons": [
+      [
+        "inverse",
+        "Bloom / Gather"
+      ],
+      [
+        "palette",
+        "New ink"
+      ],
+      [
+        "clear",
+        "Clear"
+      ]
+    ],
+    "ranges": [
+      [
+        "scale",
+        "Bloom size",
+        0.3,
+        1.5,
+        0.8,
+        0.1
+      ]
+    ],
+    "extra": "",
+    "sourceFiles": [
+      {
+        "name": "mySketch",
+        "sha256": "85c76fe23812efe2d1850d68cad8f8b76d109ed524854ad129a4f28dcce6a10d",
+        "url": "https://preview.openprocessing.org/sketch/400658/preview/false/mySketch"
+      }
+    ]
+  },
+  {
+    "id": 987935,
+    "slug": "12-pearl-flower",
+    "title": "Pearl Flower",
+    "original": "Repulsion",
+    "author": "Jason Labbe",
+    "algorithm": "Phyllotaxis targets connected to spring particles with local repulsion",
+    "changes": "Scatter a pearl flower; hold to move its centre; burst then watch it reassemble; sea/rose palette.",
+    "license": "by-sa",
+    "theme": "#ecf1eb|#43666b|#a76c80",
+    "layout": "topbar",
+    "buttons": [
+      [
+        "burst",
+        "Scatter pearls"
+      ],
+      [
+        "palette",
+        "Sea / Rose"
+      ]
+    ],
+    "ranges": [
+      [
+        "reach",
+        "Touch radius",
+        40,
+        160,
+        90,
+        5
+      ]
+    ],
+    "extra": "",
+    "sourceFiles": [
+      {
+        "name": "main.js",
+        "sha256": "befabd8d331b0312749d3a64c370577ba89f28c0843f773008a5290a3bf43a10",
+        "url": "https://preview.openprocessing.org/sketch/987935/preview/false/main.js"
+      },
+      {
+        "name": "particle.js",
+        "sha256": "997ea7aa74c66b4cdd1ff808f1c45fb10df724e401dace764c6bb62de4f9af0d",
+        "url": "https://preview.openprocessing.org/sketch/987935/preview/false/particle.js"
+      }
+    ]
+  },
+  {
+    "id": 874621,
+    "slug": "13-chromatic-breath",
+    "title": "Chromatic Breath",
+    "original": "Color Bubbles",
+    "author": "Roni Kaufman, after Sayama",
+    "algorithm": "Golden-angle radial emitters with a distance-shaped bubble diameter",
+    "changes": "Move the emitter; hold for denser breathing; rainbow/rose colours, adjustable outward drift.",
+    "license": "by-nc-sa",
+    "theme": "#fff7f0|#9b405c|#f3b4bc",
+    "layout": "pill",
+    "buttons": [
+      [
+        "palette",
+        "Rainbow / Rose"
+      ],
+      [
+        "centre",
+        "Recenter"
+      ]
+    ],
+    "ranges": [
+      [
+        "speed",
+        "Drift",
+        0.3,
+        3,
+        1,
+        0.1
+      ]
+    ],
+    "extra": "",
+    "sourceFiles": [
+      {
+        "name": "mySketch",
+        "sha256": "70b0c426515505a42b50445cc5dccf421b36be5470db56232f05c55326cabf41",
+        "url": "https://preview.openprocessing.org/sketch/874621/preview/false/mySketch"
+      }
+    ]
+  },
+  {
+    "id": 533576,
+    "slug": "14-silk-suspension",
+    "title": "Silk Suspension",
+    "original": "Dynamic ropes 2",
+    "author": "Jason Labbe",
+    "algorithm": "Verlet point integration, constrained rope segments and interpolated strands",
+    "changes": "Comb the silk; grab and pull a strand; adjust gravity; change silk colour or rehang.",
+    "license": "by-sa",
+    "theme": "#e9e0d4|#79564a|#b77963",
+    "layout": "notebook",
+    "buttons": [
+      [
+        "grab",
+        "Comb / Grab"
+      ],
+      [
+        "palette",
+        "Copper / Ink"
+      ],
+      [
+        "seed",
+        "Rehang"
+      ]
+    ],
+    "ranges": [
+      [
+        "weight",
+        "Weight",
+        0.01,
+        0.5,
+        0.15,
+        0.01
+      ]
+    ],
+    "extra": "",
+    "sourceFiles": [
+      {
+        "name": "point.js",
+        "sha256": "9e4bd72673fba578f1fa7ca681f69a732cdbe573c04716be346dc45e11f023af",
+        "url": "https://preview.openprocessing.org/sketch/533576/preview/false/point.js"
+      },
+      {
+        "name": "rigidBody.js",
+        "sha256": "f3ff7f737c8c1a526284c35df2955f5ce6cdb15ae6aae5801ddd82410118c4fb",
+        "url": "https://preview.openprocessing.org/sketch/533576/preview/false/rigidBody.js"
+      },
+      {
+        "name": "segment.js",
+        "sha256": "43214b3370fb2675918ff322a50f5719b79f82370a5bd98e44188ceab7495750",
+        "url": "https://preview.openprocessing.org/sketch/533576/preview/false/segment.js"
+      },
+      {
+        "name": "sketch.js",
+        "sha256": "69adf3aa63165b0d9aaa0b69ea692f727debe7d6722d70bebd49718b59462fa1",
+        "url": "https://preview.openprocessing.org/sketch/533576/preview/false/sketch.js"
+      },
+      {
+        "name": "slider.js",
+        "sha256": "7dbd3a2dc247b62449e95723e6117b550a00e7716a00c02c423c60082122deeb",
+        "url": "https://preview.openprocessing.org/sketch/533576/preview/false/slider.js"
+      }
+    ]
+  },
+  {
+    "id": 420640,
+    "slug": "15-mineral-light",
+    "title": "Mineral Light",
+    "original": "Crystal in a spotlight",
+    "author": "Jason Labbe; original by noaner; Delaunay by ironwallaby",
+    "algorithm": "Per-frame Delaunay triangulation of oscillating vertices and a distance-coloured spotlight",
+    "changes": "Drag the light; hold to widen its halo; freeze the facets; select mineral hues.",
+    "license": "by-sa",
+    "theme": "#0a1024|#c7e1ed|#8791df",
+    "layout": "museum",
+    "buttons": [
+      [
+        "freeze",
+        "Freeze / Flow"
+      ],
+      [
+        "palette",
+        "Opal / Amber / Jade"
+      ]
+    ],
+    "ranges": [
+      [
+        "halo",
+        "Light spread",
+        0.3,
+        1.7,
+        1,
+        0.1
+      ]
+    ],
+    "extra": "",
+    "sourceFiles": [
+      {
+        "name": "mySketch",
+        "sha256": "d46d1e5cea0b2619177cbd65470a9cc18b68dbdf61e7e92e904291909b2f5a19",
+        "url": "https://preview.openprocessing.org/sketch/420640/preview/false/mySketch"
+      }
+    ]
+  },
+  {
+    "id": 567934,
+    "slug": "16-firefly-tracks",
+    "title": "Firefly Tracks",
+    "original": "Steering path following",
+    "author": "Jason Labbe",
+    "algorithm": "Particles seek successive path vertices and reverse at the ends",
+    "changes": "Draw your own flight path; release to follow it; change firefly hue, guide visibility and flight speed.",
+    "license": "by-sa",
+    "theme": "#0b1420|#c5dc83|#8baacf",
+    "layout": "route",
+    "buttons": [
+      [
+        "seed",
+        "New route"
+      ],
+      [
+        "guide",
+        "Guide on / off"
+      ],
+      [
+        "palette",
+        "New swarm"
+      ]
+    ],
+    "ranges": [
+      [
+        "speed",
+        "Flight",
+        0.3,
+        3,
+        1,
+        0.1
+      ]
+    ],
+    "extra": "",
+    "sourceFiles": [
+      {
+        "name": "bob.js",
+        "sha256": "decf0f17c78aea18d12f68d98e5f14901124e4bbed2fb0f95bfbd75031164b87",
+        "url": "https://preview.openprocessing.org/sketch/567934/preview/false/bob.js"
+      },
+      {
+        "name": "path.js",
+        "sha256": "c925fcd29ea803d9c55ad979fa6ff569e9717faedcb0e97d8146e2e59bbe0bdb",
+        "url": "https://preview.openprocessing.org/sketch/567934/preview/false/path.js"
+      },
+      {
+        "name": "sketch.js",
+        "sha256": "1d0a93f2af544c7cc0db232d0ca60dd9f16b993030a9644ab73ecfc5ea3adfe2",
+        "url": "https://preview.openprocessing.org/sketch/567934/preview/false/sketch.js"
+      }
+    ]
+  },
+  {
+    "id": 744884,
+    "slug": "17-porcelain-tiles",
+    "title": "Porcelain Tiles",
+    "original": "Hexagon Pattern",
+    "author": "Vamoss; inspiration Aida Inma",
+    "algorithm": "Hexagonal arc masks with interpolated sixty-degree tile rotations",
+    "changes": "Tap a tile; drag a chain; rotate every tile in a wave; shuffle or change ink.",
+    "license": "by-sa",
+    "theme": "#faf3e4|#254e67|#c5883f",
+    "layout": "tilebar",
+    "buttons": [
+      [
+        "wave",
+        "Turn all"
+      ],
+      [
+        "shuffle",
+        "Shuffle"
+      ],
+      [
+        "palette",
+        "Blue / Rust"
+      ]
+    ],
+    "ranges": [],
+    "extra": "",
+    "sourceFiles": [
+      {
+        "name": "mySketch",
+        "sha256": "7ea0f42f80077246e22119326cf153a460e5f5954789db15af9088d3f3a37b44",
+        "url": "https://preview.openprocessing.org/sketch/744884/preview/false/mySketch"
+      }
+    ]
+  },
+  {
+    "id": 697866,
+    "slug": "18-wave-letters",
+    "title": "Wave Letters",
+    "original": "Hello Curves",
+    "author": "Vamoss",
+    "algorithm": "Glyphs rotate along the derivative of a noise-generated liquid surface",
+    "changes": "Write your own word; drag the word and sea level; tune wave texture and paper colour.",
+    "license": "by-sa",
+    "theme": "#f4dfb8|#a44936|#5e786a",
+    "layout": "type",
+    "buttons": [
+      [
+        "palette",
+        "Terracotta / Forest"
+      ],
+      [
+        "float",
+        "Float / Follow"
+      ]
+    ],
+    "ranges": [
+      [
+        "texture",
+        "Wave texture",
+        0.001,
+        0.012,
+        0.003,
+        0.001
+      ]
+    ],
+    "extra": "<label class=\"word\">YOUR WORD<input data-action=\"word\" value=\"slow days\" maxlength=\"14\" aria-label=\"Your word\"></label>",
+    "sourceFiles": [
+      {
+        "name": "mySketch",
+        "sha256": "25b88ddd62ae39cdab92a90d8c902055e76b49b3d6bb64829d4bf62f9c3a8a48",
+        "url": "https://preview.openprocessing.org/sketch/697866/preview/false/mySketch"
+      }
+    ]
+  },
+  {
+    "id": 1052362,
+    "slug": "19-botanical-seal",
+    "title": "Botanical Seal",
+    "original": "Symmetric Circular Random Walker",
+    "author": "Vamoss",
+    "algorithm": "Circular random walk copied around a rotational centre",
+    "changes": "Plant a new seal by tapping; drag its symmetry centre; choose six/ten/sixteen folds, ink and growth speed.",
+    "license": "by-sa",
+    "theme": "#f4f0df|#276154|#b4523f",
+    "layout": "print",
+    "buttons": [
+      [
+        "folds",
+        "6 / 10 / 16"
+      ],
+      [
+        "palette",
+        "Jade / Vermilion"
+      ],
+      [
+        "clear",
+        "Fresh paper"
+      ]
+    ],
+    "ranges": [
+      [
+        "growth",
+        "Growth",
+        1,
+        6,
+        2,
+        1
+      ]
+    ],
+    "extra": "",
+    "sourceFiles": [
+      {
+        "name": "mySketch",
+        "sha256": "52750b809b2459e3e304562bc60704a171ef4b0e34cf751e715f78c3504b64db",
+        "url": "https://preview.openprocessing.org/sketch/1052362/preview/false/mySketch"
+      }
+    ]
+  },
+  {
+    "id": 1200087,
+    "slug": "20-porcelain-expressions",
+    "title": "Porcelain Expressions",
+    "original": "Facial Rig",
+    "author": "Jason Labbe; Ray character by CGTarian Online School",
+    "algorithm": "Original 3D meshes, facial blendshapes and constrained control-to-target deformation",
+    "changes": "Drag face control points; pose smile/surprise/calm; porcelain/bronze materials and wireframe.",
+    "license": "by-sa",
+    "theme": "#f1e9df|#766253|#8fa7a1",
+    "layout": "portrait",
+    "buttons": [
+      [
+        "smile",
+        "Smile"
+      ],
+      [
+        "surprise",
+        "Surprise"
+      ],
+      [
+        "calm",
+        "Calm"
+      ],
+      [
+        "material",
+        "Porcelain / Bronze"
+      ],
+      [
+        "edges",
+        "Wireframe"
+      ]
+    ],
+    "ranges": [],
+    "extra": "",
+    "sourceFiles": [
+      {
+        "name": "blendMesh.js",
+        "sha256": "f6c056c414870359907507e610ea7cac7305720244768bf21ee95ea5d26d52d4",
+        "url": "https://preview.openprocessing.org/sketch/1200087/preview/false/blendMesh.js"
+      },
+      {
+        "name": "control.js",
+        "sha256": "53daf89b8c27f81c30ac758a1605ee632c447a2ee2d46c1410fd6aad4e1470c0",
+        "url": "https://preview.openprocessing.org/sketch/1200087/preview/false/control.js"
+      },
+      {
+        "name": "main.js",
+        "sha256": "7490786c270fd4b47b26e79f1655b236e13c0193f691776cf29a810e9e7b4fe7",
+        "url": "https://preview.openprocessing.org/sketch/1200087/preview/false/main.js"
+      },
+      {
+        "name": "targetGroup.js",
+        "sha256": "b088e16de998ca4d1af16007e45e6ac81e334e39b108b2a4287d581903ab5e05",
+        "url": "https://preview.openprocessing.org/sketch/1200087/preview/false/targetGroup.js"
+      }
+    ]
+  }
+]

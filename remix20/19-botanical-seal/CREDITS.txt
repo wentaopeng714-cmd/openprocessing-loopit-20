@@ -1,0 +1,12 @@
+Botanical Seal — OpenProcessing source adaptation
+
+Original: Symmetric Circular Random Walker
+Author: Vamoss
+Source: https://openprocessing.org/sketch/1052362
+Source license captured: by-sa
+Original notices remain in the code. Source file URLs and SHA256 hashes are in source.json.
+Adaptation: Plant a new seal by tapping; drag its symmetry centre; choose six/ten/sixteen folds, ink and growth speed.
+Retained visual algorithm: Circular random walk copied around a rotational centre
+
+p5.js: LGPL-2.1; see P5-LICENSE.txt.
+Changes made October 2026. No claim of ownership over original code or assets.

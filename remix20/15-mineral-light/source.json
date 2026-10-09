@@ -1,0 +1,40 @@
+{
+  "id": 420640,
+  "slug": "15-mineral-light",
+  "title": "Mineral Light",
+  "original": "Crystal in a spotlight",
+  "author": "Jason Labbe; original by noaner; Delaunay by ironwallaby",
+  "algorithm": "Per-frame Delaunay triangulation of oscillating vertices and a distance-coloured spotlight",
+  "changes": "Drag the light; hold to widen its halo; freeze the facets; select mineral hues.",
+  "license": "by-sa",
+  "theme": "#0a1024|#c7e1ed|#8791df",
+  "layout": "museum",
+  "buttons": [
+    [
+      "freeze",
+      "Freeze / Flow"
+    ],
+    [
+      "palette",
+      "Opal / Amber / Jade"
+    ]
+  ],
+  "ranges": [
+    [
+      "halo",
+      "Light spread",
+      0.3,
+      1.7,
+      1,
+      0.1
+    ]
+  ],
+  "extra": "",
+  "sourceFiles": [
+    {
+      "name": "mySketch",
+      "sha256": "d46d1e5cea0b2619177cbd65470a9cc18b68dbdf61e7e92e904291909b2f5a19",
+      "url": "https://preview.openprocessing.org/sketch/420640/preview/false/mySketch"
+    }
+  ]
+}

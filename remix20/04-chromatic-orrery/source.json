@@ -1,0 +1,40 @@
+{
+  "id": 447730,
+  "slug": "04-chromatic-orrery",
+  "title": "Chromatic Orrery",
+  "original": "Motion study",
+  "author": "Jason Labbe",
+  "algorithm": "Counter-rotating rings with sine-gated phase advances",
+  "changes": "Scrub rotation by dragging; choose square/disc marks; reverse orbit and adjust tempo.",
+  "license": "by-sa",
+  "theme": "#07090d|#f3ec8c|#f66bb6",
+  "layout": "split",
+  "buttons": [
+    [
+      "reverse",
+      "Reverse orbit"
+    ],
+    [
+      "marks",
+      "Squares / Discs"
+    ]
+  ],
+  "ranges": [
+    [
+      "tempo",
+      "Tempo",
+      0.15,
+      3,
+      1,
+      0.05
+    ]
+  ],
+  "extra": "",
+  "sourceFiles": [
+    {
+      "name": "mySketch",
+      "sha256": "546e66c997ff46fe037410a4f1a7da8e22abef8af05818763d21f977ae168ac6",
+      "url": "https://preview.openprocessing.org/sketch/447730/preview/false/mySketch"
+    }
+  ]
+}

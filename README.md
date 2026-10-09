@@ -1,18 +1,19 @@
-# Twenty Ways to Touch — latest collection
+# Twenty OpenProcessing source remixes — latest collection
 
-The latest 20 independent artworks are in [art20/](art20/). Preview and downloads: https://wentaopeng714-cmd.github.io/openprocessing-loopit-20/art20/
+The requested collection is [remix20/](remix20/): https://wentaopeng714-cmd.github.io/openprocessing-loopit-20/remix20/
 
-Each work has its own Canvas simulation, primary gesture, content and interface. English UI; touch and mouse; no external runtime assets. Download one HTML or one ZIP per upload. The complete ZIP contains all 20 individual ZIP packages.
+Twenty adaptations of actual OpenProcessing source files, with independently retained visual algorithms, English interfaces and different touch controls. Each work has an offline single HTML file and a separate ZIP containing unchanged originals, source URLs and hashes, visual-code changes, adapted code and credits. No source-code panel appears in the artwork.
 
-- `python3 build_art20.py` rebuilds pages, standalone HTML files, individual ZIPs and the complete download.
-- `art20/src/` contains the 20 independent scenes.
-- `art20/runtime.js` provides input and drawing utilities.
-- `art20/check-scenes.cjs` exercises geometry, tools and pointer sequences at 390×844 and 1440×900.
-- `art20/check-pixels.cjs` compares seeded Canvas renders with and without each primary gesture.
-- `art20/render-previews.cjs` renders actual scene code for catalogue thumbnails; these are artwork renders, not browser screenshots.
-- Each ZIP includes its licence. Nineteen scenes are original MIT implementations; Glass Orchard adapts the credited Delaunay library and is CC BY-SA 3.0.
+- [Originals, authors, licences and retained algorithms](remix20/SOURCES.md)
+- [Runtime and interaction checks](remix20/qa-runtime.json)
+- [Original facial mesh/deformation checks](remix20/qa-face.json)
+- [Release downloads](https://github.com/wentaopeng714-cmd/openprocessing-loopit-20/releases/tag/v6.0.0)
 
-Previous collections remain available at [upload-art/](upload-art/) and [upload-art-2/](upload-art-2/).
+The 19 Canvas works were checked with actual p5.js, a simulated DOM and native Canvas; pointer events, buttons, inputs and portrait/landscape/desktop resize passed. Facial Rig loaded all 58 original OBJ meshes and passed deformation, reset and jaw-dragging checks. **Live browser, WebGL and real phone verification remain pending because the host Mac was locked.** Thumbnails are source renders; the facial thumbnail is a software projection.
+
+Chromatic Breath (13) retains the original CC BY-NC-SA noncommercial licence. All other source metadata identifies CC BY-SA. Original author and third-party asset notices are retained.
+
+Previous six-work collections remain at [upload-art/](upload-art/) and [upload-art-2/](upload-art-2/). The earlier `art20/` batch used original implementations and did not satisfy the request to adapt OpenProcessing source; it is superseded by `remix20/`.
 
 ---
 

@@ -1,0 +1,44 @@
+{
+  "id": 400658,
+  "slug": "11-alchemy-bloom",
+  "title": "Alchemy Bloom",
+  "original": "Alchemist’s brush",
+  "author": "Jason Labbe",
+  "algorithm": "Local expanding or contracting spiral puffs with life-based scaling",
+  "changes": "Drag to paint; hold to bloom; switch expansion/contraction and tune brush size.",
+  "license": "by-sa",
+  "theme": "#100511|#ed9ded|#f3d0a4",
+  "layout": "stamp",
+  "buttons": [
+    [
+      "inverse",
+      "Bloom / Gather"
+    ],
+    [
+      "palette",
+      "New ink"
+    ],
+    [
+      "clear",
+      "Clear"
+    ]
+  ],
+  "ranges": [
+    [
+      "scale",
+      "Bloom size",
+      0.3,
+      1.5,
+      0.8,
+      0.1
+    ]
+  ],
+  "extra": "",
+  "sourceFiles": [
+    {
+      "name": "mySketch",
+      "sha256": "85c76fe23812efe2d1850d68cad8f8b76d109ed524854ad129a4f28dcce6a10d",
+      "url": "https://preview.openprocessing.org/sketch/400658/preview/false/mySketch"
+    }
+  ]
+}

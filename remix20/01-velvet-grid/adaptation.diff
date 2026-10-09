@@ -1,0 +1,42 @@
+--- OpenProcessing original tabs
++++ Adapted visual code
+@@ -15,7 +15,7 @@
+   jasonlabbe3d.com
+ */
+ 
+-var mouseSize = 300;
++var mouseSize = 220; var gridGap=24;
+ 
+ 
+ function setup() {
+@@ -24,11 +24,11 @@
+ 
+ 
+ function draw() {
+-  background(0);
+-  stroke(255);
++  background(R.palette%2 ? "#fbedd6" : "#131018");
++  stroke(R.palette%2 ? "#493459" : "#f3bf87");
+   
+-  for (var y = 0; y < height; y += 40) {
+-    for (var x = 0; x < width; x += 40) {
++  for (var y = 0; y < height; y += gridGap) {
++    for (var x = 0; x < width; x += gridGap) {
+       var pos = new p5.Vector(x, y);
+       
+       var d = dist(x, y, mouseX, mouseY);
+@@ -38,7 +38,7 @@
+       pos.mult(mouseSize-d);
+       
+       if (d < mouseSize) {
+-      	pos.mult(0.25);
++      	pos.mult(0.25*R.sign);
+       } else {
+         pos.mult(-d*0.001);
+       }
+@@ -49,4 +49,5 @@
+       point(pos.x, pos.y);
+     }
+   }
+-}+}
++

@@ -1,0 +1,40 @@
+{
+  "id": 697866,
+  "slug": "18-wave-letters",
+  "title": "Wave Letters",
+  "original": "Hello Curves",
+  "author": "Vamoss",
+  "algorithm": "Glyphs rotate along the derivative of a noise-generated liquid surface",
+  "changes": "Write your own word; drag the word and sea level; tune wave texture and paper colour.",
+  "license": "by-sa",
+  "theme": "#f4dfb8|#a44936|#5e786a",
+  "layout": "type",
+  "buttons": [
+    [
+      "palette",
+      "Terracotta / Forest"
+    ],
+    [
+      "float",
+      "Float / Follow"
+    ]
+  ],
+  "ranges": [
+    [
+      "texture",
+      "Wave texture",
+      0.001,
+      0.012,
+      0.003,
+      0.001
+    ]
+  ],
+  "extra": "<label class=\"word\">YOUR WORD<input data-action=\"word\" value=\"slow days\" maxlength=\"14\" aria-label=\"Your word\"></label>",
+  "sourceFiles": [
+    {
+      "name": "mySketch",
+      "sha256": "25b88ddd62ae39cdab92a90d8c902055e76b49b3d6bb64829d4bf62f9c3a8a48",
+      "url": "https://preview.openprocessing.org/sketch/697866/preview/false/mySketch"
+    }
+  ]
+}

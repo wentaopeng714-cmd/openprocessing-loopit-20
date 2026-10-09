@@ -1,0 +1,65 @@
+--- OpenProcessing original tabs
++++ Adapted visual code
+@@ -133,7 +133,7 @@
+   jasonlabbe3d.com
+ */
+ 
+-var timesteps = 20;
++var timesteps = 10;
+ var rigidBodies = [];
+ 
+ 
+@@ -154,16 +154,16 @@
+ function resetScene() {
+ 	rigidBodies = [];
+ 	
+-	let xCount = 40;
+-	let yCount = 20;
++	let xCount = 24;
++	let yCount = 18;
+ 	
+ 	for (i = 0; i < xCount; i++) {
+ 		let rb = new RigidBody();
+ 
+ 		for (j = 0; j < yCount; j++) {
+ 			// Get position and add a new point.
+-			let x = map(i, 0, xCount, width/2 - 150, width/2 + 150);
+-			let y = map(j, 0, yCount, 100, 400);
++			let x = map(i, 0, xCount, width*.15,width*.85);
++			let y = map(j, 0, yCount, height*.23,height*.62);
+ 			let newPoint = rb.addPoint(x, y);
+ 
+ 			// Snap the first point, otherwise connect points with segments.
+@@ -180,7 +180,7 @@
+ 
+ 
+ function draw() {
+-  background(200);
++  background("#e9e0d4");
+   
+ 	for (let i = 0; i < rigidBodies.length; i++) {
+ 		// Sim a line.
+@@ -189,7 +189,7 @@
+ 		// Draw a line.
+ 		if (i < rigidBodies.length-1) {
+ 			noFill();
+-			stroke(0);
++			stroke(R.palette%2?"#34474e":"#79564a");
+ 			strokeWeight(thicknessSlider.value());
+ 			
+ 			// Draw many 'fake' lines that follow between the current and next lines, which are part of the sim.
+@@ -210,7 +210,7 @@
+ 	
+ 	// Draw mouse area.
+ 	stroke(0, 50);
+-	strokeWeight(repulsionSizeSlider.value()*2);
++	strokeWeight(0);
+ 	point(mouseX, mouseY);
+ 	
+ 	// Display sliders.
+@@ -254,4 +254,5 @@
+   this.value = function() {
+     return this.slider.value();
+   }
+-}+}
++

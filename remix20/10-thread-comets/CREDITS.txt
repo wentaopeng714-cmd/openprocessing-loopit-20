@@ -1,0 +1,12 @@
+Thread Comets — OpenProcessing source adaptation
+
+Original: Lines Brush
+Author: Jason Labbe
+Source: https://openprocessing.org/sketch/897944
+Source license captured: by-sa
+Original notices remain in the code. Source file URLs and SHA256 hashes are in source.json.
+Adaptation: Flick to stretch threads; hold to build a spark fountain; select warm/cool pigments and density.
+Retained visual algorithm: Velocity-driven Sparks and ParticleLine trails
+
+p5.js: LGPL-2.1; see P5-LICENSE.txt.
+Changes made October 2026. No claim of ownership over original code or assets.

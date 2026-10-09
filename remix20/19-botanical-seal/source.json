@@ -1,0 +1,44 @@
+{
+  "id": 1052362,
+  "slug": "19-botanical-seal",
+  "title": "Botanical Seal",
+  "original": "Symmetric Circular Random Walker",
+  "author": "Vamoss",
+  "algorithm": "Circular random walk copied around a rotational centre",
+  "changes": "Plant a new seal by tapping; drag its symmetry centre; choose six/ten/sixteen folds, ink and growth speed.",
+  "license": "by-sa",
+  "theme": "#f4f0df|#276154|#b4523f",
+  "layout": "print",
+  "buttons": [
+    [
+      "folds",
+      "6 / 10 / 16"
+    ],
+    [
+      "palette",
+      "Jade / Vermilion"
+    ],
+    [
+      "clear",
+      "Fresh paper"
+    ]
+  ],
+  "ranges": [
+    [
+      "growth",
+      "Growth",
+      1,
+      6,
+      2,
+      1
+    ]
+  ],
+  "extra": "",
+  "sourceFiles": [
+    {
+      "name": "mySketch",
+      "sha256": "52750b809b2459e3e304562bc60704a171ef4b0e34cf751e715f78c3504b64db",
+      "url": "https://preview.openprocessing.org/sketch/1052362/preview/false/mySketch"
+    }
+  ]
+}

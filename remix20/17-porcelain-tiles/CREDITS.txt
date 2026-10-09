@@ -1,0 +1,12 @@
+Porcelain Tiles — OpenProcessing source adaptation
+
+Original: Hexagon Pattern
+Author: Vamoss; inspiration Aida Inma
+Source: https://openprocessing.org/sketch/744884
+Source license captured: by-sa
+Original notices remain in the code. Source file URLs and SHA256 hashes are in source.json.
+Adaptation: Tap a tile; drag a chain; rotate every tile in a wave; shuffle or change ink.
+Retained visual algorithm: Hexagonal arc masks with interpolated sixty-degree tile rotations
+
+p5.js: LGPL-2.1; see P5-LICENSE.txt.
+Changes made October 2026. No claim of ownership over original code or assets.

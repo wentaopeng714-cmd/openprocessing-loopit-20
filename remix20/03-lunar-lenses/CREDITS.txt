@@ -1,0 +1,12 @@
+Lunar Lenses — OpenProcessing source adaptation
+
+Original: Circles nebula
+Author: Jason Labbe; intersection method credited in source
+Source: https://openprocessing.org/sketch/423827
+Source license captured: by-sa
+Original notices remain in the code. Source file URLs and SHA256 hashes are in source.json.
+Adaptation: Drag a lens; hold to enlarge it; smooth/faceted modes, inversion, colour dial.
+Retained visual algorithm: Circle-circle intersections rendered as translucent curved lenses
+
+p5.js: LGPL-2.1; see P5-LICENSE.txt.
+Changes made October 2026. No claim of ownership over original code or assets.

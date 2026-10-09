@@ -1,0 +1,12 @@
+Wave Letters — OpenProcessing source adaptation
+
+Original: Hello Curves
+Author: Vamoss
+Source: https://openprocessing.org/sketch/697866
+Source license captured: by-sa
+Original notices remain in the code. Source file URLs and SHA256 hashes are in source.json.
+Adaptation: Write your own word; drag the word and sea level; tune wave texture and paper colour.
+Retained visual algorithm: Glyphs rotate along the derivative of a noise-generated liquid surface
+
+p5.js: LGPL-2.1; see P5-LICENSE.txt.
+Changes made October 2026. No claim of ownership over original code or assets.

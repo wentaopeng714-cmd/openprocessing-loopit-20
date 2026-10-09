@@ -1,0 +1,38 @@
+--- OpenProcessing original tabs
++++ Adapted visual code
+@@ -2,7 +2,7 @@
+ function setup() {
+ 	createCanvas(1112, 834);
+ 	rectMode(CENTER);
+-	colourMode(HSB);
++	colorMode(HSB,360,100,100,1);angleMode(DEGREES);background("#f4eee4");
+ 	//loop();
+ }
+ 
+@@ -12,9 +12,9 @@
+ 	
+ 	// how many slices of cake
+ 	// change this!
+-	var pieces = 12;
++	var pieces = [6,12,24][R.mode%3];
+ 	
+-	repeat(0, 359, 360 / pieces, my_shapes);
++	if(R.pressed||!R.touched)for(let a=0;a<360;a+=360/pieces)my_shapes(a);
+ 	
+ }
+ 
+@@ -29,7 +29,7 @@
+ 	fill(d, 100, 100, 0.5);
+ 	stroke(360 - d%360, 50, 100, 0.8);
+ 	
+-	circle(mouseX - width / 2, mouseY - height / 2, 15 * 100/d);
++	circle(mouseX - width / 2, mouseY - height / 2, min(R.amount*100/max(d,12),60));
+ 	
+ 	pop();
+ 	
+@@ -39,3 +39,5 @@
+   save('pix.jpg');
+ }
+ 
++
++

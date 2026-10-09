@@ -1,0 +1,12 @@
+Aurora Smoke — OpenProcessing source adaptation
+
+Original: Colorful smoke
+Author: Jason Labbe
+Source: https://openprocessing.org/sketch/944742
+Source license captured: by-sa
+Original notices remain in the code. Source file URLs and SHA256 hashes are in source.json.
+Adaptation: Draw luminous smoke; hold for a fountain; choose a colour band and adjust plume lifetime.
+Retained visual algorithm: Age-based ribbon strokes with a changing colour glow and rising tail
+
+p5.js: LGPL-2.1; see P5-LICENSE.txt.
+Changes made October 2026. No claim of ownership over original code or assets.

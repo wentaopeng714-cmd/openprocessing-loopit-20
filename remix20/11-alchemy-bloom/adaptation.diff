@@ -1,0 +1,28 @@
+--- OpenProcessing original tabs
++++ Adapted visual code
+@@ -15,7 +15,7 @@
+ */
+ 
+ var particles = [];
+-var globalHue = 0;
++var globalHue = 200;
+ var inverse = false;
+ 
+ function Particle(x, y) {
+@@ -27,7 +27,7 @@
+   this.hue = globalHue;
+   this.maxScale = max(0.25, abs(sin(radians(frameCount*5))*1.5));
+   this.rotateRate = random(-200, 200);
+-  this.maxOffset = random(50, 300);
++  this.maxOffset = random(50,300)*R.amount;
+   
+   this.display = function() {
+     var offset = map(this.life, 1, 0, 0, this.maxOffset); // Pushes out along x axis.
+@@ -113,5 +113,6 @@
+   
+   noStroke();
+   fill(255);
+-  text("Press any key to change the type of motion.", width/2, height-30);
+-}+  // Instructions moved into HTML.
++}
++

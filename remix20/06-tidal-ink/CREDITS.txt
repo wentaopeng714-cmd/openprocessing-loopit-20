@@ -1,0 +1,12 @@
+Tidal Ink — OpenProcessing source adaptation
+
+Original: perlin sea colors
+Author: Vamoss
+Source: https://openprocessing.org/sketch/742403
+Source license captured: by-sa
+Original notices remain in the code. Source file URLs and SHA256 hashes are in source.json.
+Adaptation: Paint currents; stir or erase locally; ocean/sunset palettes; variable current speed.
+Retained visual algorithm: Persistent paths advected through a noise-angle vector field
+
+p5.js: LGPL-2.1; see P5-LICENSE.txt.
+Changes made October 2026. No claim of ownership over original code or assets.

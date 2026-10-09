@@ -1,0 +1,50 @@
+{
+  "id": 897944,
+  "slug": "10-thread-comets",
+  "title": "Thread Comets",
+  "original": "Lines Brush",
+  "author": "Jason Labbe",
+  "algorithm": "Velocity-driven Sparks and ParticleLine trails",
+  "changes": "Flick to stretch threads; hold to build a spark fountain; select warm/cool pigments and density.",
+  "license": "by-sa",
+  "theme": "#05050b|#f3a48b|#c7a6ff",
+  "layout": "side",
+  "buttons": [
+    [
+      "palette",
+      "New pigment"
+    ],
+    [
+      "burst",
+      "Fireworks"
+    ]
+  ],
+  "ranges": [
+    [
+      "density",
+      "Threads",
+      1,
+      8,
+      3,
+      1
+    ]
+  ],
+  "extra": "",
+  "sourceFiles": [
+    {
+      "name": "main.js",
+      "sha256": "13f82352295f0c8b1430bcffdaaf2dde0584a01cb6478bc29fb718e83a28ebb4",
+      "url": "https://preview.openprocessing.org/sketch/897944/preview/false/main.js"
+    },
+    {
+      "name": "particleLines.js",
+      "sha256": "404c2abc6766ec08affbdc7d0b5b5c4060cd0d7049d6e7604ce0d2359320f573",
+      "url": "https://preview.openprocessing.org/sketch/897944/preview/false/particleLines.js"
+    },
+    {
+      "name": "spark.js",
+      "sha256": "7cdea25d52ed0c00fdb7e74ab5a5a5b3017cdcdca0da174075a9a8a663995269",
+      "url": "https://preview.openprocessing.org/sketch/897944/preview/false/spark.js"
+    }
+  ]
+}

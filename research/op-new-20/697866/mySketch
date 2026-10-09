@@ -1,0 +1,67 @@
+const textToWrite = "Hello curves";
+const frequency = 0.003;
+
+//auto start variables
+let centerX, centerY, startX, step, amplitude;
+
+function setup() {
+	createCanvas(windowWidth, windowHeight);
+	centerX = windowWidth/2;
+	centerY = windowHeight/2;
+	textSize(150);
+	
+	step = 0;
+	startX = centerX - textWidth(textToWrite) / 2;
+}
+
+function getY(x){
+	return centerY + noise(step, x * frequency) * amplitude;
+}
+
+function draw() {
+	background(255);
+  
+	//for calculating the noise in getY function
+	step += 0.01;
+	amplitude = -(mouseY / 3 + 50);
+	
+	//draw liquid
+	fill(0);
+	beginShape();
+	vertex(0, height);
+	for(let x = 0; x < width; x += 20){
+		vertex(x, getY(x));
+	}
+	vertex(width, height);
+	endShape(CLOSE);
+	
+	//draw text
+	fill(0);
+	let x = startX;
+	for (var i = 0; i < textToWrite.length; i++) {
+		let charWidth = textWidth(textToWrite.charAt(i));
+		//calculate angle
+		let prevX = x - 2;
+		let prevY = getY(prevX);
+		let y = getY(x);
+		let angle = atan2(y - prevY, x - prevX);
+		
+		push();
+			//apply angle
+			translate(x+charWidth/2, y);
+			rotate(angle);
+			translate(-(x+charWidth/2), -y);
+		
+			//draw
+			text(textToWrite.charAt(i), x, y);
+		pop();
+		x += charWidth;
+	}//for
+}
+
+function mouseMoved(){
+	startX = mouseX - textWidth(textToWrite) / 2;
+}
+	
+	
+	

@@ -1,0 +1,26 @@
+--- OpenProcessing original tabs
++++ Adapted visual code
+@@ -30,7 +30,7 @@
+ 
+ // Public variables
+ var maxDiam = 400;
+-var count = 50;
++var count = 24;
+ 
+ // Private variables
+ var allCircles = [];
+@@ -84,7 +84,7 @@
+   background(bgColor);
+   
+   // Forces first circle to follow the mouse.
+-  allCircles[0].pos.set(mouseX, mouseY);
++  allCircles[0].pos.set(mouseX, mouseY); if(R.pressed)allCircles[0].diam=lerp(allCircles[0].diam,min(width*.8,100+R.held*2),.1);
+   
+   for (var i = 0; i < allCircles.length; i++) {
+     for (var j = 0; j < allCircles.length; j++) {
+@@ -254,4 +254,5 @@
+     fill(labelColor);
+     text(this.slider.value(), sliderPos.x+this.slider.width+10, sliderPos.y+10);
+   }
+-}+}
++

@@ -1,0 +1,42 @@
+--- OpenProcessing original tabs
++++ Adapted visual code
+@@ -13,7 +13,7 @@
+ //Original inspiration
+ //https://twitter.com/AidaInma/status/1161205965305393154
+ 
+-const radius = 100;
++const radius = 55;
+ const altitude = Math.sqrt(3)/2 * radius;
+ let hexagons, hexagonPattern, rotations;
+ let changed = -1;
+@@ -31,13 +31,13 @@
+ 	hexagonMask.endShape();
+ 	
+ 	let hexagonLines = createGraphics(radius*2, radius*2);
+-	hexagonLines.noFill();
++	hexagonLines.noFill();hexagonLines.stroke("#254e67");
+ 	hexagonLines.strokeWeight(20);
+ 	hexagonLines.ellipse(radius - altitude, radius - radius / 2, radius, radius);
+ 	hexagonLines.ellipse(radius + altitude * 2, radius, radius * 3, radius * 3);
+ 	hexagonLines.ellipse(radius + altitude, radius + radius * 1.5, radius * 3, radius * 3);
+ 	hexagonLines.strokeWeight(16);
+-	hexagonLines.stroke(255);
++	hexagonLines.stroke("#faf3e4");
+ 	hexagonLines.ellipse(radius - altitude, radius - radius / 2, radius, radius);
+ 	hexagonLines.ellipse(radius + altitude * 2, radius, radius * 3, radius * 3);
+ 	hexagonLines.ellipse(radius + altitude, radius + radius * 1.5, radius * 3, radius * 3);
+@@ -64,7 +64,7 @@
+ }
+ 
+ function draw() {
+-	background(255);
++	background("#faf3e4");
+ 	hexagons.forEach((hexagon, index) => {
+ 		hexagon.rotation += (rotations[index] - hexagon.rotation) * 0.09; 
+ 		push();
+@@ -100,4 +100,5 @@
+ 		changed = tempChanged;
+ 		rotations[changed] += TWO_PI/6;
+ 	}
+-}+}
++

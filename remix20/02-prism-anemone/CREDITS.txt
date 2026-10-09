@@ -1,0 +1,12 @@
+Prism Anemone — OpenProcessing source adaptation
+
+Original: Organic
+Author: Jason Labbe
+Source: https://openprocessing.org/sketch/684400
+Source license captured: by-sa
+Original notices remain in the code. Source file URLs and SHA256 hashes are in source.json.
+Adaptation: Drag to bend; hold to bloom; adjustable frond density and opal/ember ink.
+Retained visual algorithm: Radial noise-modulated spline fronds
+
+p5.js: LGPL-2.1; see P5-LICENSE.txt.
+Changes made October 2026. No claim of ownership over original code or assets.

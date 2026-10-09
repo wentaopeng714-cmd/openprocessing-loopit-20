@@ -1,0 +1,64 @@
+{
+  "id": 533576,
+  "slug": "14-silk-suspension",
+  "title": "Silk Suspension",
+  "original": "Dynamic ropes 2",
+  "author": "Jason Labbe",
+  "algorithm": "Verlet point integration, constrained rope segments and interpolated strands",
+  "changes": "Comb the silk; grab and pull a strand; adjust gravity; change silk colour or rehang.",
+  "license": "by-sa",
+  "theme": "#e9e0d4|#79564a|#b77963",
+  "layout": "notebook",
+  "buttons": [
+    [
+      "grab",
+      "Comb / Grab"
+    ],
+    [
+      "palette",
+      "Copper / Ink"
+    ],
+    [
+      "seed",
+      "Rehang"
+    ]
+  ],
+  "ranges": [
+    [
+      "weight",
+      "Weight",
+      0.01,
+      0.5,
+      0.15,
+      0.01
+    ]
+  ],
+  "extra": "",
+  "sourceFiles": [
+    {
+      "name": "point.js",
+      "sha256": "9e4bd72673fba578f1fa7ca681f69a732cdbe573c04716be346dc45e11f023af",
+      "url": "https://preview.openprocessing.org/sketch/533576/preview/false/point.js"
+    },
+    {
+      "name": "rigidBody.js",
+      "sha256": "f3ff7f737c8c1a526284c35df2955f5ce6cdb15ae6aae5801ddd82410118c4fb",
+      "url": "https://preview.openprocessing.org/sketch/533576/preview/false/rigidBody.js"
+    },
+    {
+      "name": "segment.js",
+      "sha256": "43214b3370fb2675918ff322a50f5719b79f82370a5bd98e44188ceab7495750",
+      "url": "https://preview.openprocessing.org/sketch/533576/preview/false/segment.js"
+    },
+    {
+      "name": "sketch.js",
+      "sha256": "69adf3aa63165b0d9aaa0b69ea692f727debe7d6722d70bebd49718b59462fa1",
+      "url": "https://preview.openprocessing.org/sketch/533576/preview/false/sketch.js"
+    },
+    {
+      "name": "slider.js",
+      "sha256": "7dbd3a2dc247b62449e95723e6117b550a00e7716a00c02c423c60082122deeb",
+      "url": "https://preview.openprocessing.org/sketch/533576/preview/false/slider.js"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": 828863,
+  "slug": "08-prism-seal",
+  "title": "Prism Seal",
+  "original": "Kaleidoscope",
+  "author": "Richard Bourne",
+  "algorithm": "Rotated copies of pointer-distance-sized circles",
+  "changes": "Draw mirrored glass; choose six/twelve/twenty-four slices; hold to grow a seal; clear or invert paper.",
+  "license": "by-sa",
+  "theme": "#f4eee4|#71539c|#b47697",
+  "layout": "round",
+  "buttons": [
+    [
+      "slices",
+      "6 / 12 / 24"
+    ],
+    [
+      "paper",
+      "Paper / Night"
+    ],
+    [
+      "clear",
+      "Clear"
+    ]
+  ],
+  "ranges": [
+    [
+      "size",
+      "Bead size",
+      4,
+      32,
+      14,
+      1
+    ]
+  ],
+  "extra": "",
+  "sourceFiles": [
+    {
+      "name": "mySketch",
+      "sha256": "26dbe9be8f18e1b48e2cdee64a0dcdc5b73f96c3e76018c95041fe84446d7307",
+      "url": "https://preview.openprocessing.org/sketch/828863/preview/false/mySketch"
+    }
+  ]
+}

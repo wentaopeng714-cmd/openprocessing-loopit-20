@@ -1,0 +1,45 @@
+{
+  "id": 944742,
+  "slug": "09-aurora-smoke",
+  "title": "Aurora Smoke",
+  "original": "Colorful smoke",
+  "author": "Jason Labbe",
+  "algorithm": "Age-based ribbon strokes with a changing colour glow and rising tail",
+  "changes": "Draw luminous smoke; hold for a fountain; choose a colour band and adjust plume lifetime.",
+  "license": "by-sa",
+  "theme": "#030b16|#89e7ef|#aac7fc",
+  "layout": "caption",
+  "buttons": [
+    [
+      "band",
+      "Ice / Flame / Violet"
+    ],
+    [
+      "clear",
+      "Exhale"
+    ]
+  ],
+  "ranges": [
+    [
+      "life",
+      "Trail",
+      25,
+      100,
+      55,
+      5
+    ]
+  ],
+  "extra": "",
+  "sourceFiles": [
+    {
+      "name": "main.js",
+      "sha256": "ce74e4d1ed6f613028b191e396ecbd531bc85d41fe516c397c3c60cd87cae250",
+      "url": "https://preview.openprocessing.org/sketch/944742/preview/false/main.js"
+    },
+    {
+      "name": "particle.js",
+      "sha256": "3bd76e30a290a4d9b1c8576dbe337ed15c68e15741344505d200ef7378f5efab",
+      "url": "https://preview.openprocessing.org/sketch/944742/preview/false/particle.js"
+    }
+  ]
+}

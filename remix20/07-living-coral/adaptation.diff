@@ -1,0 +1,62 @@
+--- OpenProcessing original tabs
++++ Adapted visual code
+@@ -82,23 +82,23 @@
+ 
+ 
+ function draw() {
+-  background(0);
++  background("#f0e5d7");
+ 	
+ 	push();
+ 		translate(width / 2, height / 2);
+ 		for (let i = 0; i < rootBranches.length; i++) {
+-			treeIterator(rootBranches[i], 0, -height / 2, 0);
+-		}
+-	
+-		stroke(230);
+-		strokeWeight(25);
++			treeIterator(rootBranches[i],0,0,0);
++		}
++	
++		stroke("#a34c3d");
++		strokeWeight(10);
+ 		point(0, 0);
+ 	pop();
+ 	
+ 	fill(255);
+ 	noStroke();
+ 	
+-	text(
++	void(
+ 	"".concat(
+ 		"Click to change to a new shape.\n",
+ 		"Middle-click to toggle debug mode.\n",
+@@ -152,7 +152,7 @@
+ function generateNewTree() {
+ 	rootBranches = [];
+ 	for (let a = 0; a < 360; a+=12) {
+-		let newBranch = new Branch(random(30.0, 100.0), a, 0)
++		let newBranch = new Branch(random(min(width,height)*.035,min(width,height)*.12), a, 0)
+ 		rootBranches.push(newBranch);
+ 		subDivide(newBranch);
+ 	}
+@@ -174,11 +174,11 @@
+ 	worldY += vec.y;
+ 	
+ 	push();
+-		stroke(map(branch.level, 0, maxLevel, 255, 50));
++		stroke(lerpColor(color(R.palette%2?"#164e46":"#863529"),color("#d9a685"),branch.level/(maxLevel+1)));
+ 		strokeWeight(maxLevel - branch.level + 1);
+ 		
+ 		// Push the branch if it's within distance of the mouse.
+-		let d = dist(mouseX, mouseY, worldX + width / 2, worldY + height - 20);
++		let d = dist(mouseX, mouseY, worldX + width / 2, worldY + height / 2);
+ 		let distThresh = 300;
+ 		if (d < distThresh) {
+ 			let force = map(d, 0, distThresh, 1.5, 0);  // Closer branches will be pushed more.
+@@ -222,4 +222,5 @@
+ 			treeIterator(branch.children[i], worldX, worldY, worldA);
+ 		}
+ 	pop();
+-}+}
++

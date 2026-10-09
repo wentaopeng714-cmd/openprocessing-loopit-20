@@ -1,0 +1,31 @@
+{
+  "visualID": 423827,
+  "title": "Circles nebula",
+  "description": "Uses an algorithm to find the intersection points between 2 circles, and\ncreates a shape from it.\n\nI only converted the algorithm, I'm not smart enough to solve it myself!\n\nInspired by a sketch from Keith Peters (https://bit101.github.io/lab/dailies/170414.html)\n\nControls:\n  - Move the mouse.\n  - Use the on-screen controls to change settings.",
+  "instructions": "Check the description.",
+  "createdOn": "2017-04-27 06:23:36",
+  "updatedOn": "2025-12-30 08:03:21",
+  "filesUpdatedOn": null,
+  "thumbnailUpdatedOn": "2017-04-27 06:23:36",
+  "videoUpdatedOn": null,
+  "userID": 60876,
+  "isDraft": 0,
+  "license": "by-sa",
+  "isPrivate": 0,
+  "parentID": null,
+  "engineID": 20,
+  "isTemplate": 0,
+  "tags": [],
+  "libraries": [
+    {
+      "libraryID": 13,
+      "url": "https://cdn.jsdelivr.net/npm/p5@0.5.7/lib/addons/p5.dom.js"
+    }
+  ],
+  "engineURL": "https://cdn.jsdelivr.net/npm/p5@0.5.8/lib/p5.min.js",
+  "mode": "p5js",
+  "fileBase": "https://deckard.openprocessing.org/user60876/visual423827/h688e02f9086e058995404add583a69e1/",
+  "tutorialMode": null,
+  "username": "theRussetPotato",
+  "files": []
+}

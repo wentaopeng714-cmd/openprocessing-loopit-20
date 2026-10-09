@@ -1,0 +1,40 @@
+function setup() {
+	createCanvas(1112, 834);
+	rectMode(CENTER);
+	colourMode(HSB);
+	//loop();
+}
+
+function draw() {
+	translate(width / 2, height / 2);
+	stroke(220, 100, 100, 0.7);
+	
+	// how many slices of cake
+	// change this!
+	var pieces = 12;
+	
+	repeat(0, 359, 360 / pieces, my_shapes);
+	
+}
+
+
+function my_shapes(angle) {
+	
+	push();
+	rotate(angle);
+	
+	// distance
+	var d = dist(mouseX, mouseY, width/2, height/2);
+	fill(d, 100, 100, 0.5);
+	stroke(360 - d%360, 50, 100, 0.8);
+	
+	circle(mouseX - width / 2, mouseY - height / 2, 15 * 100/d);
+	
+	pop();
+	
+}
+
+function mousePressed(){
+  save('pix.jpg');
+}
+

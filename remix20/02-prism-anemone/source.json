@@ -1,0 +1,40 @@
+{
+  "id": 684400,
+  "slug": "02-prism-anemone",
+  "title": "Prism Anemone",
+  "original": "Organic",
+  "author": "Jason Labbe",
+  "algorithm": "Radial noise-modulated spline fronds",
+  "changes": "Drag to bend; hold to bloom; adjustable frond density and opal/ember ink.",
+  "license": "by-sa",
+  "theme": "#130b28|#b1d5fd|#d4a8ff",
+  "layout": "editorial",
+  "buttons": [
+    [
+      "palette",
+      "Opal / Ember"
+    ],
+    [
+      "still",
+      "Still / Flow"
+    ]
+  ],
+  "ranges": [
+    [
+      "density",
+      "Fronds",
+      0.025,
+      0.09,
+      0.04,
+      0.005
+    ]
+  ],
+  "extra": "",
+  "sourceFiles": [
+    {
+      "name": "mySketch",
+      "sha256": "99aad791527c47abb70efec74401eec6f0afd1102c1263fba1daf3a59603a66c",
+      "url": "https://preview.openprocessing.org/sketch/684400/preview/false/mySketch"
+    }
+  ]
+}

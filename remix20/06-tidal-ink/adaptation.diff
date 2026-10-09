@@ -1,0 +1,25 @@
+--- OpenProcessing original tabs
++++ Adapted visual code
+@@ -1,6 +1,6 @@
+ // Original tab: mySketch
+ let pos, colors;
+-const moveSpeed = 0.4;
++let moveSpeed = .6;
+ const moveScale = 800;
+ 
+ function setup() {
+@@ -22,7 +22,7 @@
+ function draw() {
+ 	for(let i = 0; i < pos.length; i++){
+ 		with(pos[i]){
+-			let angle = noise(x / moveScale, y / moveScale) * TWO_PI * moveScale;//I never understood why end by multiplying by moveScale
++			let angle=noise(x/moveScale,y/moveScale)*TWO_PI*moveScale;if(R.pressed&&dist(x,y,mouseX,mouseY)<120)angle+=atan2(y-mouseY,x-mouseX)+HALF_PI;//I never understood why end by multiplying by moveScale
+ 			x += cos(angle) * moveSpeed;
+ 			y += sin(angle) * moveSpeed;
+ 			fill(c);
+@@ -33,4 +33,5 @@
+ 			}
+ 		}
+ 	}
+-}+}
++

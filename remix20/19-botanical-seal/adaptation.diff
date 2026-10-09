@@ -1,0 +1,40 @@
+--- OpenProcessing original tabs
++++ Adapted visual code
+@@ -21,7 +21,7 @@
+ 
+ function setup() {
+ 	createCanvas(600, 600);
+-	background(255);
++	background("#f4f0df");
+ 	
+ 	pos = {x: width/2, y: height/2}
+ 	prevPos = {x: pos.x, y: pos.y}
+@@ -31,17 +31,17 @@
+ 	if(random() < 0.1) dir *= -1
+ 	if(random() < 0.1) radius = random(1, 5)
+ 	
+-	angle += 1/radius*dir
++	angle += 1/radius*dir*R.rate
+ 	
+ 	pos.x += cos(angle) * radius
+ 	pos.y += sin(angle) * radius
+ 	
+-	for(let rot = 0; rot < TWO_PI; rot += TWO_PI/6){
++	for(let rot = 0; rot < TWO_PI; rot += TWO_PI/[6,10,16][R.mode%3]){
+ 		push()
+-			translate(width/2, height/2)
++			translate(R.cx,R.cy)
+ 			rotate(rot)
+-			translate(-width/2, -height/2)
+-			line(prevPos.x, prevPos.y, pos.x, pos.y)
++			translate(-R.cx,-R.cy)
++			stroke(R.palette%2?"#b4523f":"#276154");strokeWeight(.8);line(prevPos.x,prevPos.y,pos.x,pos.y)
+ 		pop()
+ 	}
+ 	
+@@ -52,4 +52,5 @@
+ 		dir *= -1
+ 		angle += PI * dir
+ 	}
+-}+}
++

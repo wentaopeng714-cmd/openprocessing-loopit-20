@@ -1,0 +1,40 @@
+--- OpenProcessing original tabs
++++ Adapted visual code
+@@ -38,13 +38,13 @@
+ 	
+ 	// Spawn sparks.
+ 	for (let i = 0; i < particlesPerFrame; i++) {
+-		particles.push(new Spark(pos.x, pos.y, vel.x, vel.y));
++		if(R.pressed||!R.touched)particles.push(new Spark(pos.x,pos.y,vel.x,vel.y));
+ 	}
+ 	
+ 	// Spawn particles lines.
+ 	vel.normalize();
+ 	for (let i = 0; i < particleLinesPerFrame; i++) {
+-		particles.push(new ParticleLine(pos.x, pos.y, vel.x, vel.y));
++		if(R.pressed||!R.touched)particles.push(new ParticleLine(pos.x,pos.y,vel.x,vel.y));
+ 	}
+ 	
+ 	// Move, draw, and kill all particles.
+@@ -97,12 +97,12 @@
+ 	}
+ 	
+ 	this.draw = function() {
+-		let mass = this.mass * this.vel.mag() * 0.6;
++		let mass=min(28,this.mass*this.vel.mag()*.24);
+ 		let c = colorScheme[this.colorIndex];
+ 		drawingContext.shadowColor = color(red(c), green(c), blue(c), 255 * this.vel.mag());
+-		drawingContext.shadowBlur = mass;
++		drawingContext.shadowBlur = min(mass,9);
+ 
+-		stroke(0);
++		stroke(red(c),green(c),blue(c),100);
+ 		strokeWeight(mass);
+ 		line(this.pos.x, this.pos.y, this.startPos.x, this.startPos.y);
+ 	}
+@@ -127,4 +127,5 @@
+ 		strokeWeight(2);
+ 		line(this.lastPos.x, this.lastPos.y, this.pos.x, this.pos.y);
+ 	}
+-}+}
++

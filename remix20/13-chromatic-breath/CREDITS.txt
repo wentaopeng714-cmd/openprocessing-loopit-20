@@ -1,0 +1,14 @@
+Chromatic Breath — OpenProcessing source adaptation
+
+Original: Color Bubbles
+Author: Roni Kaufman, after Sayama
+Source: https://openprocessing.org/sketch/874621
+Source license captured: by-nc-sa
+Original notices remain in the code. Source file URLs and SHA256 hashes are in source.json.
+Adaptation: Move the emitter; hold for denser breathing; rainbow/rose colours, adjustable outward drift.
+Retained visual algorithm: Golden-angle radial emitters with a distance-shaped bubble diameter
+
+p5.js: LGPL-2.1; see P5-LICENSE.txt.
+Changes made October 2026. No claim of ownership over original code or assets.
+
+NONCOMMERCIAL: This work retains CC BY-NC-SA. Commercial redistribution requires permission from its rights holders.

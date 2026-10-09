@@ -1,0 +1,39 @@
+--- OpenProcessing original tabs
++++ Adapted visual code
+@@ -17,7 +17,7 @@
+ 
+ var points;
+ var globalHue = 0;
+-var POINT_COUNT = 1000;
++var POINT_COUNT = 260;
+ 
+ function setup() {
+   createCanvas(windowWidth, windowHeight);
+@@ -35,9 +35,9 @@
+ function draw() {
+   background(0);
+   
+-  globalHue = map(noise(frameCount*0.01), 0, 1, 0, 360);
+-  
+-  var offset = frameCount*0.005;
++  globalHue=[210,25,140][R.palette%3]+map(noise(frameCount*.01),0,1,-25,25);
++  
++  R.ink+=.005*R.rate;var offset=R.ink;
+   
+   var transform = new Array(points.length);
+   for (var i = transform.length-1; i > -1; i--) {
+@@ -52,7 +52,7 @@
+     var p2 = transform[triangles[i-2]]
+     var p3 = transform[triangles[i-3]];
+ 	
+-    var d = dist(mouseX, mouseY, p1[0], p1[1]);
++    var d=dist(mouseX,mouseY,p1[0],p1[1])/(R.amount*(R.pressed?1.5:1));
+     var h = globalHue+d*0.2;
+     var s = d;
+     var b = 360;
+@@ -317,4 +317,5 @@
+ 
+   if(typeof module !== "undefined")
+     module.exports = Delaunay;
+-})();+})();
++

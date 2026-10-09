@@ -1,0 +1,49 @@
+--- OpenProcessing original tabs
++++ Adapted visual code
+@@ -1,6 +1,6 @@
+ // Original tab: mySketch
+ var allParticles = [];
+-var jCount = 40;
++var jCount = 28;
+ 
+ 
+ function Particle(a, j, c) {
+@@ -20,7 +20,7 @@
+   var i = 0;
+   
+   for (var j = 0; j < jCount; j++) {
+-    for (var a = 0; a < 360; a += 4) {
++    for (var a = 0; a < 360; a += 6) {
+       let c;
+       
+       if (i % 4 == 0) {
+@@ -41,7 +41,7 @@
+ function draw() {
+   background(0);
+   
+-  translate(width/2, height/2);
++  translate(width/2,height*.48);rotate(R.ink);
+   
+   for (var i = 0; i < allParticles.length; i++) {
+     var p = allParticles[i];
+@@ -54,16 +54,17 @@
+     }
+     
+     rotate(radians(p.a+p.x)*invert);
+-    translate(map(p.j, 0, jCount, 400, 5), 0);
++    translate(map(p.j, 0, jCount, min(width,height)*.43, 5), 0);
+     
+     fill(p.c);
+     
+     var s = map(p.j, 0, jCount, 10, 1);
+-    rect(0, 0, s, s);
++    if(R.mode%2)circle(0,0,s);else rect(0,0,s,s);
+     
+     var shift = map(p.j, 0, jCount, 0.5, 0.05);
+-    p.x += max(0, sin(p.j+frameCount*0.05)*shift);
++    p.x += max(0,sin(p.j+frameCount*.05*R.rate)*shift)*R.sign;
+     
+     pop();
+   }
+-}+}
++

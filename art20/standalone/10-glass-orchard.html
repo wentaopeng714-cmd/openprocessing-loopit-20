@@ -1,0 +1,290 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Glass Orchard</title><!-- Interactive artwork: Glass Orchard
+Adapted Delaunay triangulation from Frozen Brush 2 by Jason Labbe, https://openprocessing.org/@theRussetPotato/916227
+Original library attribution to Jay LaPorte is preserved in the source. Original and adaptation CC BY-SA 3.0: https://creativecommons.org/licenses/by-sa/3.0/
+Changes: stained glass geometry, joint editing, light, touch, offline Canvas implementation.
+ --><style>*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;overscroll-behavior:none;font-family:Arial,sans-serif;color:var(--ink);background:var(--bg)}canvas{position:fixed;inset:0;touch-action:none}.ui{position:fixed;inset:0;pointer-events:none;z-index:2}button,input,select{pointer-events:auto;touch-action:manipulation}button{cursor:pointer;font:inherit;font-size:11px;color:inherit;border:1px solid var(--line);background:var(--glass);padding:12px 16px;border-radius:6px;backdrop-filter:blur(14px)}button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:3px}button[aria-pressed=true]{background:var(--accent);color:var(--bg);border-color:var(--accent)}input{accent-color:var(--accent);max-width:150px}h1,h2,p{margin:0}h1{font:400 clamp(27px,4vw,48px) Georgia,serif;letter-spacing:-1px}small,.eyebrow{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;line-height:1.8}.head{position:absolute;top:max(26px,env(safe-area-inset-top));left:30px;right:30px}.hint{font-size:11px;line-height:1.7;max-width:290px;opacity:.8}.hint b{font-weight:400}.tools{display:flex;gap:7px;align-items:center;flex-wrap:wrap}.bottom{position:absolute;bottom:max(24px,env(safe-area-inset-bottom));left:30px;right:30px}.corner{position:absolute;right:24px;top:26px;display:flex;gap:6px}.icon{font-size:16px;width:36px;height:36px;padding:0;border-radius:50%}.status{font-size:10px;letter-spacing:1px;opacity:.65}.quiet .ui{opacity:0}.reveal{display:none;position:fixed;right:16px;top:16px;z-index:4;width:34px;height:34px;padding:0;border-radius:50%}.quiet .reveal{display:block}#error{position:fixed;z-index:9;top:45%;left:16px;right:16px;background:#fff1ee;color:#a22;text-align:center;line-height:2;font-size:12px}#error:empty{display:none}.row{display:flex;align-items:center;gap:12px}.spacer{flex:1}.swatch{height:27px;width:27px;padding:0;border-radius:50%;background:var(--swatch);border:3px solid #ffffff55}.swatch[aria-pressed=true]{background:var(--swatch);outline:1px solid var(--ink);outline-offset:3px}.vertical{display:flex;flex-direction:column;gap:9px}.hairline{border-top:1px solid var(--line);padding-top:14px}.pill button{border-radius:30px}.card{background:var(--glass);border:1px solid var(--line);padding:18px;backdrop-filter:blur(12px)}.meter{height:2px;width:100px;background:var(--line)}.meter i{display:block;height:100%;background:var(--accent);width:var(--fill,30%)}.side{position:absolute;right:26px;top:50%;transform:translateY(-50%)}.seal{border:1px solid var(--ink);border-radius:50%;width:70px;height:70px;display:grid;place-items:center;text-align:center;font:11px Georgia;line-height:1.6;transform:rotate(-12deg)}.key{font-size:10px;line-height:1.8;opacity:.6}.center{text-align:center}.center .tools{justify-content:center}.large-number{font:64px Georgia;opacity:.22}.rule{width:60px;border-top:1px solid var(--ink);margin:12px 0}.badge{border:1px solid var(--line);padding:7px 11px;border-radius:20px;font-size:9px;letter-spacing:1.5px}.dock{display:flex;gap:12px;align-items:center;background:var(--glass);border:1px solid var(--line);padding:12px;border-radius:18px;backdrop-filter:blur(16px)}.dock label{font-size:9px;letter-spacing:1px}.tab{padding:8px 12px}.viewfinder:before,.viewfinder:after{content:'';position:absolute;width:25px;height:25px;border:1px solid var(--line);top:20%;pointer-events:none}.viewfinder:before{left:24px;border-right:0;border-bottom:0}.viewfinder:after{right:24px;border-left:0;border-bottom:0}body.pottery .head h1{font-style:italic}body.tea .head{border-bottom:1px solid var(--line);padding-bottom:16px}body.window .head{background:var(--glass);padding:14px;border-radius:5px;max-width:250px}body.atlas .head h1{font:700 26px Arial;letter-spacing:4px}body.harp h1{font-style:italic}body.bubbles .head h1{font:300 36px Arial;letter-spacing:-2px}body.mask .head h1{font-size:36px}body.glass .head h1{text-transform:uppercase;letter-spacing:5px;font:21px Georgia}body.fold .head{border-left:2px solid var(--accent);padding-left:16px}body.sand button{border-radius:0}body.orbit h1{font:500 22px Arial;letter-spacing:6px}body.loom .head h1{font:30px Georgia}body.mobile .head{writing-mode:vertical-rl;right:auto}body.mobile .head h1{letter-spacing:2px}body.coral .head{max-width:200px}body.meadow .head{top:7%;left:7%}body.koi .head h1{font-size:40px}body.koi .bottom h2{font:28px Georgia;max-width:230px}body.lens h1{font:32px Georgia}body.tide .head h1{font-style:italic}body.aurora .head{top:auto;bottom:120px}body.aurora .head h1{font-size:56px}body.clockwork h1{font:27px Georgia}body.fruit .head h1{font:bold 42px Georgia}body.fruit button{border-radius:14px}
+@media(max-width:600px){.head{left:20px;right:20px;top:22px}.bottom{left:20px;right:20px;bottom:max(20px,env(safe-area-inset-bottom))}.corner{right:18px;top:20px}.hint{font-size:10px;max-width:250px}.tools{gap:5px}button{padding:10px 12px;font-size:10px}.side{right:17px}.card{padding:12px}.dock{gap:8px;padding:10px}.dock input{max-width:100px}h1{font-size:32px}.head .hint{margin-top:8px}.seal{width:58px;height:58px;font-size:10px}body.koi .head h1{font-size:34px}body.aurora .head h1{font-size:43px}body.aurora .head{bottom:132px}body.mobile .head{left:16px}.large-number{font-size:48px}.row{gap:8px}}
+:root{--bg:#30323d;--ink:#e4d2b3;--accent:#cf9b70;--glass:color-mix(in srgb,var(--bg) 72%,transparent);--line:color-mix(in srgb,var(--ink) 22%,transparent)}</style></head><body class="glass"><canvas aria-label="Glass Orchard interactive artwork"></canvas><main class="ui"><div class="head center"><small>A window in colour / 10</small><h1>Glass Orchard</h1></div><div class="bottom "><div class="center"><p class="hint" style="margin:0 auto 15px">Move a joint. The whole window changes.</p><div class="tools"><label class="row"><small>Sunlight</small><input aria-label="Sunlight" data-action="light" type="range" min="0" max="1" step=".01" value="0.5"></label><button class="" data-action="palette" data-value="">Change glass</button><button class="" data-action="reset" data-value="">New window</button></div></div></div><div class="corner"><button class="icon" aria-label="Hide interface" data-action="quiet" data-value="">◌</button></div></main><button class="reveal" data-reveal aria-label="Show interface">◌</button><div id="error" role="alert"></div><script>/*
+Orginally from Jay LaPorte at https://github.com/ironwallaby/delaunay/blob/master/delaunay.js
+Tweaked it so instead of raising an error it would return an empty list.
+*/
+
+var Delaunay;
+
+(function() {
+  "use strict";
+
+  var EPSILON = 1.0 / 1048576.0;
+
+  function supertriangle(vertices) {
+    var xmin = Number.POSITIVE_INFINITY,
+        ymin = Number.POSITIVE_INFINITY,
+        xmax = Number.NEGATIVE_INFINITY,
+        ymax = Number.NEGATIVE_INFINITY,
+        i, dx, dy, dmax, xmid, ymid;
+
+    for(i = vertices.length; i--; ) {
+      if(vertices[i][0] < xmin) xmin = vertices[i][0];
+      if(vertices[i][0] > xmax) xmax = vertices[i][0];
+      if(vertices[i][1] < ymin) ymin = vertices[i][1];
+      if(vertices[i][1] > ymax) ymax = vertices[i][1];
+    }
+
+    dx = xmax - xmin;
+    dy = ymax - ymin;
+    dmax = Math.max(dx, dy);
+    xmid = xmin + dx * 0.5;
+    ymid = ymin + dy * 0.5;
+
+    return [
+      [xmid - 20 * dmax, ymid -      dmax],
+      [xmid            , ymid + 20 * dmax],
+      [xmid + 20 * dmax, ymid -      dmax]
+    ];
+  }
+
+  function circumcircle(vertices, i, j, k) {
+    var x1 = vertices[i][0],
+        y1 = vertices[i][1],
+        x2 = vertices[j][0],
+        y2 = vertices[j][1],
+        x3 = vertices[k][0],
+        y3 = vertices[k][1],
+        fabsy1y2 = Math.abs(y1 - y2),
+        fabsy2y3 = Math.abs(y2 - y3),
+        xc, yc, m1, m2, mx1, mx2, my1, my2, dx, dy;
+
+    /* Check for coincident points */
+    if(fabsy1y2 < EPSILON && fabsy2y3 < EPSILON)
+      return;
+      //throw new Error("Eek! Coincident points!");
+
+    if(fabsy1y2 < EPSILON) {
+      m2  = -((x3 - x2) / (y3 - y2));
+      mx2 = (x2 + x3) / 2.0;
+      my2 = (y2 + y3) / 2.0;
+      xc  = (x2 + x1) / 2.0;
+      yc  = m2 * (xc - mx2) + my2;
+    }
+
+    else if(fabsy2y3 < EPSILON) {
+      m1  = -((x2 - x1) / (y2 - y1));
+      mx1 = (x1 + x2) / 2.0;
+      my1 = (y1 + y2) / 2.0;
+      xc  = (x3 + x2) / 2.0;
+      yc  = m1 * (xc - mx1) + my1;
+    }
+
+    else {
+      m1  = -((x2 - x1) / (y2 - y1));
+      m2  = -((x3 - x2) / (y3 - y2));
+      mx1 = (x1 + x2) / 2.0;
+      mx2 = (x2 + x3) / 2.0;
+      my1 = (y1 + y2) / 2.0;
+      my2 = (y2 + y3) / 2.0;
+      xc  = (m1 * mx1 - m2 * mx2 + my2 - my1) / (m1 - m2);
+      yc  = (fabsy1y2 > fabsy2y3) ?
+        m1 * (xc - mx1) + my1 :
+        m2 * (xc - mx2) + my2;
+    }
+
+    dx = x2 - xc;
+    dy = y2 - yc;
+    return {i: i, j: j, k: k, x: xc, y: yc, r: dx * dx + dy * dy};
+  }
+
+  function dedup(edges) {
+    var i, j, a, b, m, n;
+
+    for(j = edges.length; j; ) {
+      b = edges[--j];
+      a = edges[--j];
+
+      for(i = j; i; ) {
+        n = edges[--i];
+        m = edges[--i];
+
+        if((a === m && b === n) || (a === n && b === m)) {
+          edges.splice(j, 2);
+          edges.splice(i, 2);
+          break;
+        }
+      }
+    }
+  }
+
+  Delaunay = {
+    triangulate: function(vertices, key) {
+      var n = vertices.length,
+          i, j, indices, st, open, closed, edges, dx, dy, a, b, c;
+
+      /* Bail if there aren't enough vertices to form any triangles. */
+      if(n < 3)
+        return [];
+
+      /* Slice out the actual vertices from the passed objects. (Duplicate the
+       * array even if we don't, though, since we need to make a supertriangle
+       * later on!) */
+      vertices = vertices.slice(0);
+
+      if(key)
+        for(i = n; i--; )
+          vertices[i] = vertices[i][key];
+
+      /* Make an array of indices into the vertex array, sorted by the
+       * vertices' x-position. */
+      indices = new Array(n);
+
+      for(i = n; i--; )
+        indices[i] = i;
+
+      indices.sort(function(i, j) {
+        return vertices[j][0] - vertices[i][0];
+      });
+
+      /* Next, find the vertices of the supertriangle (which contains all other
+       * triangles), and append them onto the end of a (copy of) the vertex
+       * array. */
+      st = supertriangle(vertices);
+      vertices.push(st[0], st[1], st[2]);
+      
+      /* Initialize the open list (containing the supertriangle and nothing
+       * else) and the closed list (which is empty since we havn't processed
+       * any triangles yet). */
+      var circCircle = circumcircle(vertices, n + 0, n + 1, n + 2);
+      if (circCircle == undefined)
+        return [];
+      
+      open   = [circumcircle(vertices, n + 0, n + 1, n + 2)];
+      closed = [];
+      edges  = [];
+      
+      /* Incrementally add each vertex to the mesh. */
+      for(i = indices.length; i--; edges.length = 0) {
+        c = indices[i];
+
+        /* For each open triangle, check to see if the current point is
+         * inside it's circumcircle. If it is, remove the triangle and add
+         * it's edges to an edge list. */
+        for(j = open.length; j--; ) {
+          /* If this point is to the right of this triangle's circumcircle,
+           * then this triangle should never get checked again. Remove it
+           * from the open list, add it to the closed list, and skip. */
+          dx = vertices[c][0] - open[j].x;
+          if(dx > 0.0 && dx * dx > open[j].r) {
+            closed.push(open[j]);
+            open.splice(j, 1);
+            continue;
+          }
+
+          /* If we're outside the circumcircle, skip this triangle. */
+          dy = vertices[c][1] - open[j].y;
+          if(dx * dx + dy * dy - open[j].r > EPSILON)
+            continue;
+
+          /* Remove the triangle and add it's edges to the edge list. */
+          edges.push(
+            open[j].i, open[j].j,
+            open[j].j, open[j].k,
+            open[j].k, open[j].i
+          );
+          open.splice(j, 1);
+        }
+
+        /* Remove any doubled edges. */
+        dedup(edges);
+
+        /* Add a new triangle for each edge. */
+        for(j = edges.length; j; ) {
+          b = edges[--j];
+          a = edges[--j];
+          open.push(circumcircle(vertices, a, b, c));
+        }
+      }
+
+      /* Copy any remaining open triangles to the closed list, and then
+       * remove any triangles that share a vertex with the supertriangle,
+       * building a list of triplets that represent triangles. */
+      for(i = open.length; i--; )
+        closed.push(open[i]);
+      open.length = 0;
+
+      for(i = closed.length; i--; )
+        if(closed[i].i < n && closed[i].j < n && closed[i].k < n)
+          open.push(closed[i].i, closed[i].j, closed[i].k);
+
+      /* Yay, we're done! */
+      return open;
+    },
+    contains: function(tri, p) {
+      /* Bounding box test first, for quick rejections. */
+      if((p[0] < tri[0][0] && p[0] < tri[1][0] && p[0] < tri[2][0]) ||
+         (p[0] > tri[0][0] && p[0] > tri[1][0] && p[0] > tri[2][0]) ||
+         (p[1] < tri[0][1] && p[1] < tri[1][1] && p[1] < tri[2][1]) ||
+         (p[1] > tri[0][1] && p[1] > tri[1][1] && p[1] > tri[2][1]))
+        return null;
+
+      var a = tri[1][0] - tri[0][0],
+          b = tri[2][0] - tri[0][0],
+          c = tri[1][1] - tri[0][1],
+          d = tri[2][1] - tri[0][1],
+          i = a * d - b * c;
+
+      /* Degenerate tri. */
+      if(i === 0.0)
+        return null;
+
+      var u = (d * (p[0] - tri[0][0]) - b * (p[1] - tri[0][1])) / i,
+          v = (a * (p[1] - tri[0][1]) - c * (p[0] - tri[0][0])) / i;
+
+      /* If we're outside the tri, fail. */
+      if(u < 0.0 || v < 0.0 || (u + v) > 1.0)
+        return null;
+
+      return [u, v];
+    }
+  };
+
+  if(typeof module !== "undefined")
+    module.exports = Delaunay;
+})();
+// Delaunay triangulation is supplied from Jason Labbe's Frozen Brush 2 (CC BY-SA 3.0), credited in ZIP.
+function makeScene(A){let points=[],tri=[],held=null,light=.5,palette=0;const palettes=[['#d96949','#f1bd6c','#c3c190','#637e77','#92a5a4'],['#b47b9a','#d1a2a9','#d6c5d2','#7789a4','#574d80']];
+ function rebuild(){tri=Delaunay.triangulate(points.map(p=>[p.x,p.y]))}
+ function reset(){let cx=A.w*.5,cy=A.h*.46,r=Math.min(A.w*.37,A.h*.3);points=[];for(let i=0;i<42;i++){let a=i/42*TAU;points.push({x:cx+Math.cos(a)*r,y:cy+Math.sin(a)*r,pin:true})}for(let i=0;i<65;i++){let a=rand(TAU),d=Math.sqrt(rand())*r*.92;points.push({x:cx+Math.cos(a)*d,y:cy+Math.sin(a)*d})}rebuild()}
+ return{reset,resize:reset,down(p){let best=35;for(const q of points)if(!q.pin&&near(p,q,best)){best=dist(p.x,p.y,q.x,q.y);held=q}},move(p){if(held){let cx=A.w*.5,cy=A.h*.46,r=Math.min(A.w*.37,A.h*.3)*.94,d=dist(p.x,p.y,cx,cy),f=Math.min(1,r/(d||1));held.x=cx+(p.x-cx)*f;held.y=cy+(p.y-cy)*f;rebuild()}},up(){held=null},tool(n,v){if(n==='light')light=+v;if(n==='palette'){palette=(palette+1)%2}},draw(){wash('#252d38','#403c46');let cx=A.w*.5,cy=A.h*.46,r=Math.min(A.w*.37,A.h*.3);ctx.save();ctx.translate(cx+(light-.5)*120,A.h*.78);ctx.scale(1,.23);circle(0,0,r*1.2,gradient(0,0,r*1.2,[[0,'#b3865260'],[1,'#a7714c00']]));ctx.restore();circle(cx,cy,r+13,'#6d6555');circle(cx,cy,r+8,'#d1bf9b');circle(cx,cy,r+4,'#5d5b4f');ctx.save();ctx.beginPath();ctx.arc(cx,cy,r,0,TAU);ctx.clip();for(let k=0;k<tri.length;k+=3){let a=points[tri[k]],b=points[tri[k+1]],c=points[tri[k+2]],color=palettes[palette][Math.floor(k/3)%5];path([[a.x,a.y],[b.x,b.y],[c.x,c.y]],color,'#3e4549',1.4);let g=ctx.createLinearGradient(a.x,a.y,c.x,c.y);g.addColorStop(0,'#fff8d64a');g.addColorStop(1,'#fff8d600');path([[a.x,a.y],[b.x,b.y],[c.x,c.y]],g);line(a.x+1,a.y+1,b.x+1,b.y+1,'#fff4cf77',.7)}ctx.restore();circle(cx,cy,r,null,'#fff2d25e',1.5);if(held)circle(held.x,held.y,6,'#fff3d2');
+ }}
+}
+</script><script>/* Shared canvas, input and drawing utilities. Every scene owns its simulation. */
+const canvas=document.querySelector('canvas'),ctx=canvas.getContext('2d',{alpha:false});
+const TAU=Math.PI*2,rand=(a=1,b)=>b===undefined?Math.random()*a:a+Math.random()*(b-a),clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),mix=(a,b,t)=>a+(b-a)*t,dist=(a,b,c,d)=>Math.hypot(a-c,b-d);
+function circle(x,y,r,fill,stroke,lw=1){ctx.beginPath();ctx.arc(x,y,Math.max(.01,r),0,TAU);if(fill){ctx.fillStyle=fill;ctx.fill()}if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=lw;ctx.stroke()}}
+function ellipse(x,y,rx,ry,fill,angle=0,stroke){ctx.beginPath();ctx.ellipse(x,y,Math.max(.01,rx),Math.max(.01,ry),angle,0,TAU);if(fill){ctx.fillStyle=fill;ctx.fill()}if(stroke){ctx.strokeStyle=stroke;ctx.stroke()}}
+function line(x,y,x2,y2,col,w=1){ctx.strokeStyle=col;ctx.lineWidth=w;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x2,y2);ctx.stroke()}
+function path(points,fill,stroke,w=1,close=true){if(!points.length)return;ctx.beginPath();ctx.moveTo(...points[0]);for(let i=1;i<points.length;i++)ctx.lineTo(...points[i]);if(close)ctx.closePath();if(fill){ctx.fillStyle=fill;ctx.fill()}if(stroke){ctx.lineWidth=w;ctx.strokeStyle=stroke;ctx.stroke()}}
+function curve(points,col,w=1){if(points.length<2)return;ctx.beginPath();ctx.moveTo(...points[0]);for(let i=1;i<points.length-1;i++){let p=points[i],n=points[i+1];ctx.quadraticCurveTo(...p,(p[0]+n[0])/2,(p[1]+n[1])/2)}ctx.lineTo(...points[points.length-1]);ctx.strokeStyle=col;ctx.lineWidth=w;ctx.stroke()}
+function gradient(x,y,r,stops){const g=ctx.createRadialGradient(x-r*.2,y-r*.25,0,x,y,Math.max(.1,r));for(const [at,col] of stops)g.addColorStop(at,col);return g}
+function wash(a,b){const g=ctx.createLinearGradient(0,0,0,A.h);g.addColorStop(0,a);g.addColorStop(1,b);ctx.fillStyle=g;ctx.fillRect(0,0,A.w,A.h)}
+function label(s,x,y,size=12,col='#fff',align='left',font='Arial'){ctx.fillStyle=col;ctx.font=size+'px '+font;ctx.textAlign=align;ctx.fillText(s,x,y)}
+function grain(w,h,amount=900){const c=document.createElement('canvas');c.width=w;c.height=h;const g=c.getContext('2d');for(let i=0;i<amount;i++){g.fillStyle=i%2?'#ffffff0b':'#00000009';g.fillRect(rand(w),rand(h),rand(1,2),1)}return c}
+function layer(){const c=document.createElement('canvas');c.width=A.w;c.height=A.h;return c}
+function near(p,q,r){return dist(p.x,p.y,q.x,q.y)<r}
+const A={w:innerWidth,h:innerHeight,t:0,dt:1/60,step:1,hands:new Map(),paused:false,hidden:false,scene:null,shade:0,status(s){const e=document.querySelector('[data-status]');if(e)e.textContent=s},select(group,v){document.querySelectorAll('[data-group="'+group+'"]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.value===v)))}};
+let fpsTime=0,last=0,frames=0;
+function size(){A.w=innerWidth;A.h=innerHeight;const d=Math.min(devicePixelRatio||1,1.5);canvas.width=Math.round(A.w*d);canvas.height=Math.round(A.h*d);canvas.style.width=A.w+'px';canvas.style.height=A.h+'px';ctx.setTransform(d,0,0,d,0,0);ctx.lineCap='round';ctx.lineJoin='round';A.scene?.resize?.()}
+size();A.scene=makeScene(A);A.scene.reset?.();
+const point=e=>{const r=canvas.getBoundingClientRect();return{id:e.pointerId,x:(e.clientX-r.left)*A.w/r.width,y:(e.clientY-r.top)*A.h/r.height,dx:0,dy:0,pressure:e.pressure||.5,start:performance.now(),sx:(e.clientX-r.left),sy:(e.clientY-r.top)}};
+canvas.addEventListener('pointerdown',e=>{e.preventDefault();canvas.setPointerCapture(e.pointerId);let p=point(e);A.hands.set(p.id,p);A.scene.down?.(p)});
+canvas.addEventListener('pointermove',e=>{const p=A.hands.get(e.pointerId);if(!p){A.scene.hover?.(point(e));return;}e.preventDefault();let q=point(e);q.dx=q.x-p.x;q.dy=q.y-p.y;q.start=p.start;q.sx=p.sx;q.sy=p.sy;A.hands.set(q.id,q);A.scene.move?.(q,p)});
+function release(e){const p=A.hands.get(e.pointerId);if(p){A.scene.up?.(p,performance.now()-p.start);A.hands.delete(e.pointerId)}}
+canvas.addEventListener('pointerup',release);canvas.addEventListener('pointercancel',release);canvas.addEventListener('lostpointercapture',release);canvas.oncontextmenu=()=>false;
+function cancelHands(){for(const p of A.hands.values())A.scene.up?.(p,Infinity);A.hands.clear()}
+document.querySelectorAll('button[data-action]').forEach(b=>b.addEventListener('click',()=>{const n=b.dataset.action;if(n==='reset'){cancelHands();A.scene.reset?.()}else if(n==='quiet'){A.hidden=!A.hidden;document.body.classList.toggle('quiet',A.hidden);document.querySelector('.ui').inert=A.hidden}else if(n==='pause'){A.paused=!A.paused;b.textContent=A.paused?'Resume':'Pause'}else A.scene.tool?.(n,b.dataset.value,b)}));
+document.querySelectorAll('input').forEach(e=>e.addEventListener('input',()=>A.scene.tool?.(e.dataset.action,e.value,e)));
+document.querySelector('[data-reveal]').onclick=()=>{A.hidden=false;document.body.classList.remove('quiet');document.querySelector('.ui').inert=false};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelector('[data-reveal]').click();if(e.code==='Space'&&e.target===document.body){e.preventDefault();A.paused=!A.paused}});
+window.addEventListener('blur',cancelHands);document.addEventListener('visibilitychange',()=>{last=0;cancelHands()});window.addEventListener('resize',size);
+window.addEventListener('error',e=>{document.querySelector('#error').textContent=e.message;canvas.dataset.error=e.message});
+function frame(now){requestAnimationFrame(frame);if(document.hidden||A.paused){last=now;return}A.dt=Math.min(.033,last?(now-last)/1000:1/60);A.step=A.dt*60;A.t+=A.dt;last=now;ctx.save();try{A.scene.draw();frames++;if(now-fpsTime>1000){canvas.dataset.frames=frames;fpsTime=now}}catch(e){document.querySelector('#error').textContent=e.message;canvas.dataset.error=e.message;A.paused=true;console.error(e)}ctx.restore()}
+requestAnimationFrame(frame);
+</script></body></html>

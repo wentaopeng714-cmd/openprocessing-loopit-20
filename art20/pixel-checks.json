@@ -1,0 +1,102 @@
+[
+  {
+    "slug": "01-koi-sanctuary",
+    "baseline": "e1dcb617650806106377f374511a87be05d8277f8782bac1837806e4be91f67f",
+    "interaction": "a62946c1103e5ca1630ba45720097eba5d3d0d3973bec623cbb4118504af4528"
+  },
+  {
+    "slug": "02-clay-hour",
+    "baseline": "f8bc9221fabc0d8f4bfffbefae075181d5b8e740c985a987cd03ea6296692ae1",
+    "interaction": "a7f1e9ba3d701ec1e886d9868ae1a7d0b618b9fae43f23b4d58f763a5db707eb"
+  },
+  {
+    "slug": "03-silk-memory",
+    "baseline": "48d3f30b1b433716ed75d1050bd423a15cba493c1a99d8c0806e055fd2dfb9d9",
+    "interaction": "3d8d796c9a21a16f33f196a792c0c0a7c71e9efd8044adc630c3234c979abca5"
+  },
+  {
+    "slug": "04-balance-in-air",
+    "baseline": "9a36230964bf624edda43cb2511e4d51e86a215b0ca1293ab5dfce1dc5b7d454",
+    "interaction": "7580583b3beea5a518c2e4e25947012c61df1f2d2dd45164943df622819b816f"
+  },
+  {
+    "slug": "05-tea-for-one",
+    "baseline": "05bf9e6859603202dde3da44880099801c0854da8ea39f4690380c14cbcb2c1a",
+    "interaction": "6033bf71b9a279d0d8ce577249d6835184ba32815671d81740a41dd3e25260e7"
+  },
+  {
+    "slug": "06-aurora-dunes",
+    "baseline": "de86e7d0de66235d5eaf7b715cac87f98377002c6f3b35aa5a3e9e3d1536c85e",
+    "interaction": "9204b3a98355a0421fd0ca35f9b01310065293000c4cf7bbc64dba8218ea5606"
+  },
+  {
+    "slug": "07-rain-room",
+    "baseline": "3023f40098a466f79aa3845bf3f6fadf3b04a987f2229f4d8c6d6844c9118013",
+    "interaction": "6f80935c4bc8bc780ace900242b6dbe3cb5ce9b0ee7e3616106cdacd2bf1220c"
+  },
+  {
+    "slug": "08-lantern-jellies",
+    "baseline": "391e44eaa9e0d377d9ea6b8d2a6e5a0984536fdb988e7dca5d30b2da91645663",
+    "interaction": "5103348ab9ae7413c6e29bfe4cc06fb628eca4cbb60ad058e89be29aa919eca5"
+  },
+  {
+    "slug": "09-sand-ritual",
+    "baseline": "63a85cebbf15d26b5bf749a4bf89ce022a92b2bddaa9db644950cb4f5f5f7066",
+    "interaction": "cc229b138812f076a63ec3b0e845d152ad5e04ff6d3a288cd9bf5fd592d62f13"
+  },
+  {
+    "slug": "10-glass-orchard",
+    "baseline": "765ded82fb710344ad753f40d6f6553c189962c3bd8fab8a71b0b55b24e41806",
+    "interaction": "4d5da5a8ccc0d58cda714918e8a3bfb4fb76d34d9e199c8253fb1c55bd674e2e"
+  },
+  {
+    "slug": "11-pocket-meadow",
+    "baseline": "be16d5c9ca8ac2d80eae2f86c1374508f01dc97833b7cc5a7fdc68519e3093dd",
+    "interaction": "bb18f7e38379c65c53a2ed56a6d47bd8a74d252b3c3da92bfb8d23c1df0622ba"
+  },
+  {
+    "slug": "12-paper-aviary",
+    "baseline": "e2c6eed6d2202b1a1cc644a8ebe7848a20080ee746e85b2e6bf661fab9ba03a1",
+    "interaction": "7148658053395ec2ed8120e5b1116e16ebaa55da046071c3c76d974e062c17e6"
+  },
+  {
+    "slug": "13-tectonic-atlas",
+    "baseline": "0e6ba138e0e2af35b3d3c54b97ffd24e190cf522c2dc705254cf839993712973",
+    "interaction": "c6e2257f458e37940c9f570393e57db56ed4d581b814b6202a2829b9d0c8202d"
+  },
+  {
+    "slug": "14-orbital-forge",
+    "baseline": "f18ad2ce577bf1fd3965797e08e41769b13b388bb41450ebccd30a4ce90ab7f6",
+    "interaction": "aa095dd7ae4cd54c780deaddf2e770976ec0e868acaf7655295b2b9ccf4f024e"
+  },
+  {
+    "slug": "15-bubble-conservatory",
+    "baseline": "7f952c9d851640f3235147c0e779790e0ad02924537460def44bea99dddc95b7",
+    "interaction": "fcfcf375371a8ef6fad44197db404c5565d538d8979c2c7b2a67f1d37ed98218"
+  },
+  {
+    "slug": "16-coral-architect",
+    "baseline": "b0195fca3f4383e2f65fc9424eace9f4e80b2d9215b728e90d63299b8f370bad",
+    "interaction": "aa3ab40cec5d98ef99e0c54aa8b594a109c091dfdb35a53b74e9d572a8d49fae"
+  },
+  {
+    "slug": "17-constellation-harp",
+    "baseline": "0d9306bfe1be1e01c1cbb0ec2712048598ae7ff5d134571daf1f92620c2ce2b8",
+    "interaction": "d2baaf1af2f58a08c07e641db2819d5beedb184e55bac5e4bd43884089a12fbd"
+  },
+  {
+    "slug": "18-petal-lens",
+    "baseline": "33c3a75ff65ef8f9beedbc46e3bc2394bea592a94d1e4356d5c12ccdfd411477",
+    "interaction": "c338d77731fb30ac73b2e0eee90b44ceadb5abaf0bcabe68604dfbf4d4199775"
+  },
+  {
+    "slug": "19-tide-table",
+    "baseline": "c776321032b94d6001ae247ffdac2323b06afb3a5c4302ca0a8f09b3063f6961",
+    "interaction": "13d5a7dade996c09a51166e23d8cef3d3cbe07cffc7e83203823c12e7aba2a0e"
+  },
+  {
+    "slug": "20-portrait-of-air",
+    "baseline": "da83ade4c076c6ca98fc70ba1590572d6c93e20d238673ff47039a8686285e24",
+    "interaction": "04153f06b8f5065198056b1afa8d61b57a7cff33a2df3e282d95aa079c89d889"
+  }
+]

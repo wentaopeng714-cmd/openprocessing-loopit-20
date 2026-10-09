@@ -1,0 +1,26 @@
+Twenty Ways to Touch
+
+20 independent interactive artworks with distinct content, gestures and interfaces.
+
+Each artwork has an offline single HTML and an individual ZIP with index.html at the root. No external runtime assets or platform integration are required. English interfaces. The complete download contains all 20 individual ZIPs.
+
+Koi Sanctuary — Feed · move lilies · night pond
+Clay Hour — Sculpt walls · choose glaze · fire
+Silk Memory — Pull cloth · release folds · wind
+Balance in Air — Pull · swing · change shapes
+Tea for One — Move teapot · pour · stir
+Aurora Dunes — Bend light · place stars · wind
+Rain Room — Wipe glass · reveal city · change rain
+Lantern Jellies — Guide bells · bend tentacles · pulse
+Sand Ritual — Rake · arrange stones · concentric rings
+Glass Orchard — Drag joints · refract light · recolour
+Pocket Meadow — Plant · comb stems · scatter seeds
+Paper Aviary — Fold · pick up · launch birds
+Tectonic Atlas — Raise terrain · carve · smooth · rotate
+Orbital Forge — Slingshot · orbit · vary mass
+Bubble Conservatory — Blow · carry · pop · slow time
+Coral Architect — Graft · guide growth · prune
+Constellation Harp — Pluck strings · move stars · optional tones
+Petal Lens — Stamp · mirror · rotate · change material
+Tide Table — Arrange shells · trace sand · raise tide
+Portrait of Air — Shape expression · stretch face · change finish

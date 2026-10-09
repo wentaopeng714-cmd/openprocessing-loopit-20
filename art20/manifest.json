@@ -1,0 +1,222 @@
+[
+  {
+    "slug": "01-koi-sanctuary",
+    "name": "Koi Sanctuary",
+    "klass": "koi",
+    "bg": "#294f4b",
+    "ink": "#f2ebd4",
+    "accent": "#e4be80",
+    "hint": "Tap to feed. Drag a lily pad. The koi follow the food.",
+    "gesture": "Feed \u00b7 move lilies \u00b7 night pond",
+    "license": "MIT"
+  },
+  {
+    "slug": "02-clay-hour",
+    "name": "Clay Hour",
+    "klass": "pottery",
+    "bg": "#e5d9c7",
+    "ink": "#674e3e",
+    "accent": "#9c5e43",
+    "hint": "Drag either wall to shape wet clay. Fire the vessel to finish it.",
+    "gesture": "Sculpt walls \u00b7 choose glaze \u00b7 fire",
+    "license": "MIT"
+  },
+  {
+    "slug": "03-silk-memory",
+    "name": "Silk Memory",
+    "klass": "loom",
+    "bg": "#31384b",
+    "ink": "#f2d9d0",
+    "accent": "#d48d86",
+    "hint": "Pull the cloth. Its woven threads hold, stretch and settle.",
+    "gesture": "Pull cloth \u00b7 release folds \u00b7 wind",
+    "license": "MIT"
+  },
+  {
+    "slug": "04-balance-in-air",
+    "name": "Balance in Air",
+    "klass": "mobile",
+    "bg": "#e1e8eb",
+    "ink": "#3f4c54",
+    "accent": "#a04f3e",
+    "hint": "Drag a hanging shape. Release it and watch the whole mobile rebalance.",
+    "gesture": "Pull \u00b7 swing \u00b7 change shapes",
+    "license": "MIT"
+  },
+  {
+    "slug": "05-tea-for-one",
+    "name": "Tea for One",
+    "klass": "tea",
+    "bg": "#d2e6d9",
+    "ink": "#3b6557",
+    "accent": "#597d69",
+    "hint": "Move and tilt the teapot over the cup. Stir the surface with a finger.",
+    "gesture": "Move teapot \u00b7 pour \u00b7 stir",
+    "license": "MIT"
+  },
+  {
+    "slug": "06-aurora-dunes",
+    "name": "Aurora Dunes",
+    "klass": "aurora",
+    "bg": "#132838",
+    "ink": "#e6e9db",
+    "accent": "#b3d7b7",
+    "hint": "Sweep the sky to bend the curtains of light. Tap to place a star.",
+    "gesture": "Bend light \u00b7 place stars \u00b7 wind",
+    "license": "MIT"
+  },
+  {
+    "slug": "07-rain-room",
+    "name": "Rain Room",
+    "klass": "window",
+    "bg": "#9fb7b7",
+    "ink": "#274d5c",
+    "accent": "#406c7a",
+    "hint": "Wipe the mist away to reveal the evening city. Raindrops slowly clear their own paths.",
+    "gesture": "Wipe glass \u00b7 reveal city \u00b7 change rain",
+    "license": "MIT"
+  },
+  {
+    "slug": "08-lantern-jellies",
+    "name": "Lantern Jellies",
+    "klass": "jelly",
+    "bg": "#0d2036",
+    "ink": "#d2e1ed",
+    "accent": "#b6bbdf",
+    "hint": "Lead a jellyfish by its bell. Its long tentacles follow the current.",
+    "gesture": "Guide bells \u00b7 bend tentacles \u00b7 pulse",
+    "license": "MIT"
+  },
+  {
+    "slug": "09-sand-ritual",
+    "name": "Sand Ritual",
+    "klass": "sand",
+    "bg": "#d7c9a9",
+    "ink": "#6a614e",
+    "accent": "#716a54",
+    "hint": "Rake parallel grooves. Switch tools to move stones, then draw rings around them.",
+    "gesture": "Rake \u00b7 arrange stones \u00b7 concentric rings",
+    "license": "MIT"
+  },
+  {
+    "slug": "10-glass-orchard",
+    "name": "Glass Orchard",
+    "klass": "glass",
+    "bg": "#30323d",
+    "ink": "#e4d2b3",
+    "accent": "#cf9b70",
+    "hint": "Move the lead joints to reshape individual glass cells. Shift the sunlight.",
+    "gesture": "Drag joints \u00b7 refract light \u00b7 recolour",
+    "license": "CC BY-SA 3.0"
+  },
+  {
+    "slug": "11-pocket-meadow",
+    "name": "Pocket Meadow",
+    "klass": "meadow",
+    "bg": "#e9ead1",
+    "ink": "#526b50",
+    "accent": "#6e8557",
+    "hint": "Plant a flower with a touch. Comb the meadow with the breeze or scatter drifting seeds.",
+    "gesture": "Plant \u00b7 comb stems \u00b7 scatter seeds",
+    "license": "MIT"
+  },
+  {
+    "slug": "12-paper-aviary",
+    "name": "Paper Aviary",
+    "klass": "fold",
+    "bg": "#d3e1ed",
+    "ink": "#3c5e79",
+    "accent": "#6e8b9d",
+    "hint": "Touch to fold a paper bird. Pick one up and flick it into flight.",
+    "gesture": "Fold \u00b7 pick up \u00b7 launch birds",
+    "license": "MIT"
+  },
+  {
+    "slug": "13-tectonic-atlas",
+    "name": "Tectonic Atlas",
+    "klass": "atlas",
+    "bg": "#d8e3e6",
+    "ink": "#4c6268",
+    "accent": "#77865b",
+    "hint": "Touch the land to raise hills, carve valleys or smooth the terrain. Turn the map.",
+    "gesture": "Raise terrain \u00b7 carve \u00b7 smooth \u00b7 rotate",
+    "license": "MIT"
+  },
+  {
+    "slug": "14-orbital-forge",
+    "name": "Orbital Forge",
+    "klass": "orbit",
+    "bg": "#1b2430",
+    "ink": "#e8d9bc",
+    "accent": "#dba266",
+    "hint": "Drag backward and release to launch a planet. Let gravity draw its orbit.",
+    "gesture": "Slingshot \u00b7 orbit \u00b7 vary mass",
+    "license": "MIT"
+  },
+  {
+    "slug": "15-bubble-conservatory",
+    "name": "Bubble Conservatory",
+    "klass": "bubbles",
+    "bg": "#d9cee4",
+    "ink": "#665b7a",
+    "accent": "#938eab",
+    "hint": "Hold empty space to blow a bubble. Drag to carry it. Tap an existing bubble to pop it.",
+    "gesture": "Blow \u00b7 carry \u00b7 pop \u00b7 slow time",
+    "license": "MIT"
+  },
+  {
+    "slug": "16-coral-architect",
+    "name": "Coral Architect",
+    "klass": "coral",
+    "bg": "#dcd5e7",
+    "ink": "#605872",
+    "accent": "#9c6a79",
+    "hint": "Graft a new branch. Hold near growing tips to guide them. Switch to pruning to open space.",
+    "gesture": "Graft \u00b7 guide growth \u00b7 prune",
+    "license": "MIT"
+  },
+  {
+    "slug": "17-constellation-harp",
+    "name": "Constellation Harp",
+    "klass": "harp",
+    "bg": "#1d2033",
+    "ink": "#e3d6bc",
+    "accent": "#c8b08b",
+    "hint": "Brush a string to set it vibrating. Move the stars to tune its geometry. Sound is optional.",
+    "gesture": "Pluck strings \u00b7 move stars \u00b7 optional tones",
+    "license": "MIT"
+  },
+  {
+    "slug": "18-petal-lens",
+    "name": "Petal Lens",
+    "klass": "lens",
+    "bg": "#4d303d",
+    "ink": "#ecd9c2",
+    "accent": "#d1a27b",
+    "hint": "Paint inside the lens. Turn its material into petals, sea glass or moth wings.",
+    "gesture": "Stamp \u00b7 mirror \u00b7 rotate \u00b7 change material",
+    "license": "MIT"
+  },
+  {
+    "slug": "19-tide-table",
+    "name": "Tide Table",
+    "klass": "tide",
+    "bg": "#e4dbc5",
+    "ink": "#3f6e70",
+    "accent": "#618f8c",
+    "hint": "Move shells by hand. Leave marks in the sand and raise the tide to wash them away.",
+    "gesture": "Arrange shells \u00b7 trace sand \u00b7 raise tide",
+    "license": "MIT"
+  },
+  {
+    "slug": "20-portrait-of-air",
+    "name": "Portrait of Air",
+    "klass": "mask",
+    "bg": "#4a3647",
+    "ink": "#efdccc",
+    "accent": "#c59d85",
+    "hint": "Drag the mouth, brow or cheek to reshape an expression. The eyes follow your hand.",
+    "gesture": "Shape expression \u00b7 stretch face \u00b7 change finish",
+    "license": "MIT"
+  }
+]

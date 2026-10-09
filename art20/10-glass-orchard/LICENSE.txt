@@ -1,0 +1,4 @@
+Interactive artwork: Glass Orchard
+Adapted Delaunay triangulation from Frozen Brush 2 by Jason Labbe, https://openprocessing.org/@theRussetPotato/916227
+Original library attribution to Jay LaPorte is preserved in the source. Original and adaptation CC BY-SA 3.0: https://creativecommons.org/licenses/by-sa/3.0/
+Changes: stained glass geometry, joint editing, light, touch, offline Canvas implementation.
